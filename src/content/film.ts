@@ -24,7 +24,7 @@ export const FILM: FilmItem[] = [
   { kind: 'clip', id: 'clip-02', from: 2, to: 3, weight: 1.2, linger: 0.25, src: clip(2, { frames: 124 }), focal: [{ x: 66, y: 60 }, { x: 66, y: 55 }] },
   { kind: 'clip', id: 'clip-03', from: 3, to: 4, weight: 1.2, linger: 0.25, src: clip(3, { frames: 124 }), focal: [{ x: 66, y: 55 }, { x: 45, y: 55 }] },
   { kind: 'hold', id: 'hold-4', kf: 4, weight: 0.35, focal: { x: 45, y: 55 } },
-  { kind: 'clip', id: 'clip-04', from: 4, to: 5, weight: 1.1, linger: 0.25, src: clip(4), focal: [{ x: 45, y: 55 }, { x: 45, y: 45 }] },
+  { kind: 'clip', id: 'clip-04', from: 4, to: 5, weight: 1.1, linger: 0.25, src: clip(4, { frames: 124 }), focal: [{ x: 45, y: 55 }, { x: 45, y: 45 }] },
   { kind: 'clip', id: 'clip-05', from: 5, to: 6, weight: 1.1, linger: 0.25, src: clip(5), focal: [{ x: 45, y: 45 }, { x: 72, y: 55 }] },
   { kind: 'clip', id: 'clip-06', from: 6, to: 7, weight: 1.3, linger: 0.25, src: clip(6), focal: [{ x: 72, y: 55 }, { x: 62, y: 55 }] },
   { kind: 'clip', id: 'clip-07', from: 7, to: 8, weight: 1.3, linger: 0.3, src: clip(7), focal: [{ x: 62, y: 55 }, { x: 55, y: 50 }] },
