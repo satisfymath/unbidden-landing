@@ -4,7 +4,7 @@ Perfil V2: MiniMax H3 FL2VA, **1344×768** (fallback automático 1280×704 si el
 
 | Tramo | Acto | Frames | Seed | Res. | Tiempo | SSIM primer | SSIM último | Veredicto |
 |---|---|---|---|---|---|---|---|---|
-| 5→6A | órbita (piloto) | 73 | | | | | | pendiente |
+| 5→6A | órbita (piloto) | 73 | 1 | 1344×768 | 15 min · 28.7 GB | 0.825 | 0.812 | **Aprobado e integrado.** Órbita continua hacia el frontal, el visor crece y el reflejo cambia con la cámara, el planeta se desplaza a la derecha, luna sale por arriba; sin movimiento del astronauta. Definición claramente superior a V1. Variante de 20 pasos sin Turbo en curso para comparar. |
 | 6A→6B | órbita | 73 | | | | | | pendiente |
 | 6B→6C | órbita | 90 | | | | | | pendiente |
 | 6C→6D | órbita | 90 | | | | | | pendiente |

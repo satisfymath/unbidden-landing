@@ -50,7 +50,7 @@ const SEGMENTS: Seg[] = [
   { from: '2', to: '3', title: 'Slow dolly toward the astronaut’s back', act: 'discovery', weight: 1.1 },
   { from: '3', to: '4', title: 'Push-in to the backpack and the emblem', act: 'discovery', weight: 1.0 },
   { from: '4', to: '5', title: 'The arc begins around the right shoulder', act: 'orbit', weight: 1.0 },
-  { from: '5', to: '6A', title: 'Orbit: the visor grows', act: 'orbit', weight: 1.1 },
+  { from: '5', to: '6A', title: 'Orbit: the visor grows', act: 'orbit', weight: 1.1, frames: 73, status: 'approved' },
   { from: '6A', to: '6B', title: 'Orbit: the planet leaves the background', act: 'orbit', weight: 1.1 },
   { from: '6B', to: '6C', title: 'Orbit to the frontal close-up; the reflection fills the visor', act: 'orbit', weight: 1.3 },
   { from: '6C', to: '6D', title: 'Crossing to the far side; the reflection compresses', act: 'orbit', weight: 1.3 },
