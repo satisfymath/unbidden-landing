@@ -21,7 +21,7 @@ if [ -n "$PREV" ] && [ -f $PREV/last.png ]; then
 fi
 echo "$(date +%H:%M) $ID start=$ANCHOR frames=$FR seed=$SEED steps=$STEPS turbo=$TURBO" | tee -a $LOG
 run() { H3OUT=$V2/clips H3W=$1 H3H=$2 H3STEPS=$STEPS H3TURBO=$TURBO zsh $ROOT/scripts/h3/fl2va.zsh $ID $START $PL/$TO.png $FR $SEED $P; }
-run 1344 768 || { echo "$(date +%H:%M) $ID 1344x768 failed (memory guard?); retrying at 1280x704" | tee -a $LOG; rm -rf $V2/clips/clip-$ID/s$SEED; run 1280 704; } || { echo "$ID FAILED" | tee -a $LOG; exit 1; }
+run 1344 768 || { if [ -n "${NOFALLBACK:-}" ]; then echo "$(date +%H:%M) $ID 1344x768 failed (memory guard): deferred until memory is free" | tee -a $LOG; rm -rf $V2/clips/clip-$ID/s$SEED; exit 3; fi; echo "$(date +%H:%M) $ID 1344x768 failed (memory guard?); retrying at 1280x704" | tee -a $LOG; rm -rf $V2/clips/clip-$ID/s$SEED; run 1280 704; } || { echo "$ID FAILED" | tee -a $LOG; exit 1; }
 M=$V2/clips/clip-$ID/s$SEED/master.mp4
 D=$V2/vframes/$ID; mkdir -p $D
 N=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 $M)
