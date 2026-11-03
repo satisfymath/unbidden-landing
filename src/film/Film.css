@@ -82,16 +82,42 @@
   justify-content: center;
   justify-items: center;
   gap: var(--s-16);
-  padding-top: clamp(72px, 9vh, 120px);
+  padding-top: clamp(56px, 8vh, 110px);
   text-align: center;
   color: var(--ink);
   pointer-events: none;
   will-change: opacity, transform;
 }
-.film__brand-mark { width: clamp(72px, 9vw, 128px); height: auto; }
-.wordmark { font-weight: 500; letter-spacing: 0.22em; text-indent: 0.22em; }
-.film__brand-word { font-size: clamp(var(--t-2xl), 3.2vw, var(--t-4xl)); line-height: 1; margin-top: var(--s-8); }
-.film__brand-tag { font-size: clamp(var(--t-sm), 1.2vw, var(--t-lg)); letter-spacing: 0.06em; color: var(--ink-2); }
+.film__lockup { width: clamp(150px, 20vw, 290px); height: auto; }
+.film__brand-tag { font-family: var(--font-mono); font-size: clamp(var(--t-xs), 1.1vw, var(--t-base)); letter-spacing: 0.1em; color: var(--ink-2); }
+
+/* the last frame turning into glyphs, and the terminal's splash on top */
+.film__ascii { position: absolute; inset: 0; z-index: 4; will-change: opacity; }
+.film__ascii-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.film__splash {
+  position: absolute;
+  left: 50%;
+  top: clamp(72px, 10vh, 140px);
+  z-index: 5;
+  transform: translate3d(-50%, 0, 0);
+  width: min(100% - 2 * var(--gutter), 820px);
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+.splash { display: grid; gap: var(--s-24); color: var(--term-fg); font-family: var(--font-mono); text-shadow: 0 0 18px rgba(0, 0, 0, 0.9); }
+.splash__head { display: flex; align-items: center; gap: clamp(var(--s-16), 3vw, var(--s-40)); }
+.splash__mark { font-size: clamp(9px, 1.05vw, 14px); font-weight: 700; }
+.braille { margin: 0; font-family: Menlo, 'DejaVu Sans Mono', ui-monospace, monospace; font-weight: 400; line-height: 1.0; white-space: pre; color: var(--term-fg); }
+.braille__dot { color: var(--term-accent); }
+.splash__text { display: grid; gap: var(--s-8); }
+.splash__word { font-size: clamp(14px, 2vw, 26px); font-weight: 700; letter-spacing: 0.02em; white-space: nowrap; }
+.splash__version { margin-left: 1.2em; font-weight: 500; color: var(--term-primary); }
+.splash__tag { font-size: clamp(12px, 1.3vw, 17px); color: var(--term-secondary); }
+.splash__verbs { margin: 0; font: inherit; font-size: clamp(16px, 2.2vw, 28px); line-height: 1.3; font-weight: 700; white-space: pre; }
+.splash__gt { color: var(--term-secondary); font-weight: 400; }
+.splash__verb-on { color: var(--term-accent); }
+@media (max-width: 640px) { .splash__tag { display: none; } .splash__head { gap: var(--s-12); } .splash__mark { font-size: 7px; } .splash__verbs { font-size: 16px; } }
+.film__static-splash { width: min(100% - 2 * var(--gutter), var(--container)); margin: var(--s-64) auto 0; }
 
 .film__hint {
   position: absolute;

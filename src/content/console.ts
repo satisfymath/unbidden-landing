@@ -25,6 +25,29 @@ export const SPLASH_ROWS = [
 ] as const
 export const SPLASH_WORDMARK = 'U N B i D D E N'
 
+/**
+ * The official mark rendered in braille cells (2×4 dots each) from its measured geometry (see src/ui/Logo.tsx),
+ * so the terminal splash shows the same ring and dot as the logotype. Cells of the dot are at columns ≥ 20 of the
+ * first two rows and are drawn in the accent colour.
+ */
+export const BRAILLE_MARK = [
+  '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⠀⠀⠀⠀⠀⢀⣤⣀',
+  '⠀⠀⠀⠀⠀⠀⠀⣀⡴⠞⠛⠉⠉⠉⠉⠛⠳⢦⣀⠀⢿⣿⣿',
+  '⠀⠀⠀⠀⠀⣠⡞⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠃⠈⠙⠁',
+  '⠀⠀⠀⠀⣰⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⣆',
+  '⠀⠀⠀⣰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣆',
+  '⠀⠀⠀⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻',
+  '⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇',
+  '⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇',
+  '⠀⠀⠀⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼',
+  '⠀⠀⠀⠹⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠏',
+  '⠀⠀⠀⠀⠹⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠏',
+  '⠀⠀⠀⠀⠀⠙⢧⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡼⠋',
+  '⠀⠀⠀⠀⠀⠀⠀⠉⠳⢦⣤⣀⣀⣀⣀⣤⡴⠞⠉',
+  '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉',
+]
+export const BRAILLE_DOT = { rows: [0, 1, 2], fromCol: 20 }
+
 export type Verb = 'Discovering' | 'Investigating' | 'Experimenting' | 'Proving' | 'Deciding' | 'Asking' | 'Guarding'
 export interface FeedLine { t: string; text: string; detail?: string; accent?: boolean }
 export interface FeedGroup { verb: Verb; lines: FeedLine[] }

@@ -6,7 +6,6 @@ import { Intelligence } from './sections/Intelligence'
 import { Invitation } from './sections/Invitation'
 import { Mandate } from './sections/Mandate'
 import { Nav } from './sections/Nav'
-import { Uplink } from './sections/Uplink'
 
 export default function App() {
   return (
@@ -14,8 +13,7 @@ export default function App() {
       <a className="skip-link" href="#intelligence">Skip to content</a>
       <Nav sentinelId="intelligence" />
       <main id="main">
-        <Film nextId="uplink" />
-        <Uplink id="uplink" />
+        <Film nextId="intelligence" />
         <Intelligence id="intelligence" />
         <Mandate id="mandate" />
         <Commands id="cli" />

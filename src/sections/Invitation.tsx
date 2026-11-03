@@ -1,5 +1,6 @@
 import { useState, type CSSProperties } from 'react'
-import { INSTALL_LINE, SPLASH_ROWS, THEN, TUI, VERSION_LINE } from '../content/console'
+import { INSTALL_LINE, THEN, VERSION_LINE } from '../content/console'
+import { BrailleMark } from '../console/BrailleMark'
 import { INSTALL, LINKS } from '../content/product'
 import { TAGLINE } from '../content/film'
 import { useReveal } from '../hooks/useReveal'
@@ -18,9 +19,7 @@ export function Invitation({ id }: { id: string }) {
   return (
     <section id={id} className="section invitation" ref={ref} aria-labelledby={`${id}-title`}>
       <div className="container invitation__grid">
-        <pre className="invitation__ring reveal" aria-hidden="true">
-          {`${SPLASH_ROWS[0]}`}<span className="invitation__dot">{TUI.DOT}</span>{'\n'}{SPLASH_ROWS[1]}{'\n'}{SPLASH_ROWS[2]}
-        </pre>
+        <div className="invitation__ring reveal"><BrailleMark fontSize="clamp(14px, 2.2vw, 26px)" /></div>
         <h2 id={`${id}-title`} className="display invitation__title reveal" data-delay="1">{TAGLINE}</h2>
         <p className="lede reveal" data-delay="2">{INSTALL.lede}</p>
 

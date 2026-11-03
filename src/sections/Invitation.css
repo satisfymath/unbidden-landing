@@ -1,8 +1,7 @@
 .invitation { background: var(--bg); padding-block: clamp(var(--s-96), 16vw, 220px); }
 .invitation__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-32); justify-items: start; }
 .invitation__title { max-width: 12ch; }
-.invitation__ring { margin: 0; font-family: var(--font-mono); font-size: clamp(22px, 5vw, 64px); line-height: 1.05; font-weight: 700; color: var(--term-fg); white-space: pre; }
-.invitation__dot { color: var(--term-accent); }
+.invitation__ring { color: var(--term-fg); }
 
 .install { display: grid; gap: var(--s-16); width: 100%; max-width: 820px; margin-top: var(--s-24); }
 .install__term { max-width: 100%; }

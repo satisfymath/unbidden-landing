@@ -15,6 +15,8 @@ for (let n = 1; n <= 7; n++) {
   if (existsSync(p)) sources[`seam-0${n}`] = p
 }
 if (existsSync('production/plates/kf-8-clean.png')) sources['kf-8-clean'] = 'production/plates/kf-8-clean.png'
+// the real last frame of the film (end of clip 07): source of the ASCII dissolve, so the glyphs grow out of the same frame
+if (existsSync('production/frames/clip-07/last.png')) sources['last-07'] = 'production/frames/clip-07/last.png'
 
 let total = 0
 for (const [name, src] of Object.entries(sources)) {

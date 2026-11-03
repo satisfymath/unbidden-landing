@@ -116,5 +116,5 @@ test('reduced motion: no typewriter, no stagger, everything readable at once', a
   await page.waitForTimeout(300)
   await expect(page.locator('.help__row')).toHaveCount(43)
   await expect(page.locator('.feed__line:not(.feed__line--pending)')).toHaveCount(21)
-  await expect(page.locator('.uplink--static')).toHaveCount(1)
+  await expect(page.locator('.film__static-splash')).toHaveCount(1)
 })
