@@ -10,7 +10,7 @@ Perfil: MiniMax H3 FL2VA, Turbo LoRA v4 step600 ema, 1024×576, 124 frames (5.17
 | 04 | último real de 03 → kf-5 | 1 | 15 min | 28.2 GB | = último de 03 | **0.933** (vs kf-5) | **Aprobado.** Arco corto de la nuca al perfil del casco; visor con el reflejo del planeta; cabeza y cuerpo inmóviles; luna fija. |
 | 05 | último real de 04 → kf-6 | 1 | 15 min | 28.2 GB | = último de 04 | **0.891** (vs kf-6) | **Aprobado.** Retroceso con desplazamiento lateral; el astronauta sigue de pie en todo el tramo (nunca se sienta ni se agacha); planeta y luna fijos. Nota menor: un parche de bandera aparece en el brazo en los frames ~11–33 y desaparece. |
 | 06 | último real de 05 → kf-7 | 1 | 15 min | 28.2 GB | = último de 05 | **0.848** (vs kf-7) | **Aprobado.** Gran retroceso con elevación; el astronauta se reduce a una silueta en la cresta sin moverse; terreno en primer término; planeta y luna fijos. |
-| 07 | último real de 06 → kf-8-clean | 1 | | | | | en generación (termina en el clean plate `production/plates/kf-8-clean.png`) |
+| 07 | último real de 06 → kf-8-clean | 1 | 15 min | 28.2 GB | = último de 06 | **0.903** (vs kf-8-clean) | **Aprobado.** Alejamiento cósmico hasta el plano de apertura; terreno reducido a una franja; cielo limpio sin texto; el cierre de marca se hace en HTML. |
 
 Artefactos por intento: `production/clips/clip-NN/sSEED/{master-audio.mp4, master.mp4, prompt.txt, cmd.sh, log.txt, run.json}`; frames reales en `production/frames/clip-NN/`.
 
