@@ -19,4 +19,4 @@ Los masters de `sequence/` no se modifican.
 - 5 → 6A: corregido el lado del planeta (sólo huracán, sin ciudades) y 6E con la regla espejo (sólo ciudades, sin huracán).
 - 6D es el espejo exacto de 6B re‑renderizado por FLUX para conservar la lectura correcta del emblema: así 6B → 6C → 6D es simétrico por construcción.
 - 7 y 8 con escala explícita del astronauta (pequeño y casi invisible).
-Pendiente conocido: el emblema en la mochila varía levemente (anillo con punto central vs. anillo con punto fuera del hueco); se corregirá con la capa HTML del logo si hace falta.
+Emblema: trazado con la geometría oficial del logo (`scripts/v3/emblem.py`): anillo con hueco a 39.5°–50.5°, trazo 0.055 R, punto de 0.122 R a 47° y 1.263 R; ajustado a la perspectiva de cada panel (elipse ajustada sobre la tinta del emblema anterior), borrado previo por inpainting y tinta multiplicada sobre la pintura del panel. Aplicado en 3, 4, 6B, 6D, 6E y 6F; en 2 y 7 el emblema mide menos de 4 px y no se distingue. Originales en `rejected/<frame>-pre-emblem.png`; recortes de control en `emblem-checks.png`.
