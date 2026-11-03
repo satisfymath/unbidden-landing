@@ -43,3 +43,13 @@ Herramienta: `scripts/v3/sky.py` (fondo nuevo por FLUX, astronauta original inta
 **Traje y casco** (canon = frame 4 / 5B): bloque de ventilación trasero con rejilla, discos laterales blancos sin luces, mochila con ventanitas en las dos esquinas superiores, emblema oficial al centro, panel inferior con ranura ancha, sin ventana central, sin parches en el hombro, sin manguera lateral. Corregido en: 2 (luz roja, ventana central, rejilla, esquinas, emblema), 3 (casco y mochila re‑derivados desde 4; ventana central), 4 (parche y manguera), 6F (rejilla del casco, ventana central). Herramientas: `scripts/v3/pull.py`, `scripts/v3/suit.py`.
 **Reflejo:** 6D era espejo de 6B y su reflejo quedaba invertido; repintado sólo dentro del cristal con la orientación de 6C.
 Originales de cada corrección en `rejected/`.
+
+## Segunda pasada con `FRAME_CHECKLIST.md` (2026-11-03, noche)
+- **Luna**: una sola luna canónica (la del frame 2: cuarto menguante iluminado desde la derecha, mismo tono), radio único de 33 px, puesta en 1, 3, 4, 6E, 6F, 7 y 8 con `scripts/v3/moon.py` (hueco rellenado con cielo real con estrellas). 5B: fragmento de luna vieja eliminado.
+- **Planeta**: color igualado al del frame 3 en 4, 5, 5B, 6A y 6E con `scripts/v3/planet_grade.py` (sólo píxeles del planeta).
+- **Cielo**: 4 y 5B sin nebulosa/moteado (`scripts/v3/sky_clean.py`, protección del planeta por ajuste robusto del limbo).
+- **Suelo**: dominante cálida neutralizada en 4, 5, 5B, 6A, 6E (`scripts/v3/ground_grade.py`).
+- **Casco**: 4 con el visor dentro del contorno (sólo asoma el borde); 3 con casco blanco, bloque de ventilación y discos pequeños como el 4.
+- **Traje**: 6F sin parche en el brazo; 6A sin relieve tipo laberinto en el hombro.
+- **Emblema 6D**: redibujado en la elipse espejo de la del 6B (centro 1117,562; semiejes 14.7×38.8; −20.9°) con el logo sin espejar.
+- Medido al final: luna presente sólo donde corresponde; planeta b* −14.5…−16.3 en frames abiertos; suelo neutro.

@@ -15,13 +15,16 @@ KEEP = ('Reference 1 is this exact frame. Reproduce it EXACTLY: the same camera,
         'visor, suit, harness and backpack, pixel for pixel, the same rocky ground. Change ONLY the sky and the planet in '
         'the background as described: ')
 SKY = {
+    '4': 'keep the planet EXACTLY as it is (same position, same limb, same clouds, same city lights on the left, same '
+         'hurricane side on the right) and the small moon exactly where it is; the sky around them is deep black with only '
+         'sparse small stars, NO nebula, NO milky way band, NO mottled texture, NO dust clouds in the sky.',
     '5': 'the planet has slid further to the RIGHT: only its LEFT part is visible, filling the right third of the frame '
          'behind the helmet: the dark night side of the planet with many warm amber city lights and a few soft clouds, '
          'under the thin glowing blue limb that curves down toward the right edge. NO hurricane, NO white spiral storm, '
          'NO moon anywhere. Black starry sky on the left and above.',
-    '5B': 'only the LEFT edge of the planet is visible at the far right of the frame: a thin curved glowing blue limb with '
-          'a narrow band of the dark night side and a few warm amber city lights, mostly out of frame. NO hurricane, NO '
-          'white spiral storm, NO moon. The rest of the sky is black with sparse stars.',
+    '5B': 'keep the planet edge on the right EXACTLY as it is (thin curved glowing blue limb, dark night side with a few '
+          'warm amber city lights). The rest of the sky is deep black with only sparse small stars: NO nebula, NO mottled '
+          'texture, NO dust clouds, NO milky way. NO moon.',
     '6A': 'only the very LEFT edge of the planet is visible at the far right edge of the frame: a thin curved glowing blue '
           'limb with a sliver of dark night side and two or three warm amber city lights. NO hurricane, NO white spiral '
           'storm, NO moon. The rest of the sky is black with sparse stars.',
@@ -35,8 +38,8 @@ STYLE = ' One single photorealistic frame, large-format 65mm, NASA photography r
 
 def run(k, seed):
     src = F / f'{k}.png'
-    bk = F / 'rejected' / f'{k}-pre-sky.png'
-    if not bk.exists(): bk.parent.mkdir(exist_ok=True); bk.write_bytes(src.read_bytes())
+    bk = F / 'rejected' / f'{k}-pre-sky2.png'
+    bk.parent.mkdir(exist_ok=True); bk.write_bytes(src.read_bytes())
     gen = F / f'_sky-{k}.png'
     if gen.exists(): gen.unlink()
     env = dict(os.environ, HF_HOME=str(LAB / 'models/hf'), HF_HUB_OFFLINE='1')
