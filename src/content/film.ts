@@ -22,7 +22,7 @@ export const FILM: FilmItem[] = [
   { kind: 'hold', id: 'hold-1', kf: 1, weight: 0.45, focal: { x: 70, y: 40 } },
   { kind: 'clip', id: 'clip-01', from: 1, to: 2, weight: 1.3, linger: 0.25, src: clip(1, { frames: 124 }), focal: [{ x: 70, y: 40 }, { x: 66, y: 60 }] },
   { kind: 'clip', id: 'clip-02', from: 2, to: 3, weight: 1.2, linger: 0.25, src: clip(2, { frames: 124 }), focal: [{ x: 66, y: 60 }, { x: 66, y: 55 }] },
-  { kind: 'clip', id: 'clip-03', from: 3, to: 4, weight: 1.2, linger: 0.25, src: clip(3), focal: [{ x: 66, y: 55 }, { x: 45, y: 55 }] },
+  { kind: 'clip', id: 'clip-03', from: 3, to: 4, weight: 1.2, linger: 0.25, src: clip(3, { frames: 124 }), focal: [{ x: 66, y: 55 }, { x: 45, y: 55 }] },
   { kind: 'hold', id: 'hold-4', kf: 4, weight: 0.35, focal: { x: 45, y: 55 } },
   { kind: 'clip', id: 'clip-04', from: 4, to: 5, weight: 1.1, linger: 0.25, src: clip(4), focal: [{ x: 45, y: 55 }, { x: 45, y: 45 }] },
   { kind: 'clip', id: 'clip-05', from: 5, to: 6, weight: 1.1, linger: 0.25, src: clip(5), focal: [{ x: 45, y: 45 }, { x: 72, y: 55 }] },
