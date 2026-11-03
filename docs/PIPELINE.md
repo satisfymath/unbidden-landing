@@ -1,5 +1,7 @@
 # Pipeline de video local — UNBIDDEN: THE UNKNOWN
 
+> **V2 (2026‑11‑03, 13 fotogramas):** masters `sequence/{1,2,3,4,5,6A,6B,6C,6D,6E,6F,7,8}.png`; plates 1344×768 en `production/plates/v2/`; generación con `scripts/v2/gen.zsh <from> <to> <frames> [seed] [steps] [turbo]` (768p nativo, fallback 1280×704, re‑anclaje automático, QC en `production/v2/QC.log`); prompts en `production/v2/prompts/`; salida en `production/v2/clips/clip-<from>-<to>/s<seed>/` y frames reales en `production/v2/frames/<from>-<to>/`. El frame 8 V2 ya es un cielo limpio: no hay clean plate; el cierre de marca es HTML. Las secciones siguientes describen el pipeline V1 y siguen vigentes salvo resolución, nombres y el clean plate.
+
 Todo corre en el Mac. El navegador solo reproduce MP4 pre-renderizados.
 
 ## 1. Plates

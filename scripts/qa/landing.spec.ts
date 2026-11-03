@@ -37,6 +37,9 @@ test('film scrubs forward and backward (video or poster fallback) and the brand 
   expect(mid).not.toEqual(['1'])
   await go(0.98)
   expect(await visiblePosters()).toContain('8')
+  await go(0.45)
+  const orbit = await visiblePosters()
+  expect(orbit.some((k) => k && k.startsWith('6'))).toBeTruthy()
   await go(0.3)
   expect(await visiblePosters()).not.toContain('8')
   // any produced clip must have seeked with scroll
@@ -48,7 +51,7 @@ test('reduced motion renders the static sequence', async ({ page }, info) => {
   test.skip(info.project.name !== 'reduced-motion')
   await page.goto('/', { waitUntil: 'networkidle' })
   await expect(page.locator('.film--static')).toBeVisible()
-  await expect(page.locator('.film__static-item')).toHaveCount(8)
+  await expect(page.locator('.film__static-item')).toHaveCount(13)
   await expect(page.locator('[data-clip]')).toHaveCount(0)
 })
 

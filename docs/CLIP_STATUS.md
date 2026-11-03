@@ -1,29 +1,33 @@
-# Estado de los clips — UNBIDDEN: THE UNKNOWN
+# Estado de los clips — Cinematic Sequence V2 (13 fotogramas)
 
-Perfil: MiniMax H3 FL2VA, Turbo LoRA v4 step600 ema, 1024×576, 124 frames (5.17 s @ 24 fps), 8 pasos, `--budget 50`, 100 % local. QC = SSIM/PSNR (`scripts/h3/qc_compare.zsh`) del primer y último frame reales contra el keyframe objetivo + inspección visual de la hoja de contactos (`production/frames/clip-NN/sheet.png`). Referencia: SSIM entre dos keyframes consecutivos distintos ≈ 0.59 (kf-1 vs kf-2).
+Perfil V2: MiniMax H3 FL2VA, **1344×768** (fallback automático 1280×704 si el guardián de memoria corta la generación), Turbo LoRA v4 8 pasos (prueba de 20 pasos sin Turbo en el piloto), `--budget 50`, 24 fps, frames `17n+5` por tramo, 100 % local. Protocolo: `scripts/v2/gen.zsh <from> <to> <frames>` elige el inicio (último frame real del tramo anterior si SSIM ≥ 0.85 contra su master; si no, re‑ancla al master y lo registra), genera, extrae frames reales, hoja de contactos y recorte del visor, y escribe el QC en `production/v2/QC.log`. Prompts en `production/v2/prompts/<from>-<to>.txt` (velocidad constante, astronauta bloqueado, órbita horaria vista desde arriba, geometría del reflejo).
 
-| Clip | Inicio → fin | Seed | Tiempo | Pico | SSIM primer frame | SSIM último frame | Veredicto |
-|---|---|---|---|---|---|---|---|
-| 01 | kf-1 → kf-2 | 1 | 16.1 min | 28.2 GB | 0.908 (vs kf-1) | 0.869 (vs kf-2) | **Aprobado.** Pedestal descendente limpio; planeta, huracán, luces y luna estables; el astronauta aparece de pie en la cresta y no se mueve. Observación menor: entre los frames 20–30 el casco entra por el borde inferior unos frames antes que la roca bajo sus pies (≈0.3 s), plausible como entrada por el borde del encuadre. |
-| 02 | último frame real de 01 → kf-3 | 1 | 16.0 min | 28.2 GB | = último de 01 | 0.874 (vs kf-3) | **Aprobado.** Push-in constante desde atrás; el astronauta crece de figura diminuta a plano medio sin moverse; planeta, luces y luna fijos; mochila con emblema legible al final. |
-| 03 | último real de 02 → kf-4 | 1 | 15 min | 28.2 GB | = último de 02 | **0.941** (vs kf-4) | **Aprobado con nota.** Push-in desde atrás hasta casco y mochila; emblema anillo+punto legible; planeta y luna fijos. Nota: entre los frames ~33–90 aparece un pequeño detalle rojo en la mochila que no existe en los masters y desaparece al final → candidato a regenerar con seed 2 al cierre. |
-| 04 | último real de 03 → kf-5 | 1 | 15 min | 28.2 GB | = último de 03 | **0.933** (vs kf-5) | **Aprobado.** Arco corto de la nuca al perfil del casco; visor con el reflejo del planeta; cabeza y cuerpo inmóviles; luna fija. |
-| 05 | último real de 04 → kf-6 | 1 | 15 min | 28.2 GB | = último de 04 | **0.891** (vs kf-6) | **Aprobado.** Retroceso con desplazamiento lateral; el astronauta sigue de pie en todo el tramo (nunca se sienta ni se agacha); planeta y luna fijos. Nota menor: un parche de bandera aparece en el brazo en los frames ~11–33 y desaparece. |
-| 06 | último real de 05 → kf-7 | 1 | 15 min | 28.2 GB | = último de 05 | **0.848** (vs kf-7) | **Aprobado.** Gran retroceso con elevación; el astronauta se reduce a una silueta en la cresta sin moverse; terreno en primer término; planeta y luna fijos. |
-| 07 | último real de 06 → kf-8-clean | 1 | 15 min | 28.2 GB | = último de 06 | **0.903** (vs kf-8-clean) | **Aprobado.** Alejamiento cósmico hasta el plano de apertura; terreno reducido a una franja; cielo limpio sin texto; el cierre de marca se hace en HTML. |
+| Tramo | Acto | Frames | Seed | Res. | Tiempo | SSIM primer | SSIM último | Veredicto |
+|---|---|---|---|---|---|---|---|---|
+| 5→6A | órbita (piloto) | 73 | | | | | | pendiente |
+| 6A→6B | órbita | 73 | | | | | | pendiente |
+| 6B→6C | órbita | 90 | | | | | | pendiente |
+| 6C→6D | órbita | 90 | | | | | | pendiente |
+| 6D→6E | órbita | 73 | | | | | | pendiente |
+| 6E→6F | órbita | 107 | | | | | | pendiente |
+| 4→5 | órbita | 73 | | | | | | pendiente |
+| 6F→7 | pullback | 107 | | | | | | pendiente |
+| 7→8 | pullback | 124 | | | | | | pendiente |
+| 1→2 | descubrimiento | 107 | | | | | | pendiente |
+| 2→3 | descubrimiento | 90 | | | | | | pendiente |
+| 3→4 | descubrimiento | 73 | | | | | | pendiente |
 
-Artefactos por intento: `production/clips/clip-NN/sSEED/{master-audio.mp4, master.mp4, prompt.txt, cmd.sh, log.txt, run.json}`; frames reales en `production/frames/clip-NN/`.
+Duración nominal: 1080 frames = 45 s. Mientras un tramo no está integrado, la web lo muestra como crossfade entre posters.
 
-## Postproducción decidida en el clip 01
-- Upscale: A/B entre Real-ESRGAN general ×2 (venhance) + Lanczos 1080p y Lanczos puro. ESRGAN solo se ve pintado y sobre-afilado; Lanczos solo, blando. **Elegido: mezcla 50/50** (`scripts/post/upscale.zsh` → `*-blend.mov`).
-- Encodes web (`scripts/post/encode_web.zsh`, denoise `hqdn3d=1.5:1.5:4:4`, sin B-frames, faststart, sin audio):
+## V1 (8 fotogramas, 1024×576) — archivada
+Los siete clips V1 aprobados siguen en `production/clips/clip-01…07` y sus encodes en `public/media/film/` (`clip-0N.mp4`); ya no están referenciados por el manifest. Diagnóstico de sus costuras: los frames coincidían (SSIM 0.89–0.96) pero la velocidad no (los prompts pedían frenar al final); V2 lo corrige en el prompt y el motor aplica ease‑in al inicio de cada tramo.
 
-| Variante | Parámetros | Clip 01 |
-|---|---|---|
-| desktop H.264 | 1920×1080, CRF 25, GOP 12 | 4.6 MB |
-| desktop HEVC (hvc1) | 1920×1080, q 50, GOP 12 | 2.1 MB |
-| mobile H.264 | 960×540, CRF 27, GOP 8 | 1.4 MB |
-| mobile HEVC (hvc1) | 1280×720, q 50, GOP 8 | 1.3 MB |
+## Cara a cara de calidad (tramo 1→2, keyframes V1)
+| Candidato | Res. | Tiempo | Pico | SSIM primer / último | Observación |
+|---|---|---|---|---|---|
+| H3 Turbo 8 (referencia V1) | 1024×576 | 16 min | 28.2 GB | 0.908 / 0.869 | continuidad correcta |
+| LTX‑2.5 two‑stage | 1280×704 | 16.8 min | 26.6 GB | 0.808 / 0.714 | píxel comparable, **continuidad rota**: cámara quieta y terreno que entra de golpe |
+| LTX‑2.5 HQ | 1920×1088 | ≈ 45 min | — | (ver `production/compare/REPORT.md`) | |
+| H3 Turbo 8 | 1344×768 | cortado en el paso 7/8 | 30.1 GB | — | guardián de memoria por paginación (OrbStack 6.4 GB + Chrome); se repite con memoria libre en V2 |
 
-Descartados: CRF 20 GOP 8 (9.2 MB desktop), CRF 23 GOP 12 (6.0 MB). El navegador elige HEVC solo si `canPlayType('video/mp4; codecs="hvc1.1.6.L120.B0"')` devuelve `probably` (Safari y Chrome con decodificación por hardware); H.264 en el resto.
-- Verificado en Google Chrome real (Playwright, canal chrome): el clip 01 carga como Blob, `seekable` completo, el frame pintado sigue al scroll en ambas direcciones, sin errores de consola.
+Decisión: H3 FL2VA a 768p nativo para V2.

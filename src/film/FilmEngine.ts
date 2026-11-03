@@ -54,7 +54,7 @@ const vfc = (v: HTMLVideoElement): v is HTMLVideoElement & { requestVideoFrameCa
 export class FilmEngine {
   private readonly o: EngineOptions
   private readonly tl: Timeline
-  private readonly posters = new Map<number, HTMLElement>()
+  private readonly posters = new Map<string, HTMLElement>()
   private readonly clips = new Map<string, ClipState>()
   private readonly clipOrder: string[] = []
   private target = 0
@@ -73,7 +73,7 @@ export class FilmEngine {
   constructor(o: EngineOptions) {
     this.o = o
     this.tl = buildTimeline(o.items)
-    for (const el of Array.from(o.stage.querySelectorAll<HTMLElement>('[data-kf]'))) this.posters.set(Number(el.dataset.kf), el)
+    for (const el of Array.from(o.stage.querySelectorAll<HTMLElement>('[data-kf]'))) this.posters.set(String(el.dataset.kf), el)
     for (const item of o.items) {
       if (item.kind !== 'clip' || !item.src) continue
       const el = o.stage.querySelector<HTMLElement>(`[data-clip="${item.id}"]`)

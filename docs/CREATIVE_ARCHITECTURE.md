@@ -1,5 +1,8 @@
 # Arquitectura creativa — UNBIDDEN: THE UNKNOWN
 
+## Storyboard V2 (13 fotogramas, 2026‑11‑03)
+Orden narrativo `1 → 2 → 3 → 4 → 5 → 6A → 6B → 6C → 6D → 6E → 6F → 7 → 8` (`6F` es el antiguo `6`; `6.png` ya no existe; `8` es un cielo limpio sin texto). Cuatro movimientos: **Discovery** 1→4 (travelling contemplativo), **Helmet orbit** 4→6F (una sola cámara orbitando el casco en sentido horario visto desde arriba, radio casi constante, parallax 3D real, el reflejo del planeta en el visor cambia porque cambia la cámara; el planeta sale del fondo por la derecha entre 6A y 6B y reaparece por la izquierda en 6E), **Great pullback** 6F→8 (retroceso hasta el disco completo del planeta con la luna separada arriba‑derecha), **Reveal** (lockup oficial, ASCII y splash del terminal en HTML sobre el último frame). El astronauta no se mueve en ningún momento. Manifest: `src/content/film.ts` (`KEYFRAMES` por id de cadena, `SEGMENTS` con título, acto, estado, frames, peso de scroll; holds en 1, 6C y 8).
+
 ## Idea
 Una sola película de cámara (ocho fotogramas aprobados, siete transiciones) que el visitante recorre con el scroll, seguida de una parte editorial oscura y precisa sobre el producto real. El astronauta nunca se mueve; la cámara descubre, se acerca, contempla y se aleja. Al final aparece la marca.
 

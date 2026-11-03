@@ -9,10 +9,18 @@ export interface ClipSource {
   frames: number
   fps: number
 }
+export type Act = 'discovery' | 'orbit' | 'pullback' | 'reveal'
+export type ClipStatus = 'approved' | 'review' | 'pending'
 export interface FilmClip {
-  id: string            // 'clip-01'
-  from: number          // keyframe number at start (1..8)
-  to: number            // keyframe number at end
+  id: string            // 'clip-5-6A'
+  from: string          // keyframe id at start ('1' … '6A' … '8')
+  to: string            // keyframe id at end
+  title: string         // the camera move, for the manifest and the static sequence
+  act: Act
+  /** validation state of the produced clip (docs/CLIP_STATUS.md) */
+  status: ClipStatus
+  /** nominal duration of the generated clip in seconds (frames / fps); 0 until produced */
+  seconds: number
   weight: number        // scroll length in viewport heights
   linger: number        // 0..1, slows start/end so seam frames rest (0 for produced clips, see easeIn)
   /**
@@ -25,7 +33,7 @@ export interface FilmClip {
   src?: ClipSource      // undefined until the clip is produced → poster crossfade fallback
   focal: [Focal, Focal] // object-position (in %) at start and end, for portrait viewports
 }
-export interface FilmHold { id: string; kf: number; weight: number; focal: Focal }
+export interface FilmHold { id: string; kf: string; weight: number; focal: Focal }
 export type FilmItem = ({ kind: 'clip' } & FilmClip) | ({ kind: 'hold' } & FilmHold)
 
 export interface TimelineEntry { item: FilmItem; index: number; start: number; end: number }

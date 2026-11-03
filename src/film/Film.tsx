@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, type CSSProperties } from 'react'
-import { BEATS, FILM, KEYFRAMES, SCROLL_HINT, TAGLINE, WORDMARK } from '../content/film'
+import { BEATS, FILM, KEYFRAMES, SCROLL_HINT, TAGLINE, WORDMARK, posterOf } from '../content/film'
 import { SPLASH_WORDMARK, TUI } from '../content/console'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { useReducedMotion } from '../hooks/useReducedMotion'
@@ -13,14 +13,13 @@ import './Film.css'
 
 const clips = FILM.filter((i) => i.kind === 'clip')
 const lastClip = clips[clips.length - 1]
-/** The HTML brand closing is only shown when clip 07 ends on the clean plate; otherwise frame 8 carries the baked mark. */
-const HTML_BRAND = lastClip?.kind === 'clip' && Boolean(lastClip.src)
-/** The real last frame of the film, as a poster: the ASCII field grows out of this same image. */
-const LAST_FRAME = './media/posters/last-07-1920.webp'
+/** Frame 8 is a clean plate (V2): the brand closing is always rendered in HTML over it. */
+const HTML_BRAND = true
+/** The real last frame of the film when the final clip exists, else the final master: the ASCII field grows out of it. */
+const LAST_FRAME = lastClip?.kind === 'clip' && lastClip.src ? './media/posters/last-1920.webp' : './media/posters/kf-8-1920.webp'
 
-function Poster({ n, eager }: { n: number; eager?: boolean }) {
-  const k = KEYFRAMES[n - 1]
-  const d = k.poster(1920), m = k.poster(1080)
+function Poster({ id, eager }: { id: string; eager?: boolean }) {
+  const d = posterOf(id, 1920), m = posterOf(id, 1080)
   return (
     <picture>
       <source type="image/avif" srcSet={`${m.avif} 1080w, ${d.avif} 1920w`} sizes="100vw" />
@@ -129,8 +128,8 @@ function FilmScrub({ nextId }: { nextId: string }) {
       <h1 id="film-title" className="sr-only">UNBIDDEN — The Unknown. {TAGLINE}</h1>
       <div className="film__stage" ref={stageRef} data-portrait={portrait || undefined}>
         {KEYFRAMES.map((k) => (
-          <div key={k.n} className="film__layer film__poster" data-kf={k.n} style={{ opacity: k.n === 1 ? 1 : 0 }}>
-            <Poster n={k.n} eager={k.n === 1} />
+          <div key={k.id} className="film__layer film__poster" data-kf={k.id} style={{ opacity: k.id === '1' ? 1 : 0 }}>
+            <Poster id={k.id} eager={k.id === '1'} />
           </div>
         ))}
         {clips.map((c) => (
@@ -167,7 +166,7 @@ function FilmScrub({ nextId }: { nextId: string }) {
       </div>
       <ol className="sr-only">
         {KEYFRAMES.map((k) => (
-          <li key={k.n}>{k.title}. {k.alt}</li>
+          <li key={k.id}>{k.title}. {k.alt}</li>
         ))}
         <li>The terminal starts: the mark, {WORDMARK}, the tagline and the four verbs of the agent: {TUI.VERBS.join(' ')}</li>
       </ol>
@@ -185,12 +184,12 @@ export function FilmStatic({ nextId }: { nextId: string }) {
         <a className="btn btn--secondary btn--sm" href={`#${nextId}`}>Skip the film</a>
       </header>
       <ol className="film__static-list">
-        {KEYFRAMES.map((k) => (
-          <li key={k.n} className="film__static-item">
+        {KEYFRAMES.map((k, i) => (
+          <li key={k.id} className="film__static-item">
             <figure>
-              <Poster n={k.n} eager={k.n === 1} />
+              <Poster id={k.id} eager={i === 0} />
               <figcaption>
-                <span className="eyebrow">{String(k.n).padStart(2, '0')} · {k.title}</span>
+                <span className="eyebrow">{String(i + 1).padStart(2, '0')} · {k.id} · {k.title}</span>
                 <p>{k.alt}</p>
               </figcaption>
             </figure>
