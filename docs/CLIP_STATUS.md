@@ -5,8 +5,8 @@ Perfil V2: MiniMax H3 FL2VA, **1344×768** (fallback automático 1280×704 si el
 | Tramo | Acto | Frames | Seed | Res. | Tiempo | SSIM primer | SSIM último | Veredicto |
 |---|---|---|---|---|---|---|---|---|
 | 5→6A | órbita (piloto) | 73 | 1 | 1344×768 · **20 pasos sin Turbo** | 35.5 min · 28.7 GB | 0.831 | 0.827 | **Aprobado e integrado.** Órbita continua hacia el frontal, el visor crece y el reflejo cambia con la cámara, el planeta se desplaza a la derecha; astronauta inmóvil. Comparado con Turbo 8 (15 min, SSIM 0.825/0.812): Turbo tiene más micro‑contraste pero es ruido (moteado en el casco); 20 pasos es más limpio, más fotográfico y más estable entre frames (diff 10.9 vs 13.4). Decisión: **20 pasos para los seis tramos de la órbita**; Turbo 8 para planos abiertos. Turbo conservado en `production/v2/clips-turbo8/`. |
-| 6A→6B | órbita | 73 | 1 | 1344×768 · 20 pasos | | | | en generación |
-| 6B→6C | órbita | 90 | | | | | | pendiente |
+| 6A→6B | órbita | 73 | 1 | 1344×768 · 20 pasos | 35 min · 28.7 GB | 0.828 | 0.817 | **Aprobado e integrado.** La órbita sigue hacia el frontal: el planeta real sale del encuadre por la derecha y queda sólo en el reflejo, que crece y se centra; aparece el arnés del pecho; casco y mecanismo idénticos; astronauta inmóvil. Inicio re‑anclado al master 6A (último real de 5→6A a SSIM 0.827, bajo el umbral 0.85). |
+| 6B→6C | órbita | 90 | 1 | 1344×768 · 20 pasos | | | | en generación |
 | 6C→6D | órbita | 90 | | | | | | pendiente |
 | 6D→6E | órbita | 73 | | | | | | pendiente |
 | 6E→6F | órbita | 107 | | | | | | pendiente |
