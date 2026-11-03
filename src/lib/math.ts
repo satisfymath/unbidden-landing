@@ -7,7 +7,7 @@ export const smooth = (t: number) => { const x = clamp01(t); return x * x * (3 -
 export const linger = (x: number, L: number) => { const l = clamp01(L); const c = x - 0.5; return (1 - l) * x + l * (4 * c * c * c + 0.5) }
 /** opacity window: ramps in over `edge`, holds, ramps out over `edge`, inside [a, b] */
 export const window01 = (t: number, a: number, b: number, edge: number) => {
-  if (t <= a || t >= b) return 0
-  const inT = (t - a) / edge, outT = (b - t) / edge
+  if (t < a || t >= b) return 0
+  const inT = a <= 0 ? 1 : (t - a) / edge, outT = (b - t) / edge
   return smooth(Math.min(1, inT, outT))
 }

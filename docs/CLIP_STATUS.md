@@ -13,3 +13,17 @@ Perfil: MiniMax H3 FL2VA, Turbo LoRA v4 step600 ema, 1024×576, 124 frames (5.17
 | 07 | último real de 06 → kf-8-clean | | | | | | pendiente (clean plate listo: `production/plates/kf-8-clean.png`) |
 
 Artefactos por intento: `production/clips/clip-NN/sSEED/{master-audio.mp4, master.mp4, prompt.txt, cmd.sh, log.txt, run.json}`; frames reales en `production/frames/clip-NN/`.
+
+## Postproducción decidida en el clip 01
+- Upscale: A/B entre Real-ESRGAN general ×2 (venhance) + Lanczos 1080p y Lanczos puro. ESRGAN solo se ve pintado y sobre-afilado; Lanczos solo, blando. **Elegido: mezcla 50/50** (`scripts/post/upscale.zsh` → `*-blend.mov`).
+- Encodes web (`scripts/post/encode_web.zsh`, denoise `hqdn3d=1.5:1.5:4:4`, sin B-frames, faststart, sin audio):
+
+| Variante | Parámetros | Clip 01 |
+|---|---|---|
+| desktop H.264 | 1920×1080, CRF 25, GOP 12 | 4.6 MB |
+| desktop HEVC (hvc1) | 1920×1080, q 50, GOP 12 | 2.1 MB |
+| mobile H.264 | 960×540, CRF 27, GOP 8 | 1.4 MB |
+| mobile HEVC (hvc1) | 1280×720, q 50, GOP 8 | 1.3 MB |
+
+Descartados: CRF 20 GOP 8 (9.2 MB desktop), CRF 23 GOP 12 (6.0 MB). El navegador elige HEVC solo si `canPlayType('video/mp4; codecs="hvc1.1.6.L120.B0"')` devuelve `probably` (Safari y Chrome con decodificación por hardware); H.264 en el resto.
+- Verificado en Google Chrome real (Playwright, canal chrome): el clip 01 carga como Blob, `seekable` completo, el frame pintado sigue al scroll en ambas direcciones, sin errores de consola.
