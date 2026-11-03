@@ -195,7 +195,9 @@ export class FilmEngine {
       const cs = this.clips.get(it.id)
       this.show(this.posters.get(it.from), 1, next)
       if (cs && cs.video && cs.status === 'ready') {
-        const frame = Math.round(linger(t, it.linger) * (cs.frames - 1))
+        const e = it.easeIn ?? 0
+        const u = it.linger > 0 ? linger(t, it.linger) : (1 - e) * t + e * t * t
+        const frame = Math.round(u * (cs.frames - 1 - (it.tailTrim ?? 0)))
         this.requestFrame(cs, frame)
         this.show(cs.el, 1, next)
         if (!cs.painted) this.show(this.posters.get(it.to), t, next)
@@ -206,7 +208,7 @@ export class FilmEngine {
           const prev = this.tl.entries[idx - 1]?.item
           const pcs = prev?.kind === 'clip' ? this.clips.get(prev.id) : undefined
           if (pcs && pcs.video && pcs.status === 'ready' && pcs.painted) {
-            this.requestFrame(pcs, pcs.frames - 1)
+            this.requestFrame(pcs, pcs.frames - 1 - (pcs.clip.tailTrim ?? 0))
             this.showTop(pcs.el, 1 - t / SEAM_FADE, next)
           }
         } else if (t > 1 - SEAM_FADE) {
@@ -229,7 +231,7 @@ export class FilmEngine {
       const prevCs = prev?.kind === 'clip' ? this.clips.get(prev.id) : undefined
       const nextCs = nxt?.kind === 'clip' ? this.clips.get(nxt.id) : undefined
       if (prevCs && prevCs.video && prevCs.status === 'ready' && (this.direction > 0 || !nextCs?.video)) {
-        this.requestFrame(prevCs, prevCs.frames - 1)
+        this.requestFrame(prevCs, prevCs.frames - 1 - (prevCs.clip.tailTrim ?? 0))
         this.show(prevCs.el, 1, next)
       } else if (nextCs && nextCs.video && nextCs.status === 'ready') {
         this.requestFrame(nextCs, 0)

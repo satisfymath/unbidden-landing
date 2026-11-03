@@ -14,7 +14,14 @@ export interface FilmClip {
   from: number          // keyframe number at start (1..8)
   to: number            // keyframe number at end
   weight: number        // scroll length in viewport heights
-  linger: number        // 0..1, slows start/end so seam frames rest
+  linger: number        // 0..1, slows start/end so seam frames rest (0 for produced clips, see easeIn)
+  /**
+   * The generated clips settle to a near stop in their last second and the next one starts at full speed.
+   * easeIn remaps local time t → (1−e)·t + e·t², so the start plays at (1−e)× speed and the end at (1+e)×,
+   * which evens out the camera velocity across the seam. tailTrim drops the near-static last frames.
+   */
+  easeIn?: number
+  tailTrim?: number
   src?: ClipSource      // undefined until the clip is produced → poster crossfade fallback
   focal: [Focal, Focal] // object-position (in %) at start and end, for portrait viewports
 }
