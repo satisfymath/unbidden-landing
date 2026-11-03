@@ -1,6 +1,6 @@
 # QA — UNBIDDEN: THE UNKNOWN
 
-Última pasada: 2026-11-03. Build `npm run build` (tsc + vite) y `npm run lint` en verde.
+Última pasada: 2026-11-03 (consola v2). Build `npm run build` (tsc + vite) y `npm run lint` en verde; 14 pruebas Playwright en verde (10 omitidas por proyecto).
 
 ## Automatizado (`npm run qa`, Playwright 1.64)
 Proyectos: `desktop-chrome` (Google Chrome real, 1440×900), `mobile` (Chromium 390×844, touch), `reduced-motion` (1440×900, `prefers-reduced-motion: reduce`).
@@ -12,6 +12,9 @@ Proyectos: `desktop-chrome` (Google Chrome real, 1440×900), `mobile` (Chromium 
 | Reduced motion: secuencia estática de 8 frames, sin `<video>` | ✅ |
 | Sin desbordamiento horizontal en 360 / 390 / 430 / 768 / 1024 / 1440 / 1920 px | ✅ |
 | Teclado: skip link enfocable y funcional; todos los `href` internos existen; todos los externos responden < 400 | ✅ |
+| Consola: el feed reproduce ≥ 8 líneas reales con el verbo `Discovering.` primero; el nodo del diagrama se enciende; el conmutador de modos imprime `mode: autonomous (was supervised)`; el kill switch alterna sus mensajes reales | ✅ desktop y mobile |
+| `--help` lista los 43 comandos con sus textos; `doctor` muestra `Apple M5 Pro, 64 GB` | ✅ |
+| Reduced motion: 43 filas y 21 líneas del feed visibles de golpe, sin typewriter; Uplink estático | ✅ |
 
 ## Verificaciones manuales con navegador real (scripts en el scratchpad de la sesión)
 - **Google Chrome (canal `chrome`)**: `canPlayType(hvc1)` = `probably` → se sirve HEVC; el clip 01 se carga como Blob, `seekable` completo (5.17 s), el frame pintado sigue al scroll en ambas direcciones; sin errores de consola.
@@ -31,5 +34,5 @@ Proyectos: `desktop-chrome` (Google Chrome real, 1440×900), `mobile` (Chromium 
 Los clips se descargan por proximidad (actual ±2 en desktop, ±1 en móvil) y se liberan fuera de esa ventana; nunca se descargan los siete al inicio.
 
 ## Pendiente
-- Capturas y pruebas con los siete clips integrados (ver `CLIP_STATUS.md`).
+- Película completa integrada (7 clips) y verificada en Chrome y WebKit; cara a cara H3 768p vs LTX-2.5 en curso (`production/compare/REPORT.md`).
 - Dispositivos reales iOS y Android.

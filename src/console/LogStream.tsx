@@ -30,7 +30,7 @@ export function LogStream({ groups, pace = 420, onVerb, autostart }: Props) {
     if (reduced || go) return
     const el = ref.current
     if (!el || !('IntersectionObserver' in window)) { setGo(true); return }
-    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setGo(true); io.disconnect() } }, { threshold: 0.25 })
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setGo(true); io.disconnect() } }, { threshold: 0.05 })
     io.observe(el)
     return () => io.disconnect()
   }, [reduced, go])

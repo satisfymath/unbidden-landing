@@ -3,6 +3,9 @@
 ## Idea
 Una sola película de cámara (ocho fotogramas aprobados, siete transiciones) que el visitante recorre con el scroll, seguida de una parte editorial oscura y precisa sobre el producto real. El astronauta nunca se mueve; la cámara descubre, se acerca, contempla y se aleja. Al final aparece la marca.
 
+## v2 — la consola del operador (2026-11-03)
+Tras la película, la parte editorial adopta la identidad de terminal real del producto (`unbidden/tui/brand.py`, paleta negro/blanco/ámbar `#F5B700`). Secciones: **Uplink** (`#uplink`: el frame 8 limpio se convierte en glifos sobre canvas y arranca el splash real con los cuatro verbos), **Feed** (`#intelligence`: ciclo real de Conduit reproducido con spinner, diagrama del ciclo en box-drawing y grilla de glifos sincronizados), **Mandato** (`#mandate`: YAML real, conmutador supervised/autopilot/autonomous, kill switch), **`--help`** (`#cli`: 43 comandos reales, `doctor` grabado en este M5 Pro, home, slash commands), **Evidencia** (count-up, escalera L1–L6, veredictos reales, cifras vigentes), **Instalación** (terminal que escribe el `curl` real y el bloque "Then:"). Cada texto tiene su fuente en `CONTENT_SOURCES.md`. Sin dependencias nuevas en runtime; reduced-motion muestra todo de golpe sin typewriter ni stagger.
+
 ## Estructura de la página
 | Acto | Sección (`id`) | Contenido |
 |---|---|---|

@@ -78,3 +78,43 @@ test('keyboard: skip link and nav links are reachable; CTAs resolve', async ({ p
     expect(res.status(), `link ${h}`).toBeLessThan(400)
   }
 })
+
+test('console: the feed replays the real cycle, the cycle diagram follows it, the mode switch works', async ({ page }, info) => {
+  test.skip(info.project.name === 'reduced-motion')
+  await page.goto('/', { waitUntil: 'networkidle' })
+  await page.locator('.feedgrid__term').scrollIntoViewIfNeeded()
+  await page.waitForTimeout(9000)
+  const lines = await page.locator('.feed__line:not(.feed__line--pending)').count()
+  expect(lines).toBeGreaterThanOrEqual(8)
+  await expect(page.locator('.feed__verb').first()).toContainText('Discovering.')
+  await expect(page.locator('.cycle__node--on')).toHaveCount(4) // 4 rows of the lit box
+  await page.locator('.modes').scrollIntoViewIfNeeded()
+  await page.getByRole('radio', { name: 'autonomous' }).click()
+  await expect(page.locator('.modes__strong')).toHaveText('mode: autonomous (was supervised)')
+  await expect(page.locator('.modes__out')).toContainText('merge_pull_requests')
+  await page.getByRole('button', { name: /KILL SWITCH/ }).click()
+  await expect(page.locator('.kill')).toHaveAttribute('aria-pressed', 'true')
+  await expect(page.locator('.modes__out')).toContainText('Kill switch released.')
+})
+
+test('console: --help lists every command and doctor shows the recorded machine', async ({ page }) => {
+  await page.goto('/', { waitUntil: 'networkidle' })
+  await page.locator('.commands__help').scrollIntoViewIfNeeded()
+  await page.waitForTimeout(3500)
+  await expect(page.locator('.help__row')).toHaveCount(43)
+  await page.locator('.doctor__head').scrollIntoViewIfNeeded().catch(() => {})
+  await page.locator('.commands__side .term').first().scrollIntoViewIfNeeded()
+  await page.waitForTimeout(3000)
+  await expect(page.locator('.help__row').filter({ hasText: 'drill' })).toContainText('prove rollback works before autonomy relies on it')
+  await expect(page.locator('.doctor__row').filter({ hasText: 'machine' })).toContainText('Apple M5 Pro, 64 GB')
+})
+
+test('reduced motion: no typewriter, no stagger, everything readable at once', async ({ page }, info) => {
+  test.skip(info.project.name !== 'reduced-motion')
+  await page.goto('/', { waitUntil: 'networkidle' })
+  await page.locator('#cli').scrollIntoViewIfNeeded()
+  await page.waitForTimeout(300)
+  await expect(page.locator('.help__row')).toHaveCount(43)
+  await expect(page.locator('.feed__line:not(.feed__line--pending)')).toHaveCount(21)
+  await expect(page.locator('.uplink--static')).toHaveCount(1)
+})

@@ -27,7 +27,7 @@ export function Typewriter({ command, prompt = '$ ', children, speed = 46, autos
     if (reduced || go) return
     const el = ref.current
     if (!el || !('IntersectionObserver' in window)) { setGo(true); return }
-    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setGo(true); io.disconnect() } }, { threshold: 0.4 })
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setGo(true); io.disconnect() } }, { threshold: 0.05 })
     io.observe(el)
     return () => io.disconnect()
   }, [reduced, go])
