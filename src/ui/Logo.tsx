@@ -5,6 +5,8 @@
  * (public/media/brand/wordmark-white.png), with the text kept for assistive technology.
  */
 export function Logo({ size = 24, title, className }: { size?: number; title?: string; className?: string }) {
+  // the measured stroke is 0.055 R; below ~40 px it thins out on screen, so small marks use a heavier hairline
+  const sw = size < 40 ? 3.6 : size < 96 ? 2.6 : 2
   return (
     <svg
       width={size}
@@ -16,8 +18,8 @@ export function Logo({ size = 24, title, className }: { size?: number; title?: s
       className={className}
       style={{ flex: 'none' }}
     >
-      <path d="M 71.8 27.3 A 36 36 0 1 1 66.9 21.6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="75" cy="16.7" r="4.4" fill="currentColor" />
+      <path d="M 71.8 27.3 A 36 36 0 1 1 66.9 21.6" fill="none" stroke="currentColor" strokeWidth={sw} strokeLinecap="round" />
+      <circle cx="75" cy="16.7" r={size < 40 ? 5.2 : 4.4} fill="currentColor" />
     </svg>
   )
 }

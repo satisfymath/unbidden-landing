@@ -5,6 +5,7 @@ Repositorio: `satisfymath/unbidden-ai`, rama `main` en `5ecd617` (v0.12.2, 2026-
 | Bloque en la web | Archivo de contenido | Fuente en el repo |
 |---|---|---|
 | Splash del Uplink: anillo braille, punto ámbar, `U N B i D D E N`, tagline, cuatro verbos | `src/content/console.ts` → `TUI`, `SPLASH_ROWS` | `unbidden/tui/brand.py:7-20` (`MARK`, `WORDMARK`, `TAGLINE`, `VERBS`, `ACCENT`, `RING`, `DOT`); la tagline se oculta bajo 66 columnas como en `banner()` |
+| Marca: anillo abierto (hueco 39.5°–50.5°, trazo 0.055 R, extremos redondos) y punto (r 0.122 R a 47°, 1.263 R del centro); wordmark `UNBiDDEN` | `src/ui/Logo.tsx`, `public/media/brand/{mark.svg,wordmark-white.png,lockup-white.png}`, `brand/mark.braille.txt` | Logotipo oficial entregado por David (`brand/unbidden-logo-official.png`), medido con `scipy` (el SVG del repo `frontend/public/unbidden.svg` tiene el hueco en otro sitio y no se usa) |
 | Paleta de los paneles | `src/styles/tokens.css` → `--term-*` | `unbidden/tui/app.py:34-48` |
 | Cabecera de panel `○˙ UNBiDDEN  campo · campo … versión` | `src/console/Term.tsx` | `unbidden/tui/state.py:103,133`; `widgets.py:40-50` |
 | Feed: verbos `> Discovering.` y líneas `HH:MM:SS  texto` | `src/console/LogStream.tsx` | formato: `unbidden/tui/widgets.py:72-101`; mapa evento→verbo: `tui/feed.py:32-73` |
