@@ -45,6 +45,9 @@ const canPlayHevc = (() => {
   try { return document.createElement('video').canPlayType('video/mp4; codecs="hvc1.1.6.L120.B0"') === 'probably' } catch { return false }
 })()
 
+/** fraction of a clip's local progress used for the seam crossfade on each side (≈ 0.3 s of film at 5 s clips) */
+const SEAM_FADE = 0.06
+
 const vfc = (v: HTMLVideoElement): v is HTMLVideoElement & { requestVideoFrameCallback: (cb: () => void) => number } =>
   'requestVideoFrameCallback' in v
 
@@ -165,8 +168,16 @@ export class FilmEngine {
   // ---------- rendering ----------
   private show(el: HTMLElement | undefined, opacity = 1, next: Set<HTMLElement>) {
     if (!el) return
-    const o = String(opacity)
+    const o = opacity.toFixed(3)
     if (el.style.opacity !== o) el.style.opacity = o
+    if (el.style.zIndex) el.style.zIndex = ''
+    next.add(el)
+  }
+  /** like show(), but stacked above the other layers (used for the seam crossfade) */
+  private showTop(el: HTMLElement, opacity: number, next: Set<HTMLElement>) {
+    const o = opacity.toFixed(3)
+    if (el.style.opacity !== o) el.style.opacity = o
+    if (el.style.zIndex !== '3') el.style.zIndex = '3'
     next.add(el)
   }
 
@@ -188,6 +199,24 @@ export class FilmEngine {
         this.requestFrame(cs, frame)
         this.show(cs.el, 1, next)
         if (!cs.painted) this.show(this.posters.get(it.to), t, next)
+        // seam safety net: a short symmetric crossfade with the neighbouring clip's boundary frame,
+        // laid on top, so small tone differences between generated segments never pop
+        const idx = located.entry.index
+        if (t < SEAM_FADE) {
+          const prev = this.tl.entries[idx - 1]?.item
+          const pcs = prev?.kind === 'clip' ? this.clips.get(prev.id) : undefined
+          if (pcs && pcs.video && pcs.status === 'ready' && pcs.painted) {
+            this.requestFrame(pcs, pcs.frames - 1)
+            this.showTop(pcs.el, 1 - t / SEAM_FADE, next)
+          }
+        } else if (t > 1 - SEAM_FADE) {
+          const nxt = this.tl.entries[idx + 1]?.item
+          const ncs = nxt?.kind === 'clip' ? this.clips.get(nxt.id) : undefined
+          if (ncs && ncs.video && ncs.status === 'ready' && ncs.painted) {
+            this.requestFrame(ncs, 0)
+            this.showTop(ncs.el, (t - (1 - SEAM_FADE)) / SEAM_FADE, next)
+          }
+        }
       } else {
         this.show(this.posters.get(it.to), t, next)
       }
@@ -207,7 +236,7 @@ export class FilmEngine {
         this.show(nextCs.el, 1, next)
       }
     }
-    for (const el of this.visibleSet) if (!next.has(el)) el.style.opacity = '0'
+    for (const el of this.visibleSet) if (!next.has(el)) { el.style.opacity = '0'; if (el.style.zIndex) el.style.zIndex = '' }
     this.visibleSet = next
     if (this.o.portrait) {
       const f = this.focalOf(located)
