@@ -15,7 +15,7 @@ LAB = Path('/Users/david/AI-Video-Lab')
 SEQ = ROOT / 'sequence'
 OUT = ROOT / 'production/v3/frames'
 CLI = LAB / 'environments/mflux-flux3/bin/mflux-generate-flux3-edit'
-ORDER = ['1', '2', '3', '4', '5', '6A', '6B', '6C', '6D', '6E', '6F', '7', '8']
+ORDER = ['1', '2', '3', '4', '5', '5B', '6A', '6B', '6C', '6D', '6E', '6F', '7', '8']
 
 ASTRONAUT = (
     'ONE astronaut, always the same person and the same suit: a white-grey EVA spacesuit with fine dust specks and '
@@ -69,9 +69,11 @@ FRAMES = {
     '4': ('The identity', 'Camera very close behind the astronaut (bearing 0), slightly above shoulder height: the back of '
           'the helmet with its rear vent grille in the upper center and the square backpack with its small emblem '
           'filling the lower center; the planet out of focus behind, moon upper right.'),
-    '5': ('The arc begins', 'Camera close, behind and to the RIGHT of the astronaut (bearing 45): the right rear three-quarter '
-          'of the helmet, the right side mechanism near the center, the edge of the visor on the right catching a '
-          'reflection; the backpack at the left edge. In the background on the right, out of focus: the planet\'s RIGHT '
+    '5': ('The arc begins', 'Camera close, behind and to the RIGHT of the astronaut (bearing 45), at the SAME distance, '
+          'height and lens as reference 2, so the WHOLE helmet is visible with space above it, the same size in frame '
+          'as in reference 2: the right rear three-quarter of the helmet, the right side mechanism near the center, only '
+          'the edge of the visor on the right catching a reflection; the top of the backpack and its side panel at the left '
+          'edge; the shoulder fabric plain white-grey with NO patch, NO flag and NO badge. In the background on the right, out of focus: the planet\'s RIGHT '
           'side with the hurricane, moon upper right.'),
     '6A': ('Three quarters', 'Camera close at the astronaut\'s RIGHT side, slightly toward the front (bearing 100): a right '
            'three-quarter view of the helmet, the visor large on the right half of the helmet reflecting the planet, '
@@ -153,7 +155,7 @@ def spec(name):
     intro = ('Reference 1 DEFINES THE FRAMING of this frame: match its camera distance, camera height, lens, the size '
              'and position of the astronaut in the frame and the position of the planet and moon exactly. Correct only '
              'details that contradict the WORLD and the ASTRONAUT described below. ')
-    ident = {'6C': '6A', '6E': '6A'}.get(name)
+    ident = {'5': '6A', '6C': '6A', '6E': '6A'}.get(name)
     if ident:
         refs.append(OUT / f'{ident}.png')
         intro += ('Reference 2 is ONLY for the identity of the helmet, visor and suit: an approved close-up of this SAME '

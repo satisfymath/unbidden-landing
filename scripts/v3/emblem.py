@@ -13,7 +13,7 @@ import numpy as np, cv2
 
 D = Path(__file__).resolve().parents[2] / 'production/v3/frames'
 # hint: (cx, cy, search half-size) in 1344x768 pixels, from visual inspection
-HINTS = {'4': (524, 552, 60), '3': (827, 318, 26), '6F': (1035, 342, 26), '6B': (222, 570, 40), '6D': (1121, 571, 40), '6E': (1205, 590, 40)}
+HINTS = {'5': (305, 755, 45), '5B': (98, 728, 40), '4': (524, 552, 60), '3': (827, 318, 26), '6F': (1035, 342, 26), '6B': (222, 570, 40), '6D': (1121, 571, 40), '6E': (1205, 590, 40)}
 OVERRIDE = {'3': ((827, 318), (11.5, 13.0), 0.0)}
 GAP0, GAP1, DOT_ANG, DOT_DIST, DOT_R, STROKE = 39.5, 50.5, 47.0, 1.263, 0.122, 0.055
 

@@ -18,6 +18,7 @@ export const KEYFRAMES: Keyframe[] = [
   { id: '3', title: 'The approach', alt: 'The camera closes in on the astronaut from behind: white EVA suit, square backpack, the planet filling the sky.', focal: { x: 66, y: 55 } },
   { id: '4', title: 'The identity', alt: 'The helmet and backpack fill the frame; the UNBIDDEN emblem, an open ring with a dot, is printed on the pack.', focal: { x: 45, y: 55 } },
   { id: '5', title: 'The arc begins', alt: 'The camera starts around the right shoulder; the side of the visor appears, the planet behind it.', focal: { x: 45, y: 45 } },
+  { id: '5B', title: 'Around the shoulder', alt: 'The camera continues around the right shoulder; the side of the helmet and its visor turn toward us, the hurricane behind.', focal: { x: 45, y: 42 } },
   { id: '6A', title: 'Three quarters', alt: 'Three-quarter view of the helmet; the visor grows and reflects the planet, which fills the right of the frame.', focal: { x: 45, y: 42 } },
   { id: '6B', title: 'Almost frontal', alt: 'Nearly frontal: black sky behind, the planet now lives only in the reflection on the convex visor.', focal: { x: 50, y: 45 } },
   { id: '6C', title: 'The gaze', alt: 'The heroic frontal close-up: the visor fills the frame and reflects the planet, its storm and the moon.', focal: { x: 50, y: 45 } },
@@ -79,9 +80,9 @@ const seg = (s: Seg): FilmItem => ({
 
 export const FILM: FilmItem[] = [
   { kind: 'hold', id: 'hold-1', kf: '1', weight: 0.45, focal: keyframe('1').focal },
-  ...SEGMENTS.slice(0, 6).map(seg),
+  ...SEGMENTS.slice(0, 7).map(seg),
   { kind: 'hold', id: 'hold-6C', kf: '6C', weight: 0.4, focal: keyframe('6C').focal },
-  ...SEGMENTS.slice(6).map(seg),
+  ...SEGMENTS.slice(7).map(seg),
   { kind: 'hold', id: 'hold-8', kf: '8', weight: 2.4, focal: keyframe('8').focal },
 ]
 

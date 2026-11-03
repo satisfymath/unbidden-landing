@@ -4,7 +4,7 @@ import sharp from 'sharp'
 import { mkdir } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 
-const IDS = ['1', '2', '3', '4', '5', '6A', '6B', '6C', '6D', '6E', '6F', '7', '8']
+const IDS = ['1', '2', '3', '4', '5', '5B', '6A', '6B', '6C', '6D', '6E', '6F', '7', '8']
 const out = 'public/media/posters'
 await mkdir(out, { recursive: true })
 const widths = [1920, 1080]
