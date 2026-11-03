@@ -8,5 +8,5 @@ ffmpeg -loglevel error -y -i $IN -vf "select='eq(n,0)'" -frames:v 1 $OUT/first.p
 ffmpeg -loglevel error -y -i $IN -vf "select='eq(n,$((N-1)))'" -frames:v 1 $OUT/last.png
 # 12 evenly spaced frames, 4x3 sheet with frame numbers
 STEP=$(( (N-1) / 11 ))
-ffmpeg -loglevel error -y -i $IN -vf "select='not(mod(n,$STEP))',drawtext=text='%{n}':x=12:y=12:fontsize=28:fontcolor=white:box=1:boxcolor=black@0.5,scale=512:-1,tile=4x3" -frames:v 1 $OUT/sheet.png
+ffmpeg -loglevel error -y -i $IN -vf "select='not(mod(n,$STEP))',scale=512:-1,tile=4x3:padding=4:color=black" -frames:v 1 $OUT/sheet.png
 echo "$OUT ($N frames, step $STEP)"

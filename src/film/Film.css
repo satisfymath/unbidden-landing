@@ -43,15 +43,14 @@
 
 .film__beats {
   position: absolute;
-  left: var(--gutter);
-  right: var(--gutter);
-  bottom: clamp(var(--s-40), 10vh, var(--s-96));
+  inset: 0;
+  padding: 0 var(--gutter);
   pointer-events: none;
 }
 .film__beat {
   position: absolute;
-  left: 0;
-  bottom: 0;
+  left: var(--gutter);
+  bottom: clamp(var(--s-40), 10vh, var(--s-96));
   margin: 0;
   max-width: var(--hero-measure);
   will-change: opacity, transform;
@@ -66,7 +65,7 @@
 }
 .film__beat--eyebrow {
   bottom: auto;
-  top: calc(-100vh + var(--s-32) + 64px);
+  top: calc(64px + var(--s-24));
   font-family: var(--font-mono);
   font-size: var(--t-xs);
   line-height: 16px;

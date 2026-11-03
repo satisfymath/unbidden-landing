@@ -39,6 +39,12 @@ interface ClipState {
   retryAt: number
 }
 
+/** HEVC (hvc1) playback: Safari, and Chromium builds with platform hardware decoding. Decided once. */
+const canPlayHevc = (() => {
+  if (typeof document === 'undefined') return false
+  try { return document.createElement('video').canPlayType('video/mp4; codecs="hvc1.1.6.L120.B0"') === 'probably' } catch { return false }
+})()
+
 const vfc = (v: HTMLVideoElement): v is HTMLVideoElement & { requestVideoFrameCallback: (cb: () => void) => number } =>
   'requestVideoFrameCallback' in v
 
@@ -284,7 +290,11 @@ export class FilmEngine {
     }
   }
 
-  private src(cs: ClipState) { return this.o.mobile ? cs.clip.src!.mobile : cs.clip.src!.desktop }
+  private src(cs: ClipState) {
+    const s = cs.clip.src!
+    if (this.o.mobile) return (canPlayHevc && s.mobileHevc) || s.mobile
+    return (canPlayHevc && s.desktopHevc) || s.desktop
+  }
 
   private async load(cs: ClipState) {
     cs.status = 'loading'

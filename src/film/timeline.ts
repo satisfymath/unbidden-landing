@@ -1,6 +1,14 @@
 /** Pure scroll → film timeline mapping. No DOM. */
 export interface Focal { x: number; y: number }
-export interface ClipSource { desktop: string; mobile: string; frames: number; fps: number }
+export interface ClipSource {
+  desktop: string
+  mobile: string
+  /** optional HEVC (hvc1) variants, used where the browser reports it can play them */
+  desktopHevc?: string
+  mobileHevc?: string
+  frames: number
+  fps: number
+}
 export interface FilmClip {
   id: string            // 'clip-01'
   from: number          // keyframe number at start (1..8)

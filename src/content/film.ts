@@ -7,11 +7,20 @@ import type { FilmItem } from '../film/timeline'
  */
 const FPS = 24
 const clip = (n: number, src?: { frames: number }) =>
-  src ? { desktop: `./media/film/desktop/clip-0${n}.mp4`, mobile: `./media/film/mobile/clip-0${n}.mp4`, frames: src.frames, fps: FPS } : undefined
+  src
+    ? {
+        desktop: `./media/film/desktop/clip-0${n}.mp4`,
+        mobile: `./media/film/mobile/clip-0${n}.mp4`,
+        desktopHevc: `./media/film/desktop/clip-0${n}.hevc.mp4`,
+        mobileHevc: `./media/film/mobile/clip-0${n}.hevc.mp4`,
+        frames: src.frames,
+        fps: FPS,
+      }
+    : undefined
 
 export const FILM: FilmItem[] = [
   { kind: 'hold', id: 'hold-1', kf: 1, weight: 0.45, focal: { x: 70, y: 40 } },
-  { kind: 'clip', id: 'clip-01', from: 1, to: 2, weight: 1.3, linger: 0.25, src: clip(1), focal: [{ x: 70, y: 40 }, { x: 66, y: 60 }] },
+  { kind: 'clip', id: 'clip-01', from: 1, to: 2, weight: 1.3, linger: 0.25, src: clip(1, { frames: 124 }), focal: [{ x: 70, y: 40 }, { x: 66, y: 60 }] },
   { kind: 'clip', id: 'clip-02', from: 2, to: 3, weight: 1.2, linger: 0.25, src: clip(2), focal: [{ x: 66, y: 60 }, { x: 66, y: 55 }] },
   { kind: 'clip', id: 'clip-03', from: 3, to: 4, weight: 1.2, linger: 0.25, src: clip(3), focal: [{ x: 66, y: 55 }, { x: 45, y: 55 }] },
   { kind: 'hold', id: 'hold-4', kf: 4, weight: 0.35, focal: { x: 45, y: 55 } },
