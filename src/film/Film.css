@@ -78,10 +78,11 @@
   position: absolute;
   inset: 0;
   display: grid;
-  place-content: center;
+  align-content: start;
+  justify-content: center;
   justify-items: center;
   gap: var(--s-16);
-  padding-bottom: 18vh;
+  padding-top: clamp(72px, 9vh, 120px);
   text-align: center;
   color: var(--ink);
   pointer-events: none;

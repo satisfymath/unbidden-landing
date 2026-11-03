@@ -22,3 +22,14 @@
 .evidence__foot { margin-top: var(--s-64); font-size: var(--t-sm); color: var(--muted); max-width: var(--measure); }
 .evidence__foot a { color: var(--ink-2); text-decoration: underline; text-underline-offset: 0.18em; }
 @media (max-width: 760px) { .findings { grid-template-columns: 1fr; } }
+
+/* level ladder */
+.ladder { position: relative; display: flex; flex-wrap: wrap; gap: var(--s-4) var(--s-12); font-family: var(--font-mono); font-size: var(--t-xs); color: var(--term-secondary); }
+.ladder__step { display: inline-flex; gap: 4px; align-items: center; padding: 2px 4px; border-radius: 3px; outline-offset: 2px; }
+.ladder__step--on { color: var(--term-fg); }
+.ladder__step--on .ladder__glyph { color: var(--term-accent); }
+.ladder__tip { position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: 5; max-width: 360px; padding: var(--s-8) var(--s-12); border: 1px solid var(--term-panel); border-radius: var(--radius-sm); background: var(--term-surface); color: var(--term-primary); font-family: var(--font-sans); font-size: var(--t-xs); line-height: 16px; opacity: 0; pointer-events: none; transform: translateY(-4px); transition: opacity 200ms var(--ease), transform 200ms var(--ease); }
+.ladder__step:hover .ladder__tip, .ladder__step:focus-visible .ladder__tip { opacity: 1; transform: none; }
+.ladder__tip strong { color: var(--term-fg); font-weight: 600; }
+.finding__verdict { font-size: var(--t-xs); line-height: 18px; color: var(--term-primary); padding: var(--s-8) var(--s-12); border: 1px solid var(--term-panel); border-radius: var(--radius-sm); background: var(--term-bg); white-space: pre-wrap; word-break: break-word; }
+.finding__gt { color: var(--term-accent); }

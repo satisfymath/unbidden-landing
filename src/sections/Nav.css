@@ -24,5 +24,5 @@
 .nav__links a:not(.btn):hover { color: var(--ink); text-decoration: none; }
 @media (max-width: 640px) {
   .nav__links { gap: var(--s-16); }
-  .nav__links li:nth-child(1) { display: none; }
+  .nav__links li:nth-child(1), .nav__links li:nth-child(2), .nav__links li:nth-child(3) { display: none; }
 }

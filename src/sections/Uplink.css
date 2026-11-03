@@ -1,0 +1,32 @@
+.uplink { position: relative; height: calc(var(--uplink-weight) * 100vh + 100vh); background: var(--term-bg); }
+.uplink--static { height: auto; }
+.uplink__stage { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden; background: #000; }
+.uplink--static .uplink__stage { position: relative; height: min(100vh, 70vw); }
+.uplink__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.uplink__splash {
+  position: absolute;
+  left: 50%;
+  top: clamp(72px, 10vh, 140px);
+  transform: translate3d(-50%, 0, 0);
+  display: grid;
+  gap: var(--s-24);
+  width: min(100% - 2 * var(--gutter), 760px);
+  color: var(--term-fg);
+  font-family: var(--font-mono);
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+.uplink__ring, .uplink__verbs { margin: 0; font: inherit; font-size: clamp(14px, 1.7vw, 22px); line-height: 1.3; white-space: pre; text-shadow: 0 0 18px rgba(0, 0, 0, 0.9); }
+.uplink__ring { font-weight: 700; }
+.uplink__dot { color: var(--term-accent); }
+.uplink__word { font-weight: 700; letter-spacing: 0.02em; }
+.uplink__tag { color: var(--term-secondary); font-weight: 400; }
+.uplink__verbs { font-weight: 700; font-size: clamp(16px, 2.2vw, 28px); }
+.uplink__gt { color: var(--term-secondary); font-weight: 400; }
+.uplink__verb-on { color: var(--term-accent); }
+@media (max-width: 640px) {
+  .uplink__ring { font-size: 11px; }
+  .uplink__verbs { font-size: 16px; }
+  /* brand.py: the tagline is shown only when the terminal is at least 66 columns wide */
+  .uplink__tag { display: none; }
+}

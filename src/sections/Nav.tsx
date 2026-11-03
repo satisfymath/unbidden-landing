@@ -24,7 +24,9 @@ export function Nav({ sentinelId }: { sentinelId: string }) {
         <Wordmark text={WORDMARK} className="nav__word" />
       </a>
       <ul className="nav__links">
-        <li><a href="#intelligence">Intelligence</a></li>
+        <li><a href="#intelligence">Feed</a></li>
+        <li><a href="#mandate">Mandate</a></li>
+        <li><a href="#cli" className="mono">--help</a></li>
         <li><a href="#evidence">Evidence</a></li>
         <li><a href={LINKS.repo} rel="noopener">GitHub</a></li>
         <li><a className="btn btn--primary btn--sm" href="#install">Install</a></li>

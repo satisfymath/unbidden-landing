@@ -1,0 +1,65 @@
+.term {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: var(--term-bg);
+  color: var(--term-fg);
+  border: 1px solid var(--term-panel);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 20px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.term__head, .term__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--s-16);
+  min-height: 36px;
+  padding: 6px var(--s-16);
+  background: var(--term-surface);
+  color: var(--term-secondary);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.term__head { border-bottom: 1px solid var(--term-panel); }
+.term__bar { border-top: 1px solid var(--term-panel); gap: 0; white-space: normal; flex-wrap: wrap; }
+.term__brand { color: var(--term-fg); font-weight: 600; letter-spacing: 0.04em; flex: none; }
+.term__mark { color: var(--term-fg); }
+.term__fields { overflow: hidden; text-overflow: ellipsis; }
+.term__right { margin-left: auto; display: inline-flex; gap: var(--s-16); flex: none; }
+.term__clock { color: var(--term-primary); }
+.term__body { padding: var(--s-16); overflow-x: auto; }
+.term__bar-item { color: var(--term-secondary); }
+.term__bar-item strong { color: var(--term-fg); font-weight: 500; }
+.term__sep { color: var(--term-panel); }
+.term__accent { color: var(--term-accent); }
+.term__dim { color: var(--term-secondary); }
+.term__ok { color: var(--term-primary); }
+.term__warn { color: var(--term-accent); }
+.term__bad { color: #ffffff; }
+
+/* CRT scanlines, confined to the panel and faint; no flicker */
+.term__scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0, 0, 0, 0.07) 2px 3px);
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+.term pre { margin: 0; font: inherit; white-space: pre-wrap; word-break: break-word; line-height: 1.25; }
+.term pre.yaml, .term pre.help__usage--raw { white-space: pre; }
+.term code { font: inherit; }
+
+/* blinking caret, 1 Hz */
+.caret::after { content: '\2588'; display: inline-block; margin-left: 2px; color: var(--term-fg); animation: caret 1s steps(1) infinite; }
+@keyframes caret { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .caret::after { animation: none; opacity: 0.6; } }
+
+/* staggered reveal driven by --i */
+.stagger > * { opacity: 0; transform: translateY(4px); animation: stg 320ms var(--ease) forwards; animation-delay: calc(var(--i, 0) * 70ms); }
+@keyframes stg { to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .stagger > * { animation: none; opacity: 1; transform: none; } }

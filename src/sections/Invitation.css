@@ -8,3 +8,15 @@
 .install__notes { display: grid; gap: var(--s-4); font-size: var(--t-sm); line-height: 20px; color: var(--muted); }
 .install__alt { display: flex; flex-wrap: wrap; gap: var(--s-12); margin-top: var(--s-8); }
 @media (max-width: 560px) { .install__row { grid-template-columns: 1fr; } }
+
+.invitation__ring { margin: 0; font-family: var(--font-mono); font-size: clamp(28px, 5vw, 64px); line-height: 1.05; font-weight: 700; color: var(--term-fg); white-space: pre; }
+.invitation__dot { color: var(--term-accent); }
+.install__term .term__body { font-size: 13px; }
+.install__then { display: grid; grid-template-columns: auto 1fr; gap: var(--s-8); color: var(--term-primary); white-space: pre-wrap; }
+.install__cmd { color: var(--term-fg); white-space: pre; }
+.install__c { color: var(--term-secondary); }
+@media (max-width: 640px) { .install__then { grid-template-columns: 1fr; } .install__cmd { white-space: pre-wrap; } }
+
+.invitation__grid { grid-template-columns: minmax(0, 1fr); }
+.install__term { max-width: 100%; }
+@media (max-width: 480px) { .invitation__ring { font-size: 22px; } }
