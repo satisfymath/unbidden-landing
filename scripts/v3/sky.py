@@ -15,6 +15,9 @@ KEEP = ('Reference 1 is this exact frame. Reproduce it EXACTLY: the same camera,
         'visor, suit, harness and backpack, pixel for pixel, the same rocky ground. Change ONLY the sky and the planet in '
         'the background as described: ')
 SKY = {
+    '3': 'the planet keeps exactly the same position, size, limb, clouds and city lights on its left half, and on its RIGHT '
+         'half, behind and to the right of the astronaut, there is ONE large WHITE SPIRAL HURRICANE with a clear eye, '
+         'exactly like in reference 2. The small moon stays exactly where it is.',
     '4': 'keep the planet EXACTLY as it is (same position, same limb, same clouds, same city lights on the left, same '
          'hurricane side on the right) and the small moon exactly where it is; the sky around them is deep black with only '
          'sparse small stars, NO nebula, NO milky way band, NO mottled texture, NO dust clouds in the sky.',
@@ -44,8 +47,9 @@ def run(k, seed):
     if gen.exists(): gen.unlink()
     env = dict(os.environ, HF_HOME=str(LAB / 'models/hf'), HF_HUB_OFFLINE='1')
     t = time.monotonic()
+    extra = [str(F / '6F.png')] if k == '3' else []
     subprocess.run([str(CLI), '--model', 'flux3-image-klein', '--quantize', '8', '--low-ram', '--steps', '16', '--seed', str(seed),
-                    '--width', '1344', '--height', '768', '--image-paths', str(bk), '--prompt', KEEP + SKY[k] + STYLE,
+                    '--width', '1344', '--height', '768', '--image-paths', str(bk), *extra, '--prompt', KEEP + SKY[k] + (' Reference 2 shows ONLY where the hurricane is on this planet; do not copy its framing.' if extra else '') + STYLE,
                     '--output', str(gen)], env=env, stdout=open(F / f'_sky-{k}.log', 'w'), stderr=subprocess.STDOUT, check=True)
     mpath = F / f'_mask-{k}.png'
     subprocess.run(['swift', str(MASK), str(bk), str(mpath)], check=True, capture_output=True)

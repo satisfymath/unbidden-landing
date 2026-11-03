@@ -45,6 +45,16 @@ FIX = {
     'fabric': 'Change ONLY the suit fabric on the shoulder: it is plain white-grey woven fabric with soft folds, stitched '
               'seams and light dust, with NO embossed pattern, NO maze or circuit texture, NO print. Keep the harness strap, '
               'the backpack and everything else exactly.',
+    'ears': 'Change ONLY the left and right sides of the helmet: seen from behind, the helmet is one smooth round white '
+            'dome. Remove the grey blocks that stick out on both sides like headphones or ear cups: there is nothing '
+            'protruding from the silhouette. Only a very thin curved dark edge of the visor may show along the sides, '
+            'inside the round outline, and a small flat round side disc sits flush on the shell. Keep the rear vent block, '
+            'the neck ring, the backpack, the planet and everything else exactly as it is.',
+    'dome': 'Repaint ONLY the astronaut\'s helmet, seen from directly behind, exactly like the helmet in reference 2: a '
+            'smooth round white dome; the rectangular rear vent block with dark grille near the top; the black neck ring '
+            'at the bottom; on each side only a small flat round disc that sits INSIDE the round outline of the dome and '
+            'does not stick out at all. The silhouette of the helmet is a clean circle against the planet and the sky. '
+            'Same size, same position, same light from the right as the backpack. Keep everything else exactly.',
     '4': 'Change ONLY two things: (1) remove the rectangular patch on the astronaut\'s right shoulder and upper arm, the '
          'fabric there is plain white-grey with the same folds and dust; (2) remove the grey hose and its connector on the '
          'right side of the backpack, the side of the backpack there is plain white panel. Everything else stays exactly '
@@ -54,11 +64,11 @@ ap = argparse.ArgumentParser(); ap.add_argument('frame'); ap.add_argument('--fix
 a = ap.parse_args(); k = a.frame; fixkey = a.fix or k
 src = F / f'{k}.png'; bk = F / 'rejected' / f'{k}-pre-{fixkey}.png'
 bk.parent.mkdir(exist_ok=True); bk.write_bytes(src.read_bytes())
-refs = [str(bk)] + ([str(F / '6C.png')] if fixkey == '6Dr' else [str(F / '4.png')] if fixkey == '3h' else [] if fixkey in ('4', '4v', '3w', '6Fw', 'patch', 'fabric') else [str(F / 'rejected' / '4-pre-suit.png') if (F / 'rejected' / '4-pre-suit.png').exists() else str(F / '4.png')])
+refs = [str(bk)] + ([str(F / '6C.png')] if fixkey == '6Dr' else [str(F / '_helmref.png')] if fixkey == 'dome' else [str(F / '4.png')] if fixkey in ('3h', 'ears') else [] if fixkey in ('4', '4v', '3w', '6Fw', 'patch', 'fabric') else [str(F / 'rejected' / '4-pre-suit.png') if (F / 'rejected' / '4-pre-suit.png').exists() else str(F / '4.png')])
 prompt = ('Reference 1 is this exact frame. Reproduce it EXACTLY, pixel for pixel: same camera, same framing, same astronaut '
           'pose and size, same planet, moon, sky and rocky ground. ' + (('Reference 2 is ONLY the design reference of this '
           'astronaut seen close from behind: do NOT copy its framing. ') if len(refs) > 1 else '') + FIX[fixkey] +
-          (' Reference 2 is ONLY the design reference of the helmet; do NOT copy its framing.' if fixkey == '3h' else '') + (' Reference 2 shows the correct orientation of the reflected planet; do NOT copy its framing.' if fixkey == '6Dr' else '') + ' One single photorealistic frame, large-format 65mm, NASA photography realism, no text.')
+          (' Reference 2 is ONLY the design reference of the helmet; do NOT copy its framing.' if fixkey in ('3h', 'ears', 'dome') else '') + (' Reference 2 shows the correct orientation of the reflected planet; do NOT copy its framing.' if fixkey == '6Dr' else '') + ' One single photorealistic frame, large-format 65mm, NASA photography realism, no text.')
 gen = F / f'_suit-{k}.png'
 if gen.exists(): gen.unlink()
 env = dict(os.environ, HF_HOME=str(LAB / 'models/hf'), HF_HUB_OFFLINE='1')

@@ -53,3 +53,6 @@ Originales de cada corrección en `rejected/`.
 - **Traje**: 6F sin parche en el brazo; 6A sin relieve tipo laberinto en el hombro.
 - **Emblema 6D**: redibujado en la elipse espejo de la del 6B (centro 1117,562; semiejes 14.7×38.8; −20.9°) con el logo sin espejar.
 - Medido al final: luna presente sólo donde corresponde; planeta b* −14.5…−16.3 en frames abiertos; suelo neutro.
+
+## Orejeras del casco en 2, 3 y 6F (2026-11-03)
+FLUX no conseguía quitar las piezas laterales que sobresalían del casco visto desde atrás (las redibujaba). Solución: el astronauta del 6F se limpió con una edición acotada (semilla 2), y luego se trasplantó a 3 y 2: fondo limpio generado por FLUX sólo detrás del astronauta viejo, el astronauta de 6F alineado por los pies (escalado ×0.405 en el 2) y con la luz igualada al original. En el 3 además se recuperó el huracán a la derecha del planeta (`sky.py` con 6F como referencia de posición). Los tres cuerpos completos (2, 3, 6F) son ahora el mismo astronauta píxel a píxel.
