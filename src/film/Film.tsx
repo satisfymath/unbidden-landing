@@ -101,7 +101,7 @@ function FilmScrub({ nextId }: { nextId: string }) {
         }
         // 2. the last frame itself turns into glyphs
         const d = smooth((t - 0.36) / 0.34)
-        if (asciiLayer.current) asciiLayer.current.style.opacity = (d > 0 ? 1 : 0).toFixed(0)
+        if (asciiLayer.current) asciiLayer.current.style.opacity = smooth(d / 0.12).toFixed(3)
         if (Math.abs(d - lastDensity.current) > 0.004) { lastDensity.current = d; asciiRef.current?.draw(d) }
         // 3. the terminal's splash boots on top, and the verbs type in
         if (splashRef.current) {

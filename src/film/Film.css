@@ -92,7 +92,7 @@
 .film__brand-tag { font-family: var(--font-mono); font-size: clamp(var(--t-xs), 1.1vw, var(--t-base)); letter-spacing: 0.1em; color: var(--ink-2); }
 
 /* the last frame turning into glyphs, and the terminal's splash on top */
-.film__ascii { position: absolute; inset: 0; z-index: 4; will-change: opacity; }
+.film__ascii { position: absolute; inset: 0; z-index: 4; background: #000; will-change: opacity; }
 .film__ascii-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .film__splash {
   position: absolute;

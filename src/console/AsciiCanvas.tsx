@@ -40,11 +40,12 @@ export const AsciiCanvas = forwardRef<AsciiHandle, Props>(function AsciiCanvas({
     const dw = ir > cr ? H * ir : W, dh = ir > cr ? H : W / ir
     const dx = (W - dw) / 2, dy = (H - dh) / 2
     const d = Math.max(0, Math.min(1, density))
-    ctx.globalAlpha = 1 - d * 0.92
-    ctx.drawImage(s.img, dx, dy, dw, dh)
+    // the photo fades to black (fully gone by d = 0.75) while the glyph field develops on top of it
+    const photo = Math.max(0, 1 - d / 0.75)
+    if (photo > 0) { ctx.globalAlpha = photo * photo; ctx.drawImage(s.img, dx, dy, dw, dh) }
     if (d <= 0.01) return
     const cellW = dw / s.cols, cellH = dh / s.rows
-    ctx.globalAlpha = Math.min(1, d * 1.4)
+    ctx.globalAlpha = Math.min(1, d * 1.6)
     ctx.font = `${Math.max(6, cellH * 0.92)}px "Geist Mono Variable", ui-monospace, Menlo, monospace`
     ctx.textBaseline = 'top'
     const n = ramp.length - 1
