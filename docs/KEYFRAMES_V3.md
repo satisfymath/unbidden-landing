@@ -30,3 +30,16 @@ El clip 5→6A mostró un salto del casco en el frame 22: el 5 de FLUX tenía ot
 
 ## Luna
 Mundo fijo: la luna está sobre el lado derecho del planeta (el del huracán). Por lo tanto: detrás (1–4, 6F, 7, 8) arriba a la derecha; lado derecho (5, 5B, 6A) arriba a la derecha; de frente (6B, 6C, 6D) fuera de cuadro, sólo reflejada en el visor; lado izquierdo (6E) sobre el planeta a la izquierda (queda en profundidad detrás de él). Corregido: luna suelta borrada en 6B y 6D; luna de 6E trasladada sobre el planeta. Originales en `rejected/*-pre-moonfix.png`.
+
+## Revisión de continuidad completa (2026-11-03, tarde)
+**Planeta y luna (modo cinematográfico, aprobado por David):** el planeta y la luna están a distancia infinita; al orbitar sólo se deslizan por el cuadro según hacia dónde mira la cámara. La luna va siempre sobre el lado del huracán.
+| Frames | Cámara | Fondo |
+|---|---|---|
+| 1–4, 6F, 7, 8 | detrás | planeta completo, ciudades izquierda, huracán derecha, luna arriba derecha |
+| 5, 5B, 6A | derecha | borde del lado de las ciudades a la derecha, sin huracán, luna fuera de cuadro |
+| 6B, 6C, 6D | frente | sin planeta ni luna en el fondo; sólo el reflejo del visor (huracán a la derecha del reflejo) |
+| 6E | izquierda | borde del lado del huracán a la izquierda, luna arriba a la izquierda |
+Herramienta: `scripts/v3/sky.py` (fondo nuevo por FLUX, astronauta original intacto vía máscara de Apple Vision).
+**Traje y casco** (canon = frame 4 / 5B): bloque de ventilación trasero con rejilla, discos laterales blancos sin luces, mochila con ventanitas en las dos esquinas superiores, emblema oficial al centro, panel inferior con ranura ancha, sin ventana central, sin parches en el hombro, sin manguera lateral. Corregido en: 2 (luz roja, ventana central, rejilla, esquinas, emblema), 3 (casco y mochila re‑derivados desde 4; ventana central), 4 (parche y manguera), 6F (rejilla del casco, ventana central). Herramientas: `scripts/v3/pull.py`, `scripts/v3/suit.py`.
+**Reflejo:** 6D era espejo de 6B y su reflejo quedaba invertido; repintado sólo dentro del cristal con la orientación de 6C.
+Originales de cada corrección en `rejected/`.

@@ -13,7 +13,7 @@ import numpy as np, cv2
 
 D = Path(__file__).resolve().parents[2] / 'production/v3/frames'
 # hint: (cx, cy, search half-size) in 1344x768 pixels, from visual inspection
-HINTS = {'5': (305, 755, 45), '5B': (98, 728, 40), '4': (524, 552, 60), '3': (827, 318, 26), '6F': (1035, 342, 26), '6B': (222, 570, 40), '6D': (1121, 571, 40), '6E': (1205, 590, 40)}
+HINTS = {'2': (858, 528, 12), '5': (305, 755, 45), '5B': (98, 728, 40), '4': (524, 552, 60), '3': (827, 318, 26), '6F': (1035, 342, 26), '6B': (222, 570, 40), '6D': (1121, 571, 40), '6E': (1205, 590, 40)}
 OVERRIDE = {'3': ((827, 318), (11.5, 13.0), 0.0)}
 GAP0, GAP1, DOT_ANG, DOT_DIST, DOT_R, STROKE = 39.5, 50.5, 47.0, 1.263, 0.122, 0.055
 
@@ -78,6 +78,7 @@ def process(name):
     if not bk.exists(): shutil.copy(p, bk)
     cv2.imwrite(str(p), out.clip(0, 255).astype(np.uint8))
     b = int(rad * 2.6)
+    if min(int(ey) - b, int(ex) - b) < 0 or int(ey) + b > H or int(ex) + b > W: print(f'{name}: traced (no check crop at frame edge)'); return
     crop = out[int(ey) - b:int(ey) + b, int(ex) - b:int(ex) + b]
     cv2.imwrite(str(D / f'_check-{name}.png'), cv2.resize(crop.clip(0, 255).astype(np.uint8), None, fx=4, fy=4, interpolation=cv2.INTER_LANCZOS4))
     print(f'{name}: ellipse centre ({ex:.0f},{ey:.0f}) axes ({ax:.1f},{ay:.1f}) angle {ang:.0f}° ink {ink_col.astype(int)}')
