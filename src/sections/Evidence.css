@@ -1,0 +1,24 @@
+.evidence { background: var(--bg-2); }
+
+.levels { display: flex; flex-wrap: wrap; gap: var(--s-8) var(--s-24); padding-bottom: var(--s-24); border-bottom: 1px solid var(--line); font-size: var(--t-sm); color: var(--ink-2); }
+.levels__item { display: inline-flex; gap: var(--s-8); align-items: baseline; }
+.levels__id { font-size: var(--t-xs); color: var(--muted); }
+
+.findings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(var(--s-32), 4vw, var(--s-64)) clamp(var(--s-32), 5vw, var(--s-96)); margin-top: var(--s-48); }
+.finding { display: grid; gap: var(--s-16); align-content: start; padding-top: var(--s-24); border-top: 1px solid var(--line-2); }
+.finding__head { display: grid; gap: var(--s-8); }
+.finding__level { font-size: var(--t-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.finding__level--lab { color: var(--accent-ink); }
+.finding__level--proof { color: var(--ink-2); }
+.finding__title { font-size: var(--t-xl); line-height: 28px; font-weight: 500; max-width: 30ch; }
+.finding__figure { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s-8) var(--s-12); }
+.finding__big { font-size: clamp(var(--t-4xl), 4vw, var(--t-6xl)); line-height: 1; letter-spacing: -0.03em; font-weight: 500; }
+.finding__small { font-size: var(--t-sm); color: var(--muted); font-family: var(--font-mono); }
+.finding__body { font-size: var(--t-sm); line-height: 20px; color: var(--ink-2); max-width: 54ch; }
+.finding__caveat { font-size: var(--t-sm); line-height: 20px; color: var(--muted); max-width: 54ch; padding-left: var(--s-12); border-left: 1px solid var(--line); }
+.finding__links { display: flex; flex-wrap: wrap; gap: var(--s-16); font-size: var(--t-xs); }
+.finding__links a { color: var(--muted); }
+.finding__links a:hover { color: var(--ink); }
+.evidence__foot { margin-top: var(--s-64); font-size: var(--t-sm); color: var(--muted); max-width: var(--measure); }
+.evidence__foot a { color: var(--ink-2); text-decoration: underline; text-underline-offset: 0.18em; }
+@media (max-width: 760px) { .findings { grid-template-columns: 1fr; } }

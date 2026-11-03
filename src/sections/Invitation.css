@@ -1,0 +1,10 @@
+.invitation { background: var(--bg); padding-block: clamp(var(--s-96), 16vw, 220px); }
+.invitation__grid { display: grid; gap: var(--s-32); justify-items: start; }
+.invitation__brand { display: inline-flex; align-items: center; gap: var(--s-12); color: var(--ink-2); font-size: var(--t-sm); }
+.invitation__title { max-width: 12ch; }
+.install { display: grid; gap: var(--s-16); width: 100%; max-width: 760px; margin-top: var(--s-24); }
+.install__row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s-12); align-items: stretch; }
+.install__cmd { display: flex; align-items: center; min-height: 44px; padding: var(--s-8) var(--s-16); border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-2); font-size: var(--t-sm); line-height: 20px; color: var(--ink); overflow-x: auto; white-space: nowrap; }
+.install__notes { display: grid; gap: var(--s-4); font-size: var(--t-sm); line-height: 20px; color: var(--muted); }
+.install__alt { display: flex; flex-wrap: wrap; gap: var(--s-12); margin-top: var(--s-8); }
+@media (max-width: 560px) { .install__row { grid-template-columns: 1fr; } }

@@ -1,0 +1,37 @@
+/* Palette measured from the approved frames: space black, deep navy, limb blue, cold white, suit grey, city amber. */
+:root {
+  --bg: #030508;
+  --bg-2: #07101c;
+  --bg-3: #0b1a2e;
+  --ink: #e8f0f8;
+  --ink-2: #b7c3cf;
+  --muted: #7d8894;
+  --muted-2: #4a5560;
+  --line: rgba(232, 240, 248, 0.12);
+  --line-2: rgba(232, 240, 248, 0.06);
+  --limb: #2d7fd0;
+  --accent: #e0a060;      /* city lights; the only accent, used sparingly */
+  --accent-ink: #f3c98a;
+
+  --font-sans: 'Geist Variable', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* spacing tokens (landing-page-design skill) */
+  --s-2: 2px; --s-4: 4px; --s-8: 8px; --s-12: 12px; --s-16: 16px; --s-24: 24px; --s-32: 32px;
+  --s-40: 40px; --s-48: 48px; --s-64: 64px; --s-80: 80px; --s-96: 96px;
+
+  /* type scale (Tailwind steps) */
+  --t-xs: 12px; --t-sm: 14px; --t-base: 16px; --t-lg: 18px; --t-xl: 20px; --t-2xl: 24px; --t-3xl: 30px;
+  --t-4xl: 36px; --t-5xl: 48px; --t-6xl: 60px; --t-7xl: 72px; --t-8xl: 96px; --t-9xl: 128px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 500ms;
+  --dur-reveal: 700ms;
+
+  --measure: 62ch;
+  --hero-measure: 680px;
+  --container: 1200px;
+  --gutter: clamp(20px, 4vw, 48px);
+  --radius: 6px;
+  --radius-sm: 4px;
+}
