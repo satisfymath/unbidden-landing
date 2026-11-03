@@ -27,7 +27,7 @@ Los siete clips V1 aprobados siguen en `production/clips/clip-01…07` y sus enc
 |---|---|---|---|---|---|
 | H3 Turbo 8 (referencia V1) | 1024×576 | 16 min | 28.2 GB | 0.908 / 0.869 | continuidad correcta |
 | LTX‑2.5 two‑stage | 1280×704 | 16.8 min | 26.6 GB | 0.808 / 0.714 | píxel comparable, **continuidad rota**: cámara quieta y terreno que entra de golpe |
-| LTX‑2.5 HQ | 1920×1088 | ≈ 45 min | — | (ver `production/compare/REPORT.md`) | |
+| LTX‑2.5 HQ (two‑stages‑hq) | 1920×1088 | ≈ 45 min | — | 0.884 / 0.649 | mucha nitidez, pero la cámara casi no se mueve, el terreno aparece sólo en los últimos frames y **aparece una segunda luna fantasma**; descartado |
 | H3 Turbo 8 | 1344×768 | cortado en el paso 7/8 | 30.1 GB | — | guardián de memoria por paginación (OrbStack 6.4 GB + Chrome); se repite con memoria libre en V2 |
 
 Decisión: H3 FL2VA a 768p nativo para V2.
