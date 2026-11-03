@@ -5,8 +5,8 @@ Perfil: MiniMax H3 FL2VA, Turbo LoRA v4 step600 ema, 1024×576, 124 frames (5.17
 | Clip | Inicio → fin | Seed | Tiempo | Pico | SSIM primer frame | SSIM último frame | Veredicto |
 |---|---|---|---|---|---|---|---|
 | 01 | kf-1 → kf-2 | 1 | 16.1 min | 28.2 GB | 0.908 (vs kf-1) | 0.869 (vs kf-2) | **Aprobado.** Pedestal descendente limpio; planeta, huracán, luces y luna estables; el astronauta aparece de pie en la cresta y no se mueve. Observación menor: entre los frames 20–30 el casco entra por el borde inferior unos frames antes que la roca bajo sus pies (≈0.3 s), plausible como entrada por el borde del encuadre. |
-| 02 | último frame real de 01 → kf-3 | 1 | — | — | — | — | en generación |
-| 03 | último real de 02 → kf-4 | | | | | | pendiente |
+| 02 | último frame real de 01 → kf-3 | 1 | 16.0 min | 28.2 GB | = último de 01 | 0.874 (vs kf-3) | **Aprobado.** Push-in constante desde atrás; el astronauta crece de figura diminuta a plano medio sin moverse; planeta, luces y luna fijos; mochila con emblema legible al final. |
+| 03 | último real de 02 → kf-4 | 1 | | | | | en generación (cadena `scripts/h3/chain.zsh 3 7`) |
 | 04 | último real de 03 → kf-5 | | | | | | pendiente |
 | 05 | último real de 04 → kf-6 | | | | | | pendiente |
 | 06 | último real de 05 → kf-7 | | | | | | pendiente |
