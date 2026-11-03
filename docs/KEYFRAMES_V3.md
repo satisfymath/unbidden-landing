@@ -11,3 +11,12 @@ Los clips V2 a 1344×768 ganaron definición, pero heredaron incoherencias de lo
 5. Revisión visual por bloques (1–4, órbita 5–6F, 7–8) antes de seguir; un frame que rompe la continuidad se regenera con otra seed antes de pasar al siguiente.
 
 Los masters de `sequence/` no se modifican.
+
+## Resultado (2026-11-03, 09:2x)
+13 frames + hoja en `production/v3/frames/` (hoja de contacto: `contact-v3.png`; rechazados en `rejected/`). Ajustes hechos durante la revisión:
+- La jerarquía de referencias se invirtió: el master manda en encuadre y escala; el frame anterior sólo color y materiales. Sin eso FLUX copiaba el encuadre del anterior (1, 2 y 3 salían iguales).
+- La hoja de identidad sólo se usa en primeros planos; en 6B/6D/6C, cuando se pasaba como referencia, FLUX la copiaba como lámina de estudio. 6C y 6E usan 6A como identidad del casco.
+- 5 → 6A: corregido el lado del planeta (sólo huracán, sin ciudades) y 6E con la regla espejo (sólo ciudades, sin huracán).
+- 6D es el espejo exacto de 6B re‑renderizado por FLUX para conservar la lectura correcta del emblema: así 6B → 6C → 6D es simétrico por construcción.
+- 7 y 8 con escala explícita del astronauta (pequeño y casi invisible).
+Pendiente conocido: el emblema en la mochila varía levemente (anillo con punto central vs. anillo con punto fuera del hueco); se corregirá con la capa HTML del logo si hace falta.
