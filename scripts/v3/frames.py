@@ -130,6 +130,15 @@ def spec(name):
                   'consistent design, keeping the details they agree on. ' + ASTRONAUT +
                   'No planet, no moon, no ground. No text labels.')
         return {'refs': [str(p) for p in refs], 'prompt': prompt, 'title': 'Identity sheet'}
+    if name == '6Bfix':
+        refs = [OUT / 'rejected' / '6B-pre-helmetfix.png']
+        prompt = ('Reference 1 is this exact frame. Reproduce it EXACTLY, pixel for pixel: the same camera, the same helmet, '
+                  'the same visor and its reflection, the same round side mechanism, the same suit, harness, backpack, moon, '
+                  'rocky ground and sky. Change ONLY ONE thing: REMOVE the small ribbed vent grille that sticks out at the '
+                  'back edge of the helmet, behind and below the round side mechanism; the helmet shell there is smooth white '
+                  'with the same panel seams, and only the small flat rectangular clip at the back edge remains. '
+                  'Do not add or remove anything else. ' + STYLE)
+        return {'refs': [str(p) for p in refs], 'prompt': prompt, 'title': '6B without the side grille'}
     title, body = FRAMES[name]
     i = ORDER.index(name)
     refs = [OUT / '6D-mirror-of-6B.png'] if name == '6D' and (OUT / '6D-mirror-of-6B.png').exists() else [SEQ / f'{name}.png']
@@ -164,7 +173,7 @@ def spec(name):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('frames', nargs='+', choices=['sheet'] + ORDER)
+    ap.add_argument('frames', nargs='+', choices=['sheet', '6Bfix'] + ORDER)
     ap.add_argument('--seed', type=int, default=1)
     ap.add_argument('--force', action='store_true')
     a = ap.parse_args()
