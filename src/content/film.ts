@@ -53,7 +53,7 @@ const SEGMENTS: Seg[] = [
   { from: '5', to: '6A', title: 'Orbit: the visor grows', act: 'orbit', weight: 1.1, frames: 73, status: 'approved' },
   { from: '6A', to: '6B', title: 'Orbit: the planet leaves the background', act: 'orbit', weight: 1.1, frames: 73, status: 'approved' },
   { from: '6B', to: '6C', title: 'Orbit to the frontal close-up; the reflection fills the visor', act: 'orbit', weight: 1.3, frames: 90, status: 'approved' },
-  { from: '6C', to: '6D', title: 'Crossing to the far side; the reflection compresses', act: 'orbit', weight: 1.3 },
+  { from: '6C', to: '6D', title: 'Crossing to the far side; the reflection compresses', act: 'orbit', weight: 1.3, frames: 90, status: 'approved' },
   { from: '6D', to: '6E', title: 'Orbit to the far profile; the limb returns on the left', act: 'orbit', weight: 1.1 },
   { from: '6E', to: '6F', title: 'Around the back and easing out to full body', act: 'orbit', weight: 1.3 },
   { from: '6F', to: '7', title: 'The great pullback with a rise', act: 'pullback', weight: 1.3 },
