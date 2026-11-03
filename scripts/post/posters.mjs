@@ -9,7 +9,8 @@ const out = 'public/media/posters'
 await mkdir(out, { recursive: true })
 const widths = [1920, 1080]
 const sources = {}
-for (const id of IDS) sources[`kf-${id}`] = `sequence/${id}.png`
+// V3 keyframes (FLUX 3, continuity-checked) are the approved frames; sequence/ keeps the original masters untouched
+for (const id of IDS) sources[`kf-${id}`] = `production/v3/frames/${id}.png`
 // real last frame of the final clip (the ASCII dissolve grows out of it); produced by the v2 pipeline
 if (existsSync('production/v2/frames/7-8/last.png')) sources['last'] = 'production/v2/frames/7-8/last.png'
 
@@ -23,5 +24,5 @@ for (const [name, src] of Object.entries(sources)) {
     console.log(`${name}-${w}: webp ${(webp.size / 1024).toFixed(0)} KB · avif ${(avif.size / 1024).toFixed(0)} KB`)
   }
 }
-await sharp('sequence/8.png').resize(1200, 630, { fit: 'cover', position: 'centre' }).jpeg({ quality: 84 }).toFile(`${out}/og.jpg`)
+await sharp('production/v3/frames/8.png').resize(1200, 630, { fit: 'cover', position: 'centre' }).jpeg({ quality: 84 }).toFile(`${out}/og.jpg`)
 console.log(`total posters ${(total / 1024 / 1024).toFixed(2)} MB`)
