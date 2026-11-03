@@ -7,7 +7,7 @@ set -u
 ROOT=${0:A:h:h:h}; L=~/AI-Video-Lab; M=$L/models/minimax-h3-8bit-mlx; RT=$L/environments/mlx-h3-src
 ID=$1 FIRST=${2:A} LAST=${3:A} FR=$4 SEED=$5 PF=${6:A}
 W=${H3W:-1024}; H=${H3H:-576}; ST=${H3STEPS:-8}; B=${H3BUDGET:-50}
-OUT=${H3OUT:-$ROOT/production/clips}/clip-$ID/s$SEED; mkdir -p $OUT
+OUTROOT=${H3OUT:-$ROOT/production/clips}; OUTROOT=${OUTROOT:A}; OUT=$OUTROOT/clip-$ID/s$SEED; mkdir -p $OUT
 [ -f $OUT/master.mp4 ] && { echo "exists $OUT/master.mp4"; exit 0; }
 ffmpeg -loglevel error -y -i $FIRST -vf "scale=$W:$H:force_original_aspect_ratio=increase:flags=lanczos,crop=$W:$H" $OUT/_first.png
 ffmpeg -loglevel error -y -i $LAST  -vf "scale=$W:$H:force_original_aspect_ratio=increase:flags=lanczos,crop=$W:$H" $OUT/_last.png

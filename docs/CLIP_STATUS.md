@@ -1,11 +1,11 @@
 # Estado de los clips — Cinematic Sequence V2 (13 fotogramas)
 
-Perfil V2: MiniMax H3 FL2VA, **1344×768** (fallback automático 1280×704 si el guardián de memoria corta la generación), Turbo LoRA v4 8 pasos (prueba de 20 pasos sin Turbo en el piloto), `--budget 50`, 24 fps, frames `17n+5` por tramo, 100 % local. Protocolo: `scripts/v2/gen.zsh <from> <to> <frames>` elige el inicio (último frame real del tramo anterior si SSIM ≥ 0.85 contra su master; si no, re‑ancla al master y lo registra), genera, extrae frames reales, hoja de contactos y recorte del visor, y escribe el QC en `production/v2/QC.log`. Prompts en `production/v2/prompts/<from>-<to>.txt` (velocidad constante, astronauta bloqueado, órbita horaria vista desde arriba, geometría del reflejo).
+Perfil V2: MiniMax H3 FL2VA, **1344×768** (fallback automático 1280×704 si el guardián de memoria corta la generación), Turbo LoRA v4 8 pasos para planos abiertos y **20 pasos sin Turbo para la órbita** (decidido en el piloto), `--budget 50`, 24 fps, frames `17n+5` por tramo, 100 % local. Protocolo: `scripts/v2/gen.zsh <from> <to> <frames>` elige el inicio (último frame real del tramo anterior si SSIM ≥ 0.85 contra su master; si no, re‑ancla al master y lo registra), genera, extrae frames reales, hoja de contactos y recorte del visor, y escribe el QC en `production/v2/QC.log`. Prompts en `production/v2/prompts/<from>-<to>.txt` (velocidad constante, astronauta bloqueado, órbita horaria vista desde arriba, geometría del reflejo).
 
 | Tramo | Acto | Frames | Seed | Res. | Tiempo | SSIM primer | SSIM último | Veredicto |
 |---|---|---|---|---|---|---|---|---|
-| 5→6A | órbita (piloto) | 73 | 1 | 1344×768 | 15 min · 28.7 GB | 0.825 | 0.812 | **Aprobado e integrado.** Órbita continua hacia el frontal, el visor crece y el reflejo cambia con la cámara, el planeta se desplaza a la derecha, luna sale por arriba; sin movimiento del astronauta. Definición claramente superior a V1. Variante de 20 pasos sin Turbo en curso para comparar. |
-| 6A→6B | órbita | 73 | | | | | | pendiente |
+| 5→6A | órbita (piloto) | 73 | 1 | 1344×768 · **20 pasos sin Turbo** | 35.5 min · 28.7 GB | 0.831 | 0.827 | **Aprobado e integrado.** Órbita continua hacia el frontal, el visor crece y el reflejo cambia con la cámara, el planeta se desplaza a la derecha; astronauta inmóvil. Comparado con Turbo 8 (15 min, SSIM 0.825/0.812): Turbo tiene más micro‑contraste pero es ruido (moteado en el casco); 20 pasos es más limpio, más fotográfico y más estable entre frames (diff 10.9 vs 13.4). Decisión: **20 pasos para los seis tramos de la órbita**; Turbo 8 para planos abiertos. Turbo conservado en `production/v2/clips-turbo8/`. |
+| 6A→6B | órbita | 73 | 1 | 1344×768 · 20 pasos | | | | en generación |
 | 6B→6C | órbita | 90 | | | | | | pendiente |
 | 6C→6D | órbita | 90 | | | | | | pendiente |
 | 6D→6E | órbita | 73 | | | | | | pendiente |
