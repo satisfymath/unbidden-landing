@@ -4,13 +4,14 @@
   grid-template-rows: auto 1fr auto;
   background: var(--term-bg);
   color: var(--term-fg);
-  border: 1px solid var(--term-panel);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   font-family: var(--font-mono);
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 13.5px;
+  line-height: 21px;
   overflow: hidden;
   isolation: isolate;
+  transition: border-color 400ms var(--ease);
 }
 .term__head, .term__bar {
   display: flex;
@@ -18,14 +19,14 @@
   gap: var(--s-16);
   min-height: 36px;
   padding: 6px var(--s-16);
-  background: var(--term-surface);
+  background: rgba(255, 255, 255, 0.025);
   color: var(--term-secondary);
   font-size: 12px;
   white-space: nowrap;
   overflow: hidden;
 }
-.term__head { border-bottom: 1px solid var(--term-panel); }
-.term__bar { border-top: 1px solid var(--term-panel); gap: 0; white-space: normal; flex-wrap: wrap; }
+.term__head { border-bottom: 1px solid var(--line-2); }
+.term__bar { border-top: 1px solid var(--line-2); gap: 0; white-space: normal; flex-wrap: wrap; }
 .term__brand { color: var(--term-fg); font-weight: 600; letter-spacing: 0.04em; flex: none; }
 .term__mark { color: var(--term-fg); }
 .term__fields { overflow: hidden; text-overflow: ellipsis; }
@@ -41,15 +42,6 @@
 .term__warn { color: var(--term-accent); }
 .term__bad { color: #ffffff; }
 
-/* CRT scanlines, confined to the panel and faint; no flicker */
-.term__scan {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0, 0, 0, 0.07) 2px 3px);
-  mix-blend-mode: multiply;
-  z-index: 1;
-}
 .term pre { margin: 0; font: inherit; white-space: pre-wrap; word-break: break-word; line-height: 1.25; }
 .term pre.yaml, .term pre.help__usage--raw { white-space: pre; }
 .term code { font: inherit; }

@@ -27,7 +27,6 @@ export function Term({ fields = [], version = TUI.VERSION, clock = true, footer,
       </header>
       <div className="term__body">{children}</div>
       {footer ? <footer className="term__bar">{footer}</footer> : null}
-      <span className="term__scan" aria-hidden="true" />
     </section>
   )
 }

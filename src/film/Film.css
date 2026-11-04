@@ -1,6 +1,7 @@
 .film {
   position: relative;
-  height: calc(var(--film-weight) * 100vh + 100vh);
+  /* scroll length per unit of film weight: 82vh keeps every frame and shortens the walk to the product */
+  height: calc(var(--film-weight) * 82vh + 100vh);
   background: var(--bg);
 }
 .film__stage {
@@ -30,128 +31,113 @@
 .film__clip video { opacity: 0; }
 .film__clip.has-frame video { opacity: 1; }
 
-/* a flat, slightly darker band at the bottom so the beats stay readable on the brightest frames */
+/* a darker band at the foot so the lines stay readable on the brightest frames */
 .film__scrim {
   position: absolute;
   inset: auto 0 0 0;
-  height: 34%;
-  background: rgba(3, 5, 8, 0.42);
-  mask-image: linear-gradient(to top, #000 35%, transparent);
-  -webkit-mask-image: linear-gradient(to top, #000 35%, transparent);
+  height: 42%;
+  background: rgba(0, 0, 0, 0.5);
+  mask-image: linear-gradient(to top, #000 30%, transparent);
+  -webkit-mask-image: linear-gradient(to top, #000 30%, transparent);
   pointer-events: none;
 }
 
-.film__beats {
+/* ---- the opening: true black, the mark drawing itself, the tagline, nothing else ---- */
+.film__veil {
   position: absolute;
   inset: 0;
-  padding: 0 var(--gutter);
+  z-index: 3;
+  background: #000;
+  --x: 50%; --y: 40%; --r: 0.1px;
+  mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), transparent 99.2%, #000 100%);
+  -webkit-mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), transparent 99.2%, #000 100%);
   pointer-events: none;
 }
+.film__hero {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  display: grid;
+  place-items: center;
+  padding: 0 var(--gutter) clamp(40px, 7vh, 72px);
+  pointer-events: none;
+}
+.film__logo { --w: min(40vh, 62vw); display: grid; justify-items: center; text-align: center; }
+.mark { width: var(--w, 280px); height: var(--w, 280px); margin-left: calc(var(--w, 280px) * 0.156); overflow: visible; color: var(--ink); transform-origin: 42.2% 47.8%; will-change: transform, opacity; }
+.film__hero-text { display: grid; justify-items: center; will-change: opacity, transform, filter; margin-top: calc(var(--w) * -0.036); }
+.film__word { width: calc(var(--w) * 1.044); max-width: 100%; }
+.film__word img { width: 100%; height: auto; opacity: 0.94; }
+.film__title { margin-top: clamp(var(--s-32), 5vh, 56px); font-size: clamp(29px, 3.6vw, 58px); line-height: 1.1; letter-spacing: -0.032em; font-weight: 300; color: var(--ink); max-width: 24ch; }
+@media (min-width: 1000px) { .film__title { max-width: none; } }
+.film__tw { display: inline-block; white-space: pre; }
+
+/* the choreography, once, on load */
+.film__hero .mark__ring { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1900ms var(--ease-io) 250ms forwards; }
+.film__hero .mark__orbit { transform-box: view-box; transform-origin: 42.2% 47.8%; opacity: 0; animation: orbit 1900ms var(--ease-io) 250ms forwards, in 300ms linear 250ms forwards; }
+.film__hero .film__word { clip-path: inset(0 100% 0 0); animation: wipe 1100ms var(--ease-io) 1500ms forwards; }
+.film__hero .film__tw { opacity: 0; transform: translateY(0.45em); filter: blur(10px); animation: rise 1100ms var(--ease) forwards; animation-delay: calc(2100ms + var(--i) * 85ms); }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes orbit { from { transform: rotate(-360deg); } to { transform: rotate(0deg); } }
+@keyframes in { to { opacity: 1; } }
+@keyframes wipe { to { clip-path: inset(0 -2% 0 0); } }
+@keyframes rise { to { opacity: 1; transform: none; filter: blur(0); } }
+
+.film__hint { position: absolute; left: 50%; bottom: clamp(var(--s-24), 4vh, var(--s-40)); z-index: 7; transform: translateX(-50%); pointer-events: none; }
+.film__hint-in { display: grid; justify-items: center; gap: var(--s-12); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); opacity: 0; animation: in 900ms linear 3000ms forwards; }
+.film__hint i { position: relative; display: block; width: 1px; height: 34px; background: rgba(255, 255, 255, 0.16); }
+.film__hint i::after { content: ''; position: absolute; left: -2px; top: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--ink); animation: fall 2.2s var(--ease-io) infinite; }
+@keyframes fall { 0% { transform: translateY(-2px); opacity: 0; } 18% { opacity: 1; } 78% { opacity: 1; } 100% { transform: translateY(31px); opacity: 0; } }
+
+/* ---- lines over the film ---- */
+.film__beats { position: absolute; inset: 0; pointer-events: none; }
 .film__beat {
   position: absolute;
-  left: var(--gutter);
-  bottom: clamp(var(--s-40), 10vh, var(--s-96));
+  left: var(--gutter); right: var(--gutter);
+  bottom: clamp(88px, 13vh, 132px);
   margin: 0;
-  max-width: var(--hero-measure);
-  will-change: opacity, transform;
-}
-.film__beat--line {
-  font-size: clamp(var(--t-2xl), 3.4vw, var(--t-5xl));
-  line-height: 1.1;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  text-shadow: 0 1px 24px rgba(3, 5, 8, 0.6);
-}
-.film__beat--eyebrow {
-  bottom: auto;
-  top: calc(64px + var(--s-24));
-  font-family: var(--font-mono);
-  font-size: var(--t-xs);
-  line-height: 16px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-
-.film__brand {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  align-content: start;
-  justify-content: center;
-  justify-items: center;
-  gap: var(--s-16);
-  padding-top: clamp(56px, 8vh, 110px);
   text-align: center;
-  color: var(--ink);
-  pointer-events: none;
-  will-change: opacity, transform;
+  will-change: opacity, transform, filter;
 }
-.film__lockup { width: clamp(150px, 20vw, 290px); height: auto; }
-.film__brand-tag { font-family: var(--font-mono); font-size: clamp(var(--t-xs), 1.1vw, var(--t-base)); letter-spacing: 0.1em; color: var(--ink-2); }
+.film__beat--line { font-size: clamp(28px, 3.6vw, 56px); line-height: 1.08; font-weight: 300; letter-spacing: -0.032em; color: #fff; text-shadow: 0 2px 40px rgba(0, 0, 0, 0.55); text-wrap: balance; }
+.film__beat--eyebrow { bottom: auto; top: 88px; font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-2); }
 
-/* the last frame turning into glyphs, and the terminal's splash on top */
-.film__ascii { position: absolute; inset: 0; z-index: 4; background: #000; will-change: opacity; }
-.film__ascii-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.film__splash {
-  position: absolute;
-  left: 50%;
-  top: clamp(72px, 10vh, 140px);
-  z-index: 5;
-  transform: translate3d(-50%, 0, 0);
-  width: min(100% - 2 * var(--gutter), 820px);
-  will-change: opacity, transform;
-  pointer-events: none;
+/* ---- the film's instruments: chapters on the left, the way out on the right ---- */
+.film__hud { position: absolute; z-index: 6; left: var(--gutter); bottom: clamp(20px, 3.4vh, 32px); display: grid; gap: var(--s-8); width: min(320px, 50vw); }
+.film__act { font-size: 11px; line-height: 16px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255, 255, 255, 0.72); white-space: pre; }
+.film__acts { display: grid; grid-template-columns: 2.9fr 7.5fr 2.7fr; gap: 4px; }
+.film__seg { position: relative; display: block; height: 20px; margin-block: -8px; }
+.film__seg::before { content: ''; position: absolute; left: 0; right: 0; top: 9px; height: 2px; border-radius: 2px; background: rgba(255, 255, 255, 0.2); transition: background-color 200ms var(--ease), transform 200ms var(--ease); }
+.film__seg:hover::before { background: rgba(255, 255, 255, 0.4); transform: scaleY(1.8); }
+.film__seg i { position: absolute; left: 0; right: 0; top: 9px; height: 2px; border-radius: 2px; background: #fff; transform: scaleX(0); transform-origin: left; }
+
+.film__skipwrap { position: absolute; z-index: 8; right: var(--gutter); bottom: clamp(14px, 2.8vh, 26px); }
+.film__skip {
+  display: inline-flex; align-items: center; gap: var(--s-8);
+  min-height: 40px; padding: 6px 12px 6px 8px; margin-right: -8px;
+  border-radius: 999px;
+  font-size: 13px; letter-spacing: -0.005em; color: rgba(255, 255, 255, 0.72);
+  opacity: 0; animation: in 900ms linear 3000ms forwards;
+  transition: color 240ms var(--ease), background-color 240ms var(--ease);
 }
-.splash { display: grid; gap: var(--s-24); color: var(--term-fg); font-family: var(--font-mono); text-shadow: 0 0 18px rgba(0, 0, 0, 0.9); }
-.splash__head { display: flex; align-items: center; gap: clamp(var(--s-16), 3vw, var(--s-40)); }
+.film__skip:hover { color: #fff; background: rgba(255, 255, 255, 0.1); text-decoration: none; }
+.film__skip-arrow { display: inline-block; transition: transform 300ms var(--ease); }
+.film__skip:hover .film__skip-arrow { transform: translateY(2px); }
+@media (max-width: 560px) { .film__hud { width: 44vw; } }
+
+/* ---- the closing: the frame sinks into black, glyphs take its silhouette, then gather into the logotype ---- */
+.film__black { position: absolute; inset: 0; z-index: 4; background: #000; will-change: opacity; pointer-events: none; }
+.film__glyphs { position: absolute; inset: 0; z-index: 5; width: 100%; height: 100%; display: block; pointer-events: none; }
+.film__splash { position: absolute; left: 0; right: 0; z-index: 5; margin-top: clamp(24px, 4vh, 44px); display: grid; justify-items: center; pointer-events: none; }
 .splash__mark { font-size: clamp(9px, 1.05vw, 14px); font-weight: 700; }
+.splash__word { min-height: 1.2em; font-family: var(--font-mono); font-size: clamp(26px, 3.8vw, 54px); line-height: 1.2; font-weight: 400; white-space: nowrap; color: var(--term-fg); }
 .braille { margin: 0; font-family: Menlo, 'DejaVu Sans Mono', ui-monospace, monospace; font-weight: 400; line-height: 1.0; white-space: pre; color: var(--term-fg); }
 .braille__dot { color: var(--term-accent); }
-.splash__text { display: grid; gap: var(--s-8); }
-.splash__word { font-size: clamp(14px, 2vw, 26px); font-weight: 700; letter-spacing: 0.02em; white-space: nowrap; }
-.splash__version { margin-left: 1.2em; font-weight: 500; color: var(--term-primary); }
-.splash__tag { font-size: clamp(12px, 1.3vw, 17px); color: var(--term-secondary); }
-.splash__verbs { margin: 0; font: inherit; font-size: clamp(16px, 2.2vw, 28px); line-height: 1.3; font-weight: 700; white-space: pre; }
-.splash__gt { color: var(--term-secondary); font-weight: 400; }
-.splash__verb-on { color: var(--term-accent); }
-@media (max-width: 640px) { .splash__tag { display: none; } .splash__head { gap: var(--s-12); } .splash__mark { font-size: 7px; } .splash__verbs { font-size: 16px; } }
-.film__static-splash { width: min(100% - 2 * var(--gutter), var(--container)); margin: var(--s-64) auto 0; }
-
-.film__hint {
-  position: absolute;
-  left: 50%;
-  bottom: clamp(var(--s-24), 5vh, var(--s-48));
-  transform: translateX(-50%);
-  display: grid;
-  justify-items: center;
-  gap: var(--s-12);
-  font-family: var(--font-mono);
-  font-size: var(--t-xs);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-  pointer-events: none;
-}
-.film__hint i { display: block; width: 1px; height: 40px; background: var(--ink-2); opacity: 0.6; animation: hint 2.4s var(--ease) infinite; transform-origin: top; }
-@keyframes hint { 0% { transform: scaleY(0); opacity: 0 } 30% { opacity: 0.7 } 100% { transform: scaleY(1); opacity: 0 } }
-
-.film__skip {
-  position: absolute;
-  right: var(--gutter);
-  bottom: clamp(var(--s-24), 5vh, var(--s-48));
-  opacity: 0;
-  transition: opacity 300ms var(--ease);
-}
-.film__skip:focus-visible, .film__stage:hover .film__skip { opacity: 1; }
-@media (hover: none) { .film__skip { opacity: 0.8; } }
 
 /* static sequence (reduced motion / fallback) */
 .film--static { height: auto; padding-block: var(--s-96) var(--s-80); }
-.film__static-head { display: grid; gap: var(--s-24); width: min(100% - 2 * var(--gutter), var(--container)); margin: 0 auto var(--s-64); justify-items: start; }
-.film__static-head .display { max-width: 14ch; }
+.film__static-head { --w: min(36vh, 56vw); display: grid; gap: var(--s-16); width: min(100% - 2 * var(--gutter), var(--container)); margin: 0 auto var(--s-64); justify-items: center; text-align: center; }
 .film__static-list { display: grid; gap: var(--s-48); width: min(100% - 2 * var(--gutter), var(--container)); margin-inline: auto; }
 .film__static-item figure { margin: 0; display: grid; gap: var(--s-16); }
 .film__static-item img { width: 100%; height: auto; border-radius: var(--radius); }
 .film__static-item figcaption { display: grid; gap: var(--s-8); max-width: var(--measure); color: var(--ink-2); }
+.film__static-end { display: grid; justify-items: center; gap: var(--s-16); padding-block: var(--s-96) var(--s-48); }

@@ -1,0 +1,2095 @@
+{
+"commands": {
+"/inbox": {
+"typed": "/inbox",
+"rows": [],
+"panel": [
+"Open opportunities, most proven first.",
+" id                    evidence        status    title",
+" opp_2b02d8d87fad44ce  L5 operational  verified  dnspython 2.8.0: 1 known vulnerability, fixed in 2.9.0",
+" opp_b6303e6c53ea46df  L4 validated    proposed  item.owner_id is a foreign key without an index, filtered on by 2",
+"                                                 endpoint(s)",
+" opp_2031f6e0e78c4908  L1 suspicion    open      GET /api/v1/items/ reports count: unverified against the stored data",
+" opp_a1773571c4f74e34  L1 suspicion    open      GET /api/v1/users/ reports count: unverified against the stored data",
+" opp_e34f1d4911bd4bfe  L1 suspicion    declined  1 ruff I001 finding in hooks/",
+" opp_07fc002d615f4d62  L1 suspicion    declined  3 ruff DTZ011 findings in scripts/",
+" opp_b499a01d0f554b96  L1 suspicion    declined  1 ruff FURB167 finding in scripts/"
+]
+},
+"/why": {
+"typed": "/why opp_2b02d8d87fad44ce",
+"rows": [
+[
+{
+"t": "  "
+},
+{
+"t": "dnspython 2.8.0: 1 known vulnerability, fixed in 2.9.0",
+"b": 1
+},
+{
+"t": " · L5 · verified"
+}
+],
+[
+{
+"t": "  decision: propose_change because evidence L4 meets the mandate's L4"
+}
+],
+[
+{
+"t": "  verdict: improved · tests passed"
+}
+],
+[
+{
+"t": "    - dnspython 2.8.0 → 2.9.0: advisories GHSA-45c3-73f7-pv4m gone"
+}
+],
+[
+{
+"t": "    - lookup: PyPI's advisory data at 2026-11-04"
+}
+],
+[
+{
+"t": "  outcome after deploy 1:23f1759bc73b88ace36ae9ed0c69ac40b47d13f5: verified"
+}
+],
+[
+{
+"t": "    - deploys attributable: verified (unbidden), none external in between"
+}
+],
+[
+{
+"t": "    - deploy 1 judged healthy"
+}
+],
+[
+{
+"t": "    - no endpoint fails more after the deploy (1 judged, 1 with too few requests"
+},
+{
+"t": " "
+},
+{
+"t": "to tell)"
+}
+],
+[
+{
+"t": "    - dnspython 2.9.0 in backend (fixed in 2.9.0)"
+}
+],
+[
+{
+"t": "    confounder: 1 commit(s) between the two measured versions: 23f1759 security:"
+},
+{
+"t": " "
+},
+{
+"t": "bump dnspython 2.8.0 → 2.9.0 (#4)"
+}
+],
+[
+{
+"t": "    confounder: traffic is unbidden's own probes, not users"
+}
+],
+[
+{
+"t": "    confounder: data volume and cache state differ between the two windows"
+}
+],
+[
+{
+"t": "  egress to github.com (github.pull_request): "
+},
+{
+"t": "sent"
+},
+{
+"t": ", 1289 bytes"
+}
+]
+]
+},
+"/activity": {
+"typed": "/activity",
+"rows": [
+[
+{
+"t": "  Activity."
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "fst",
+"b": 1
+},
+{
+"t": " · 7 opportunities · 3 declined, 2 open, 1 proposed, 1 verified"
+}
+],
+[
+{
+"t": "  the project's own checks at 23f1759bc73b: passed (58 collected, 0 failed)"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "proven",
+"b": 1
+}
+],
+[
+{
+"t": "    L5 operational, live: verified · dnspython 2.8.0: 1 known vulnerability,"
+},
+{
+"t": " "
+},
+{
+"t": "fixed in 2.9.0"
+}
+],
+[
+{
+"t": "    L4 validated · item.owner_id is a foreign key without an index, filtered on"
+},
+{
+"t": " "
+},
+{
+"t": "by 2 endpoint(s)"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "declined, because",
+"b": 1
+}
+],
+[
+{
+"t": "       3 · the team's CI runs ruff the same way and passes on this commit:"
+},
+{
+"t": " "
+},
+{
+"t": "Unbidden's environment"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "waiting, because",
+"b": 1
+}
+],
+[
+{
+"t": "       1 · blocked: GET /api/v1/items/ accepts oauth2; the granted credential is"
+},
+{
+"t": " "
+},
+{
+"t": "not of that kind (without one it answers 401)"
+}
+],
+[
+{
+"t": "       1 · blocked: GET /api/v1/users/ accepts oauth2; the granted credential is"
+},
+{
+"t": " "
+},
+{
+"t": "not of that kind (without one it answers 401)"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "proposals merged",
+"b": 1
+},
+{
+"t": ": security: bump dnspython 2.8.0 → 2.9.0"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "proposals stale",
+"b": 1
+},
+{
+"t": ": perf: index item.owner_id · GET /api/v1/items/: session medi"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "capabilities",
+"b": 1
+},
+{
+"t": " 1 abandoned"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "learned",
+"b": 1
+},
+{
+"t": " (chance an experiment succeeds; prior 0.6)"
+}
+],
+[
+{
+"t": "    pypi-advisories · security · -: 0.73 (1 won, 0 lost)"
+}
+],
+[
+{
+"t": "    world · performance · -: 0.55 (1 won, 1 lost)"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "connections",
+"b": 1
+},
+{
+"t": " (what was checked, not what was declared)"
+}
+],
+[
+{
+"t": "    connected           compose:compose (local): read 3 op(s)"
+}
+],
+[
+{
+"t": "    connected           postgres:127.0.0.1:18803/app (staging): read 4 op(s)"
+}
+],
+[
+{
+"t": "    connected           postgres:container:db (local): read 3 op(s)"
+}
+],
+[
+{
+"t": "    needs_authorization github:satisfymath/c13-fst (local): reads nothing"
+}
+],
+[
+{
+"t": "    needs_capability    http_api:http://127.0.0.1:18802 (staging): reads nothing"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "needs a person"
+},
+{
+"t": " github:satisfymath/c13-fst: None"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "needs a person"
+},
+{
+"t": " docker compose up -d --wait db mailpit: found in"
+},
+{
+"t": " "
+},
+{
+"t": ".github/workflows/test-backend.yml; a proposal only: a person declares deploy"
+},
+{
+"t": " "
+},
+{
+"t": "steps in the mandate"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "needs a person"
+},
+{
+"t": " docker compose up -d --wait backend adminer: found in"
+},
+{
+"t": " "
+},
+{
+"t": ".github/workflows/test-docker-compose.yml; a proposal only: a person declares"
+},
+{
+"t": " "
+},
+{
+"t": "deploy steps in the mandate"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "needs a person"
+},
+{
+"t": " docker compose up -d db mailpit: found in backend/README.md; a"
+},
+{
+"t": " "
+},
+{
+"t": "proposal only: a person declares deploy steps in the mandate"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "needs a person"
+},
+{
+"t": " docker compose -f compose.yml -f compose.deploy.yml up -d:"
+},
+{
+"t": " "
+},
+{
+"t": "found in deployment-docker-compose.md; a proposal only: a person declares deploy"
+},
+{
+"t": " "
+},
+{
+"t": "steps in the mandate"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "needs a person"
+},
+{
+"t": " docker compose up -d db mailpit: found in development.md; a"
+},
+{
+"t": " "
+},
+{
+"t": "proposal only: a person declares deploy steps in the mandate"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "needs a person"
+},
+{
+"t": " docker compose up -d --wait backend: found in"
+},
+{
+"t": " "
+},
+{
+"t": "frontend/README.md; a proposal only: a person declares deploy steps in the"
+},
+{
+"t": " "
+},
+{
+"t": "mandate"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "needs a person"
+},
+{
+"t": " docker compose up -d: found in scripts/test.sh; a proposal"
+},
+{
+"t": " "
+},
+{
+"t": "only: a person declares deploy steps in the mandate"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "spent",
+"b": 1
+},
+{
+"t": " US$0.0000 in 0 remote call(s) · list price x reported tokens; the"
+},
+{
+"t": " "
+},
+{
+"t": "provider's dashboard is the bill"
+}
+]
+]
+},
+"/help": {
+"typed": "/help",
+"rows": [
+[],
+[
+{
+"t": "What you can do here.",
+"b": 1
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/help                    ",
+"b": 1
+},
+{
+"t": "  what you can do here"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/start [--ui] [--force]  ",
+"b": 1
+},
+{
+"t": "  run the agent in the background; --ui serves the"
+},
+{
+"t": " "
+},
+{
+"t": "dashboard"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/stop                    ",
+"b": 1
+},
+{
+"t": "  stop the agent cleanly; nothing stays frozen"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/kill [reason]           ",
+"b": 1
+},
+{
+"t": "  engage the kill switch: nothing runs or leaves"
+},
+{
+"t": " "
+},
+{
+"t": "until /resume"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/resume                  ",
+"b": 1
+},
+{
+"t": "  release the kill switch"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/inbox [--all]           ",
+"b": 1
+},
+{
+"t": "  open opportunities, most proven first"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/why <id>                ",
+"b": 1
+},
+{
+"t": "  every decision, verdict and outbound payload behind"
+},
+{
+"t": " "
+},
+{
+"t": "one opportunity"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/approve <id> [--hours N]",
+"b": 1
+},
+{
+"t": "  let the pull request for this opportunity open"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/reject <id> <reason>    ",
+"b": 1
+},
+{
+"t": "  close this opportunity with your reason"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/activity                ",
+"b": 1
+},
+{
+"t": "  found, decided, checked, asked, proven, spent"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/spend                   ",
+"b": 1
+},
+{
+"t": "  the machine's spend ledger and its cap"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/doctor                  ",
+"b": 1
+},
+{
+"t": "  what this machine provides, required or optional"
+},
+{
+"t": " "
+},
+{
+"t": "for your option"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/ui [--open]             ",
+"b": 1
+},
+{
+"t": "  open or reuse the dashboard in the browser"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/setup [section|--all]   ",
+"b": 1
+},
+{
+"t": "  found, model access, permissions; more by name"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/key                     ",
+"b": 1
+},
+{
+"t": "  paste a new Meta API key; it is proven with one"
+},
+{
+"t": " "
+},
+{
+"t": "short call before it counts"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/ask [id]                ",
+"b": 1
+},
+{
+"t": "  answer the agent's oldest question, or the one"
+},
+{
+"t": " "
+},
+{
+"t": "named, with arrows and Enter"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/language [en|es]        ",
+"b": 1
+},
+{
+"t": "  the language Unbidden speaks to you; saved on this"
+},
+{
+"t": " "
+},
+{
+"t": "machine"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/log                     ",
+"b": 1
+},
+{
+"t": "  show or hide the agent's log"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/verbose                 ",
+"b": 1
+},
+{
+"t": "  show or hide every allowed egress and model call"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/clear                   ",
+"b": 1
+},
+{
+"t": "  clear the feed"
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "/quit                    ",
+"b": 1
+},
+{
+"t": "  leave; the agent keeps running"
+}
+],
+[
+{
+"t": "  Anything else you type is a question about this project, answered from its"
+},
+{
+"t": " "
+},
+{
+"t": "records."
+}
+],
+[
+{
+"t": "  Ctrl+C cancels a running answer, clears the prompt, or asks twice to quit."
+},
+{
+"t": " "
+},
+{
+"t": "Quitting stops no agent. Esc closes a panel. Ctrl+L clears the feed. PageUp and"
+},
+{
+"t": " "
+},
+{
+"t": "PageDown scroll it."
+}
+]
+]
+},
+"/kill": {
+"typed": "/kill recorded for the page",
+"rows": [
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Deciding.",
+"b": 1,
+"d": 1,
+"a": 1
+}
+],
+[
+{
+"t": "  "
+},
+{
+"t": "Kill switch engaged: nothing runs and nothing is sent until /resume.",
+"a": 1
+}
+]
+]
+},
+"/resume": {
+"typed": "/resume",
+"rows": [
+[
+{
+"t": "  Kill switch released. The agent continues on its next cycle."
+}
+]
+]
+}
+},
+"header": "○˙ UNBiDDEN  fst · head eb824c31dd04 · autonomous · frontier  0.17.1",
+"bar": "○˙ fst · ○ agent off · now: deciding what to try → decided · autonomous · frontier · ollama ✓ · spend cap not verified · 2095 s ago",
+"open": [
+[
+{
+"t": "  ⢀⡤⠒⠒⠀",
+"b": 1
+},
+{
+"t": "⠛",
+"b": 1,
+"a": 1
+}
+],
+[
+{
+"t": "  ⢼⠀⠀⠀⠀⡧",
+"b": 1
+},
+{
+"t": "    U N B i D D E N   0.17.1",
+"b": 1
+}
+],
+[
+{
+"t": "  ⠘⠦⣀⣀⠴⠃",
+"b": 1
+},
+{
+"t": "     Intelligence that doesn't wait for instructions.",
+"d": 1
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Discovering.",
+"b": 1
+}
+],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Investigating.",
+"b": 1
+}
+],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Experimenting.",
+"b": 1
+}
+],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Proving.",
+"b": 1
+}
+],
+[],
+[],
+[
+{
+"t": "Where things stand.",
+"b": 1
+}
+],
+[
+{
+"t": "  opp_2b02d8d87fad44ce · L5 operational · verified · dnspython 2.8.0: 1 known"
+},
+{
+"t": " "
+},
+{
+"t": "vulnerability, fixed in 2.9.0"
+}
+],
+[
+{
+"t": "  opp_b6303e6c53ea46df · L4 validated · proposed · item.owner_id is a foreign"
+},
+{
+"t": " "
+},
+{
+"t": "key without an index, filtered on by 2 endpoint(s)"
+}
+],
+[
+{
+"t": "  opp_e34f1d4911bd4bfe · L1 suspicion · declined · 1 ruff I001 finding in hooks/"
+}
+],
+[
+{
+"t": "  opp_07fc002d615f4d62 · L1 suspicion · declined · 3 ruff DTZ011 findings in"
+},
+{
+"t": " "
+},
+{
+"t": "scripts/"
+}
+],
+[],
+[
+{
+"t": "The last 60 things it did.",
+"b": 1
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Discovering.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  02:59  ",
+"d": 1
+},
+{
+"t": "Capability need building: attempt 1"
+}
+],
+[
+{
+"t": "  02:59  ",
+"d": 1
+},
+{
+"t": "Capability need failed: the source returned no lines to build from"
+}
+],
+[
+{
+"t": "  02:59  ",
+"d": 1
+},
+{
+"t": "forge.build: done in 0 s."
+}
+],
+[
+{
+"t": "  02:59  ",
+"d": 1
+},
+{
+"t": "measuring a candidate in the sandbox (toward measured). Usually ~421 s."
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Proving.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "Improved, L4."
+}
+],
+[
+{
+"t": "          dnspython 2.8.0 → 2.9.0: advisories GHSA-45c3-73f7-pv4m gone",
+"d": 1
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "✓ ",
+"b": 1
+},
+{
+"t": "opp_2b02d8d87fad44ce: improved, evidence L4",
+"b": 1
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "lab.experiment: done in 108 s."
+}
+],
+[
+{
+"t": "          next: director.sweep",
+"d": 1
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Deciding.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "propose_change because evidence L4 meets the mandate's L4"
+}
+],
+[
+{
+"t": "          candidates: wait 0.0, propose_change 0.91",
+"d": 1
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "preparing the branch (toward proposed). First time: no estimate yet."
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Proving.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "Proposal ready on"
+},
+{
+"t": " "
+},
+{
+"t": "unbidden/dnspython-2-8-0-1-known-vulnerability-fi-ad44ce (e309b5f56b62), L4."
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "proposal.prepare: done in 0 s."
+}
+],
+[
+{
+"t": "          next: github.publish",
+"d": 1
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "opening the pull request (toward proposed). First time: no estimate"
+},
+{
+"t": " "
+},
+{
+"t": "yet."
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "✓ ",
+"b": 1
+},
+{
+"t": "Branch unbidden/dnspython-2-8-0-1-known-vulnerability-fi-ad44ce",
+"b": 1
+},
+{
+"t": " ",
+"b": 1
+},
+{
+"t": "pushed (e309b5f56b62); the pull request follows.",
+"b": 1
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "✓ ",
+"b": 1
+},
+{
+"t": "Pull request #4 opened: https://github.com/satisfymath/c13-fst/pull/4",
+"b": 1
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "✓ ",
+"b": 1
+},
+{
+"t": "github.publish: done in 4 s.",
+"b": 1
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "building a capability (toward found). Usually ~0 s."
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Discovering.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "Capability need building: attempt 2"
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "Capability need abandoned: the source returned no lines to build from"
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "forge.build: done in 0 s."
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "measuring a candidate in the sandbox (toward measured). Usually ~421 s."
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Investigating.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:01  ",
+"d": 1
+},
+{
+"t": "lab.perf_candidate · code · muse-spark-1.3 · 4996 tokens · US$0.0156"
+}
+],
+[
+{
+"t": "  03:02  ",
+"d": 1
+},
+{
+"t": "lab.workload · code · muse-spark-1.3 · 5001 tokens · US$0.0151"
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Proving.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:10  ",
+"d": 1
+},
+{
+"t": "Improved, L4: 18.3 → 5.9 ms, p = 0.029."
+}
+],
+[
+{
+"t": "  03:10  ",
+"d": 1
+},
+{
+"t": "✓ ",
+"b": 1
+},
+{
+"t": "opp_b6303e6c53ea46df: improved, evidence L4",
+"b": 1
+}
+],
+[
+{
+"t": "  03:10  ",
+"d": 1
+},
+{
+"t": "lab.experiment: done in 559 s."
+}
+],
+[
+{
+"t": "          next: director.sweep",
+"d": 1
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Deciding.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:10  ",
+"d": 1
+},
+{
+"t": "propose_change because evidence L4 meets the mandate's L4"
+}
+],
+[
+{
+"t": "          candidates: wait 0.0, propose_change 1.51",
+"d": 1
+}
+],
+[
+{
+"t": "  03:10  ",
+"d": 1
+},
+{
+"t": "preparing the branch (toward proposed). Usually ~0 s."
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Proving.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:10  ",
+"d": 1
+},
+{
+"t": "Proposal ready on"
+},
+{
+"t": " "
+},
+{
+"t": "unbidden/item-owner-id-is-a-foreign-key-without-a-ea46df (8cdf90467a3f), L4."
+}
+],
+[
+{
+"t": "  03:10  ",
+"d": 1
+},
+{
+"t": "proposal.prepare: done in 0 s."
+}
+],
+[
+{
+"t": "          next: github.publish",
+"d": 1
+}
+],
+[
+{
+"t": "  03:10  ",
+"d": 1
+},
+{
+"t": "opening the pull request (toward proposed). Usually ~4 s."
+}
+],
+[
+{
+"t": "  03:10  ",
+"d": 1
+},
+{
+"t": "✓ ",
+"b": 1
+},
+{
+"t": "Branch unbidden/item-owner-id-is-a-foreign-key-without-a-ea46df",
+"b": 1
+},
+{
+"t": " ",
+"b": 1
+},
+{
+"t": "pushed (8cdf90467a3f); the pull request follows.",
+"b": 1
+}
+],
+[
+{
+"t": "  03:10  ",
+"d": 1
+},
+{
+"t": "✓ ",
+"b": 1
+},
+{
+"t": "Pull request #5 opened: https://github.com/satisfymath/c13-fst/pull/5",
+"b": 1
+}
+],
+[
+{
+"t": "  03:10  ",
+"d": 1
+},
+{
+"t": "✓ ",
+"b": 1
+},
+{
+"t": "github.publish: done in 4 s.",
+"b": 1
+}
+],
+[
+{
+"t": "  03:11  ",
+"d": 1
+},
+{
+"t": "✓ ",
+"b": 1
+},
+{
+"t": "CI green on pull request #4",
+"b": 1
+},
+{
+"t": " ",
+"b": 1
+},
+{
+"t": "(https://github.com/satisfymath/c13-fst/pull/4)",
+"b": 1
+}
+],
+[
+{
+"t": "  03:11  ",
+"d": 1
+},
+{
+"t": "✓ ",
+"b": 1
+},
+{
+"t": "Merged pull request #4 as 23f1759bc73b.",
+"b": 1
+}
+],
+[
+{
+"t": "  03:11  ",
+"d": 1
+},
+{
+"t": "✓ ",
+"b": 1
+},
+{
+"t": "merged https://github.com/satisfymath/c13-fst/pull/4",
+"b": 1
+}
+],
+[
+{
+"t": "  03:11  ",
+"d": 1
+},
+{
+"t": "Proposal stale: the base branch moved; the evidence must be measured"
+},
+{
+"t": " "
+},
+{
+"t": "again"
+}
+],
+[
+{
+"t": "  03:11  ",
+"d": 1
+},
+{
+"t": "https://github.com/satisfymath/c13-fst/pull/5: stale"
+}
+],
+[
+{
+"t": "  03:11  ",
+"d": 1
+},
+{
+"t": "deploying (toward deployed). First time: no estimate yet."
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Discovering.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:12  ",
+"d": 1
+},
+{
+"t": "A deploy was observed: 23f1759bc73b (inferred)."
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Proving.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:12  ",
+"d": 1
+},
+{
+"t": "✓ ",
+"b": 1
+},
+{
+"t": "Deployed 23f1759bc73b: ok: merged security: bump dnspython 2.8.0 →",
+"b": 1
+},
+{
+"t": " ",
+"b": 1
+},
+{
+"t": "2.9.0",
+"b": 1
+}
+],
+[
+{
+"t": "  03:12  ",
+"d": 1
+},
+{
+"t": "✓ ",
+"b": 1
+},
+{
+"t": "ops.deploy: done in 18 s.",
+"b": 1
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Discovering.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:12  ",
+"d": 1
+},
+{
+"t": "Head moved 7276409913db → 23f1759bc73b."
+}
+],
+[
+{
+"t": "  03:12  ",
+"d": 1
+},
+{
+"t": "Connection needs_capability → degraded: documentation unreadable:"
+},
+{
+"t": " "
+},
+{
+"t": "Server disconnected without sending a response."
+}
+],
+[
+{
+"t": "  03:12  ",
+"d": 1
+},
+{
+"t": "The world changed at 23f1759bc73b: {'added': ['deployment:1',"
+},
+{
+"t": " "
+},
+{
+"t": "'image:52a724ec52ce', 'container:c13-fst-backend-1 -runs_image->"
+},
+{
+"t": " "
+},
+{
+"t": "image:52a724ec52ce', 'deployment…"
+}
+],
+[
+{
+"t": "  03:12  ",
+"d": 1
+},
+{
+"t": "scanning the code (toward found). Usually ~141 s."
+}
+],
+[
+{
+"t": "  03:12  ",
+"d": 1
+},
+{
+"t": "6 analyzers ran at 23f1759bc73b: 5 finding(s)."
+}
+],
+[
+{
+"t": "  03:12  ",
+"d": 1
+},
+{
+"t": "Resolved: a complete pypi-advisories report no longer shows it"
+}
+],
+[
+{
+"t": "  03:12  ",
+"d": 1
+},
+{
+"t": "The world changed at 23f1759bc73b: {'carried':"
+},
+{
+"t": " "
+},
+{
+"t": "['api:http_api:http://127.0.0.1:18802', 'database:postgres:127.0.0.1:18803/app',"
+},
+{
+"t": " "
+},
+{
+"t": "'database:postgres:container:db…"
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Deciding.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:12  ",
+"d": 1
+},
+{
+"t": "investigate because probe backend/app (40 public functions sampled)"
+}
+],
+[
+{
+"t": "  03:12  ",
+"d": 1
+},
+{
+"t": "observe.scan: done in 36 s."
+}
+],
+[
+{
+"t": "          next: director.sweep, observe.checks, research.probe",
+"d": 1
+}
+],
+[
+{
+"t": "  03:12  ",
+"d": 1
+},
+{
+"t": "running the project's own checks (toward found). Usually ~21 s."
+}
+],
+[
+{
+"t": "  03:13  ",
+"d": 1
+},
+{
+"t": "observe.checks: done in 24 s."
+}
+],
+[
+{
+"t": "  03:13  ",
+"d": 1
+},
+{
+"t": "probing for crashes (toward found). Usually ~32 s."
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Proving.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:13  ",
+"d": 1
+},
+{
+"t": "Impact judged healthy against"
+},
+{
+"t": " "
+},
+{
+"t": "0:7276409913db1d2cfcbbc2c3a7f7566c93e6ea8f."
+}
+],
+[
+{
+"t": "  03:13  ",
+"d": 1
+},
+{
+"t": "Outcome after deploy 1:23f1759bc73b88ace36ae9ed0c69ac40b47d13f5:"
+},
+{
+"t": " "
+},
+{
+"t": "verified"
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Investigating.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:14  ",
+"d": 1
+},
+{
+"t": "research.robustness · code · muse-spark-1.3 · 4542 tokens · US$0.0153"
+}
+],
+[
+{
+"t": "  03:14  ",
+"d": 1
+},
+{
+"t": "research.probe: done in 46 s."
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Discovering.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:15  ",
+"d": 1
+},
+{
+"t": "Connection degraded → needs_capability: c13-fst: 22 operations"
+},
+{
+"t": " "
+},
+{
+"t": "documented, authenticated by oauth2; no integration yet"
+}
+],
+[
+{
+"t": "  03:15  ",
+"d": 1
+},
+{
+"t": "The world changed at 23f1759bc73b: {'carried':"
+},
+{
+"t": " "
+},
+{
+"t": "['api:http_api:http://127.0.0.1:18802', 'database:postgres:127.0.0.1:18803/app',"
+},
+{
+"t": " "
+},
+{
+"t": "'database:postgres:container:db…"
+}
+]
+],
+"first_opportunity": "opp_2b02d8d87fad44ce",
+"bar_killed": "○˙ fst · KILL SWITCH · ○ agent off · now: deciding what to try → decided · autonomous · frontier · ollama ✓ · spend cap not verified · 2106 s ago",
+"ask": {
+"screen": "AskScreen",
+"text": [
+"The monthly cap (US$2.00) is reached. Raise it?",
+"US$2.00 was spent this month; remote calls are refused until the cap is raised or the month turns. Credits and the cap are different things: the cap is what this project may spend.",
+"Up and down, or a click, choose; Enter answers; Esc leaves it for later."
+],
+"options": [
+"raise: a new monthly cap in US$",
+"later: local work continues  default"
+],
+"later": [
+[
+{
+"t": "you > ",
+"b": 1
+},
+{
+"t": "The monthly cap (US$2.00) is reached. Raise it? → later"
+}
+],
+[
+{
+"t": "  Answered later: nothing changed"
+}
+],
+[
+{
+"t": "  03:50  ",
+"d": 1
+},
+{
+"t": "You answered later: nothing changed"
+}
+]
+],
+"raise": [
+[
+{
+"t": "you > ",
+"b": 1
+},
+{
+"t": "The monthly cap (US$2.00) is reached. Raise it? → raise"
+}
+],
+[
+{
+"t": "  Answered raise: monthly cap now US$10.00 (was US$2.00)"
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Deciding.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:50  ",
+"d": 1
+},
+{
+"t": "The mandate changed: ask={'id': 'ask_7d1f81da876049e8',"
+},
+{
+"t": " "
+},
+{
+"t": "'monthly_cap_usd': [2.0, 10.0]}"
+}
+],
+[],
+[
+{
+"t": "> ",
+"d": 1
+},
+{
+"t": "Asking.",
+"b": 1,
+"d": 1
+}
+],
+[
+{
+"t": "  03:50  ",
+"d": 1
+},
+{
+"t": "You answered raise: monthly cap now US$10.00 (was US$2.00)"
+}
+]
+]
+},
+"setup": [
+{
+"question": "GitHub access for pull requests?",
+"options": [
+"gh  default",
+"token",
+"skip"
+],
+"placeholder": "",
+"hint": "Up and down, or a click, choose; Enter confirms; Ctrl+C keeps what you answered and stops."
+},
+{
+"question": "GITHUB_TOKEN (hidden; leave empty to skip)",
+"options": [],
+"placeholder": "",
+"hint": "Answer here. Enter confirms; Ctrl+C keeps what you answered and stops."
+},
+{
+"question": "MODEL_API_KEY (hidden; Enter to skip and use the local model only)",
+"options": [],
+"placeholder": "",
+"hint": "Answer here. Enter confirms; Ctrl+C keeps what you answered and stops."
+},
+{
+"question": "How much may Unbidden do on its own?",
+"options": [
+"supervised  default",
+"autopilot",
+"autonomous"
+],
+"placeholder": "",
+"hint": "Up and down, or a click, choose; Enter confirms; Ctrl+C keeps what you answered and stops."
+}
+],
+"version": "0.17.1"
+}

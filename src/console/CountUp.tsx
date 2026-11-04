@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 
-interface Props { value: number; decimals?: number; duration?: number; prefix?: string; suffix?: string; className?: string }
+interface Props { value: number; decimals?: number; duration?: number; prefix?: string; suffix?: string; className?: string; format?: (n: number) => string }
 
 /** Counts up to a real value once on screen. The final value is what screen readers get; the ticking is decorative. */
-export function CountUp({ value, decimals = 1, duration = 1100, prefix = '', suffix = '', className }: Props) {
+export function CountUp({ value, decimals = 1, duration = 1100, prefix = '', suffix = '', className, format }: Props) {
   const reduced = useReducedMotion()
   const ref = useRef<HTMLSpanElement>(null)
   const [vState, setV] = useState(0)
@@ -29,11 +29,12 @@ export function CountUp({ value, decimals = 1, duration = 1100, prefix = '', suf
     io.observe(el)
     return () => { io.disconnect(); cancelAnimationFrame(raf) }
   }, [value, duration, reduced])
-  const text = `${prefix}${value.toFixed(decimals)}${suffix}`
+  const show = (n: number) => (format ? format(n) : n.toFixed(decimals))
+  const text = `${prefix}${show(value)}${suffix}`
   return (
     <span ref={ref} className={className}>
       <span className="sr-only">{text}</span>
-      <span aria-hidden="true" className="tnum">{prefix}{v.toFixed(decimals)}{suffix}</span>
+      <span aria-hidden="true" className="tnum">{prefix}{show(v)}{suffix}</span>
     </span>
   )
 }

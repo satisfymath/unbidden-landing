@@ -1,22 +1,21 @@
-/* Palette measured from the approved frames: space black, deep navy, limb blue, cold white, suit grey, city amber. */
+/* True black, one neutral ink ramp, one accent. Hairline type to match the hairline mark. */
 :root {
-  --bg: #030508;
-  --bg-2: #07101c;
-  --bg-3: #0b1a2e;
-  --ink: #e8f0f8;
-  --ink-2: #b7c3cf;
-  --muted: #7d8894;
-  --muted-2: #4a5560;
-  --line: rgba(232, 240, 248, 0.12);
-  --line-2: rgba(232, 240, 248, 0.06);
-  --limb: #2d7fd0;
-  --accent: #F5B700;      /* the TUI's accent (unbidden/tui/brand.py); the only accent, used sparingly */
+  --bg: #000;
+  --surface: #0b0b0d;
+  --surface-2: #141416;
+  --ink: #f5f5f7;
+  --ink-2: #a9a9ae;
+  --muted: #86868b;
+  --muted-2: #48484c;
+  --line: rgba(255, 255, 255, 0.11);
+  --line-2: rgba(255, 255, 255, 0.06);
+  --accent: #F5B700;      /* the TUI's accent (unbidden/tui/brand.py); the only colour, used sparingly */
   --accent-ink: #f7c94d;
 
-  /* the terminal app's palette (unbidden/tui/app.py:34-48): black and white, one accent */
-  --term-bg: #0e0e0e;
-  --term-surface: #161616;
-  --term-panel: #2a2a2a;
+  /* terminal panels: the TUI's black-and-white structure (unbidden/tui/app.py:34-48), set on the page's true black */
+  --term-bg: #0b0b0d;
+  --term-surface: #141416;
+  --term-panel: #2a2a2d;
   --term-fg: #ececec;
   --term-primary: #d7d7d7;
   --term-secondary: #9a9a9a;
@@ -25,22 +24,22 @@
   --font-sans: 'Geist Variable', system-ui, -apple-system, sans-serif;
   --font-mono: 'Geist Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* spacing tokens (landing-page-design skill) */
   --s-2: 2px; --s-4: 4px; --s-8: 8px; --s-12: 12px; --s-16: 16px; --s-24: 24px; --s-32: 32px;
   --s-40: 40px; --s-48: 48px; --s-64: 64px; --s-80: 80px; --s-96: 96px;
 
-  /* type scale (Tailwind steps) */
   --t-xs: 12px; --t-sm: 14px; --t-base: 16px; --t-lg: 18px; --t-xl: 20px; --t-2xl: 24px; --t-3xl: 30px;
   --t-4xl: 36px; --t-5xl: 48px; --t-6xl: 60px; --t-7xl: 72px; --t-8xl: 96px; --t-9xl: 128px;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
   --dur: 500ms;
-  --dur-reveal: 700ms;
+  --dur-reveal: 1000ms;
 
   --measure: 62ch;
   --hero-measure: 680px;
-  --container: 1200px;
+  --container: 1240px;
   --gutter: clamp(20px, 4vw, 48px);
-  --radius: 6px;
-  --radius-sm: 4px;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-lg: 22px;
 }

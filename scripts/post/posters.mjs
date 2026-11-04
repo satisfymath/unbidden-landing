@@ -4,15 +4,16 @@ import sharp from 'sharp'
 import { mkdir } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 
-const IDS = ['1', '2', '3', '4', '5', '5B', '6A', '6B', '6C', '6D', '6E', '6F', '7', '8']
+// v4 lean storyboard (production/v4/storyboard.json → storyboards.lean)
+const IDS = ['1', '2', '4', '6A', '6C', '6E', '6F', '7', '8']
 const out = 'public/media/posters'
 await mkdir(out, { recursive: true })
 const widths = [1920, 1080]
 const sources = {}
-// V3 keyframes (FLUX 3, continuity-checked) are the approved frames; sequence/ keeps the original masters untouched
-for (const id of IDS) sources[`kf-${id}`] = `production/v3/frames/${id}.png`
+// v4 keyframes (continuity-corrected, max quality) are the current frames; sequence/ keeps the original masters untouched
+for (const id of IDS) sources[`kf-${id}`] = `production/v5/keyframes/${id}.png`
 // real last frame of the final clip (the ASCII dissolve grows out of it); produced by the v2 pipeline
-if (existsSync('production/v2/frames/7-8/last.png')) sources['last'] = 'production/v2/frames/7-8/last.png'
+if (existsSync('production/v5/last.png')) sources['last'] = 'production/v5/last.png'
 
 let total = 0
 for (const [name, src] of Object.entries(sources)) {
@@ -24,5 +25,5 @@ for (const [name, src] of Object.entries(sources)) {
     console.log(`${name}-${w}: webp ${(webp.size / 1024).toFixed(0)} KB · avif ${(avif.size / 1024).toFixed(0)} KB`)
   }
 }
-await sharp('production/v3/frames/8.png').resize(1200, 630, { fit: 'cover', position: 'centre' }).jpeg({ quality: 84 }).toFile(`${out}/og.jpg`)
+await sharp('production/v5/keyframes/8.png').resize(1200, 630, { fit: 'cover', position: 'centre' }).jpeg({ quality: 84 }).toFile(`${out}/og.jpg`)
 console.log(`total posters ${(total / 1024 / 1024).toFixed(2)} MB`)

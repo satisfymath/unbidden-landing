@@ -1,17 +1,11 @@
 import { FOOTER, LINKS } from '../content/product'
-import { WORDMARK } from '../content/film'
-import { Logo, Wordmark } from '../ui/Logo'
 import './Footer.css'
 
 export function Footer() {
   return (
     <footer className="footer" aria-label="Footer">
       <div className="container footer__grid">
-        <div className="footer__brand">
-          <Logo size={18} />
-          <Wordmark text={WORDMARK} className="footer__word" />
-          <span className="mono footer__version">{FOOTER.version}</span>
-        </div>
+        <span className="mono footer__version">{FOOTER.version}</span>
         <ul className="footer__links">
           <li><a href={LINKS.repo} rel="noopener">GitHub</a></li>
           <li><a href={LINKS.architecture} rel="noopener">Architecture</a></li>
@@ -21,6 +15,7 @@ export function Footer() {
         </ul>
         <p className="footer__credit">{FOOTER.credit}</p>
       </div>
+      <div className="footer__word" aria-hidden="true"><img src="./media/brand/wordmark-white.png" width={761} height={80} alt="" decoding="async" /></div>
     </footer>
   )
 }

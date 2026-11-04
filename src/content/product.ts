@@ -1,6 +1,7 @@
 /**
- * Copy for Acts II–IV. Every claim traces to satisfymath/unbidden-ai at main 5ecd617 (0.12.2, 2026-11-03).
- * Sources are noted inline as file:line of that commit. Nothing here is invented; levels are the repository's own.
+ * Copy for the editorial sections. Every claim traces to satisfymath/unbidden-ai: file:line notes are of main 5ecd617
+ * (0.12.2) unless they name main b8082e9 (0.17.1, 2026-11-04), tag v0.18.1 (700a5da) or the branch feat/64-campaign (campaign 12's report).
+ * Nothing here is invented; levels are the repository's own.
  */
 const GH = 'https://github.com/satisfymath/unbidden-ai'
 export const LINKS = {
@@ -10,7 +11,11 @@ export const LINKS = {
   evidence: `${GH}/blob/main/docs/EVIDENCE.md`,
   decisions: `${GH}/blob/main/docs/DECISIONS.md`,
   install: `${GH}/blob/main/docs/INSTALL.md`,
-  release: `${GH}/releases/tag/v0.12.2`,
+  release: `${GH}/releases/tag/v0.18.1`,
+  road: `${GH}/blob/main/docs/ROAD-TO-1.0.md`,
+  corpus: `${GH}/blob/main/bench/campaign13/corpus.yaml`,
+  findings: `${GH}/blob/main/docs/bench/campaign13/FINDINGS.md`,
+  changelog: `${GH}/blob/main/docs/RELEASE.md`,
   license: `${GH}/blob/main/LICENSE`,
   fastapiPr: 'https://github.com/satisfymath/full-stack-fastapi-template/pull/1',
   richPr: 'https://github.com/satisfymath/rich/pull/1',
@@ -70,7 +75,30 @@ export const MODELS = {
   rule: 'Three options: local (nothing leaves), mixed, api. In every option secrets and production data stay on the machine, and the egress gate re-checks the label and scans every payload before it leaves. A model is never the control. Code decides what leaves.',
 }
 
-export type FigurePart = { text: string; big?: boolean; num?: number; unit?: string }
+/** main b8082e9: docs/ROAD-TO-1.0.md §4 and docs/RELEASE.md 0.13.0 — what a stop can be. */
+export const STOPS = {
+  eyebrow: 'When it cannot go on',
+  items: [
+    { name: 'Retry', body: 'A service did not answer: it retries with backoff, then declares it.' },
+    { name: 'Ask', body: 'A person can grant something: one question with options, the job parked until the answer.' },
+    { name: 'Declare', body: 'It cannot work here: it says so, with the cause, and does not retry at the same commit.' },
+  ],
+  note: 'A spend limit, a kill switch, a policy refusal or a busy host is a block, never a verdict on the opportunity.',
+}
+
+/** README.md at main b8082e9, "Where your code goes". */
+export const OPTIONS = [
+  { name: 'local', body: 'Only a model on this machine, through Ollama. Nothing leaves.' },
+  { name: 'mixed', body: 'Light work stays local. Heavy work whose content may leave goes to Meta’s API first.' },
+  { name: 'api', body: 'Meta’s API only. A call that may not leave the machine is refused, and says why.' },
+]
+/** The sensitivity labels, lowest first. `stays`: in every option these never leave the machine. */
+export const LABELS: { name: string; stays?: boolean }[] = [
+  { name: 'instructions' }, { name: 'synthetic' }, { name: 'public_code' }, { name: 'private_code' },
+  { name: 'production_data', stays: true }, { name: 'secret', stays: true },
+]
+
+export type FigurePart = { text: string; big?: boolean; num?: number; unit?: string; dec?: number }
 export interface Finding {
   id: string
   level: string
@@ -86,12 +114,126 @@ export interface Finding {
   links: { label: string; href: string }[]
 }
 
+/**
+ * Campaign 12. Report: docs/bench/campaign12/REPORT.md on feat/64-campaign (§2, §3, §5, §7, §8, §12b, §13); summary on
+ * main b8082e9: docs/DECISIONS.md D-065 and docs/ROAD-TO-1.0.md §3. `of` is the denominator shown for that row: Level B
+ * (real models) ran on 4 development and 8 independent repositories; frontier repositories had no Level B run.
+ */
+export interface CampaignCell { on: number; of: number; also?: number; alsoKind?: 'debian' | 'scope'; note?: string }
+export interface CampaignRow { id: string; label: string; scope: string; dev: CampaignCell; independent: CampaignCell; frontier: CampaignCell | null }
+export const CAMPAIGN = {
+  eyebrow: 'Campaign 12 · measured, then re-measured',
+  classes: [
+    { id: 'dev', name: 'Development', n: 12, note: 'shaped the product: calibration, not evidence' },
+    { id: 'independent', name: 'Independent', n: 19, note: 'chosen by a written rule: the real test' },
+    { id: 'frontier', name: 'Frontier', n: 8, note: 'at or past the edge of what it supports' },
+  ],
+  rows: [
+    {
+      id: 'lifecycle', label: 'Installed and ran as a product', scope: 'setup, start, a second start refused, stop, dashboard · no model, twice',
+      dev: { on: 12, of: 12 }, independent: { on: 19, of: 19 }, frontier: { on: 8, of: 8 },
+    },
+    {
+      id: 'checks', label: 'Reproduced the project’s own tests, green', scope: 'default mandate, on the confirmation pass',
+      dev: { on: 8, of: 12 },
+      independent: { on: 3, of: 19, also: 4, alsoKind: 'debian', note: '7 with Debian’s archive allowed' },
+      frontier: { on: 1, of: 8, also: 4, alsoKind: 'scope', note: '4 said to be out of scope' },
+    },
+    {
+      id: 'pr', label: 'Published a pull request', scope: 'of the repositories run with real Meta models',
+      dev: { on: 3, of: 4 }, independent: { on: 1, of: 8 }, frontier: null,
+    },
+    {
+      id: 'chain', label: 'Merged on green CI, deployed, healthy', scope: 'only repositories with a lab and a passed drill could reach this',
+      dev: { on: 2, of: 4 }, independent: { on: 0, of: 8 }, frontier: null,
+    },
+  ] as CampaignRow[],
+  facts: [
+    { value: 0, label: 'human interventions during the runs' },
+    { value: 0, label: 'actions outside the mandate' },
+    { value: 17, unit: ' of 24', label: 'model runs published nothing, and said why' },
+    { value: 2.1, dec: 2, prefix: 'US$', label: 'in model spend for the 24 evaluation runs' },
+  ],
+  notes: [
+    'The full chain ran on fst (twice) and spoolman, whose run needed the US$2 default monthly cap raised to US$10. Spoolman: index measured 14.69 → 2.77 ms, 15 green checks.',
+    'Five of the first eight pull requests were green on the team’s CI. Three failed its formatter, a defect since fixed; on the next pass one failed its type check, which candidates now go through too.',
+    'These numbers come from candidates older than today’s release. The final pass over the same 39 has not run.',
+  ],
+  links: [
+    { label: 'the 39 repositories', href: LINKS.corpus },
+    { label: 'DECISIONS.md D-065', href: `${LINKS.decisions}#d-065` },
+    { label: 'spoolman pull request', href: 'https://github.com/satisfymath/c12-spoolman/pull/1' },
+    { label: 'misago pull request', href: 'https://github.com/satisfymath/c12-misago/pull/1' },
+  ],
+}
+
+/** main b8082e9: docs/RELEASE.md, docs/ROAD-TO-1.0.md §2-3, docs/bench/campaign13/FINDINGS.md */
+/** main b8082e9: bench/campaign13/corpus.yaml — the 39, in the corpus's order. */
+export const CORPUS = ['fst', 'conduit', 'spoolman', 'codex-lb', 'aegra', 'ctfd', 'timetracker', 'rich', 'marshmallow', 'pyjwt', 'humanize', 'sqlmodel', 'mimirq', 'mediacms', 'misago', 'brightbean-studio', 'traefik-manager', 'oauthlib', 'rdflib', 'graphtage', 'python-progressbar', 'python-mss', 'reader', 'harlequin', 'dooit', 'pipx', 'recruitops-agent', 'aiogramshopbot', 'gymhero', 'dinkydash', 'tracklater', 'librephotos', 'netbox', 'archery', 'resumeio-to-pdf', 'ai-avatar-system', 'zod', 'gin', 'weblate']
+
+/**
+ * v0.18.1: docs/bench/campaign13/DEV-EVIDENCE.md and dev-evidence.json (copied verbatim to ./dev-evidence.json).
+ * `cls` is each repository's class in bench/campaign13/corpus.yaml. Records are linked at the tag, so they stay put.
+ */
+export type CorpusClass = 'dev' | 'independent' | 'frontier'
+const TAG = `${GH}/blob/v0.18.1`
+export const DEV_RUNS = {
+  eyebrow: 'Campaign 13 · the development runs, 0.15 to 0.18',
+  figureLabel: 'of the teams’ own tests pass under Unbidden’s measurement',
+  lede: 'Each suite ran offline, in the environment the team’s own CI job prepares. Every fix of 0.16 to 0.18 was made from these runs, so they are development evidence, not the final pass.',
+  facts: [
+    { value: 15, label: 'team suites pass: 11 development, 3 independent, 1 frontier' },
+    { value: 3, label: 'applications brought up by Unbidden itself from their own compose file' },
+    { value: 1, label: 'L5 by verified deploy: fst, a security bump. No effect measured' },
+    { value: 0.34, dec: 2, prefix: 'US$', label: 'of model spend. Preparing and measuring environments calls no model' },
+  ],
+  groups: { pass: 'Suite passes', red: 'Runs, not green', declared: 'Declared', rest: 'Not in these runs' },
+  classOf: {
+    fst: 'dev', 'codex-lb': 'dev', timetracker: 'dev', spoolman: 'dev', aegra: 'dev', ctfd: 'dev', humanize: 'dev', rich: 'dev', marshmallow: 'dev', pyjwt: 'dev', sqlmodel: 'dev', conduit: 'dev',
+    misago: 'independent', graphtage: 'independent', oauthlib: 'independent', 'traefik-manager': 'independent', harlequin: 'independent', pipx: 'independent', 'brightbean-studio': 'independent', rdflib: 'independent', mediacms: 'independent', mimirq: 'independent',
+    archery: 'frontier',
+  } as Record<string, CorpusClass>,
+  // DEV-EVIDENCE.md "Records": misago's record names mailpit's page as its health (host port 61027 is mailpit:8025 in dev-host/misago-final.json)
+  extra: { misago: 'Its recorded drill judged health on the page of its mail catcher, a defect fixed in 0.18.1: misago now answers on its own port. The drill has no later record.' } as Record<string, string>,
+  notes: [
+    'Not one pass: the counts come from different versions and runs. traefik-manager passed all 2192 once and is flaky; oauthlib’s later offline runs need the network to build.',
+    'Two rollback drills are recorded as passed, on codex-lb and misago. misago’s judged health on its mail catcher’s page, a defect found afterwards; TimeTracker’s was declared, its head adds a migration.',
+    'On copies under satisfymath, nothing upstream. The final pass over the 39, on a frozen candidate, has not run.',
+  ],
+  links: [
+    { label: 'DEV-EVIDENCE.md', href: `${TAG}/docs/bench/campaign13/DEV-EVIDENCE.md` },
+    { label: 'dev-evidence.json', href: `${TAG}/docs/bench/campaign13/dev-evidence.json` },
+  ],
+  recordHref: (record: string) => `${TAG}/${record}`,
+}
+
+export const SINCE = {
+  eyebrow: 'Since then · campaign 13, in progress',
+  items: [
+    { version: '0.13', title: 'Every stop retried, asked or declared.', body: 'A block is no longer read as a verdict on the change.' },
+    { version: '0.14', title: 'Known vulnerabilities, proven like any other change.', body: 'On an fst copy: dnspython bumped with the team’s lock tool, advisories 1 → 0, suite green on both sides, L4.' },
+    { version: '0.16', title: 'The environment the team’s own CI job prepares.', body: 'It runs that job, then measures offline in it. humanize, graphtage, oauthlib and codex-lb passed for the first time.' },
+    { version: '0.17', title: 'Failing tests repaired, only when the team’s CI fails them too.', body: 'A change to a test, a skip or an xfail is refused. So far proven on a seeded defect; on real repositories the rule opened nothing.' },
+    { version: '0.18', title: 'It brings an application up by itself.', body: 'From the repository’s own compose file, with generated secrets and free ports, then a rollback drill. codex-lb, misago and TimeTracker so far.' },
+    { version: '0.18', title: 'L5 beyond latency.', body: 'A security, quality or correctness change reaches L5 by a verified deploy: healthy, attributable, the fixed version running. It claims no measured effect.' },
+  ],
+  roadTitle: 'What 1.0 asks for',
+  road: 'Improvements proven in five classes, re-checked independently, with zero tolerance for a false promotion, an action outside the mandate or a leaked secret. Until every line is met on the same 39, the version stays an experimental candidate.',
+  classes: ['latency', 'correctness', 'reliability', 'security', 'quality'],
+  links: [
+    { label: 'ROAD-TO-1.0.md', href: LINKS.road },
+    { label: 'campaign 13 findings', href: LINKS.findings },
+    { label: 'release notes', href: LINKS.changelog },
+  ],
+}
+
 export const EVIDENCE = {
   eyebrow: 'The evidence',
-  title: 'What it has shown, at the level it reached.',
-  // README.md L108–117; docs/EVIDENCE.md L4–5
+  title: '39 repositories. Where it held, and where it thins.',
+  // main b8082e9: docs/DECISIONS.md D-065
   lede:
-    'Every result carries one of six levels, and a laboratory result is never presented as a deployed one. These are the results the repository documents today, with their own caveats.',
+    'The installed product, real Meta models, every repository pinned before the first run. It proved dependable everywhere, and its value funnel thin on code it did not grow up with. Both are the result.',
+  resultsEyebrow: 'Single systems, at the level each one reached',
   levels: [
     { id: 'L1', name: 'reasonable suspicion' },
     { id: 'L2', name: 'reproduced' },
@@ -111,12 +253,43 @@ export const EVIDENCE = {
       // docs/bench/stage10-revalidation/v4-dec7ba2/README.md:9-12; docs/DECISIONS.md D-010 L83–87, D-013 L119–126
       body: 'Sixty-nine percent faster under the current criteria (perf-v4): permutation p = 0.0286, interval [+67 %, +70 %], the index seen in use on every measured call, A/A control −2 %, confirmed in new sessions. The pull request was opened, merged and deployed in autonomous mode with nobody intervening.',
       // docs/EVIDENCE.md L32–33; docs/DECISIONS.md D-014 L140–143; stage10-revalidation/v4-f9fe965/README.md:6
-      caveat: 'First measured 13.0 → 4.1 ms (p = 3.4e-08) under earlier criteria, marked pending revalidation; one later revalidation came out inconclusive. In production the endpoint measured 10.5 → 1.7 ms, below the pre-registered 10 ms floor, so no change was claimed: this stays L4, not L5.',
+      caveat: 'First measured 13.0 → 4.1 ms (p = 3.4e-08) under earlier criteria, marked pending revalidation; one later revalidation came out inconclusive. In production the endpoint measured 10.5 → 1.7 ms, below the pre-registered 10 ms floor, so no change was claimed: that deploy stays L4, not L5. A later run, in campaign 12, reached a latency L5.',
       verdict: 'opp_56f9d3d9ace0468f (item.owner_id): improved, L4 confirmed (US$0.0292)',
       links: [
         { label: 'revalidation v4-dec7ba2', href: `${GH}/blob/main/docs/bench/stage10-revalidation/v4-dec7ba2/README.md` },
         { label: 'DECISIONS.md D-010', href: `${LINKS.decisions}#d-010` },
         { label: 'pull request', href: LINKS.fastapiPr },
+      ],
+    },
+    {
+      id: 'mealie',
+      level: 'L5 · on SQLite, probe traffic',
+      levelClass: 'proof',
+      levelN: 5,
+      title: 'mealie: a latency L5, on SQLite',
+      figure: [{ text: '11.8 ms', num: 11.8, dec: 1, unit: ' ms', big: true }, { text: '→' }, { text: '2.2 ms', num: 2.2, dec: 1, unit: ' ms', big: true }, { text: 'median live, GET /api/foods/empty' }],
+      // main b8082e9: docs/EVIDENCE.md "Results on single systems"; docs/DECISIONS.md D-035, D-036, D-041
+      body: 'An unindexed shopping_list_items.food_id, found and written by Unbidden, measured between two verified deploys. The 56 other probed endpoints did not change.',
+      caveat: 'Probe traffic only, not users. On PostgreSQL the same index gave no relevant change: its live run, 5.3 → 5.0 ms, is recorded as an invalid L5, and its lab L4 was not confirmed on that engine.',
+      links: [
+        { label: 'DECISIONS.md D-041', href: `${LINKS.decisions}#d-041` },
+        { label: 'EVIDENCE.md', href: LINKS.evidence },
+      ],
+    },
+    {
+      id: 'fst-security',
+      level: 'L5 · verified deploy, no effect measured',
+      levelClass: 'proof',
+      levelN: 5,
+      title: 'fst: a known vulnerability, fixed and deployed',
+      figure: [{ text: '2.8.0', big: true }, { text: '→' }, { text: '2.9.0', big: true }, { text: 'dnspython, checked in a running container' }],
+      // v0.18.1: docs/RELEASE.md 0.18.0, docs/bench/campaign13/DEV-EVIDENCE.md, rehearsal-0.18/fst/B1.json
+      body: 'The first L5 that is not latency. In autonomous mode Unbidden found the advisory, bumped the package, saw the copy’s CI go green, merged and deployed it.',
+      caveat: 'A verified deploy claims no measured effect and is kept apart from measured L5. This was a copy of a development repository, deployed to a local lab; a person set up the lab, the mandate and the rollback drill beforehand.',
+      verdict: 'L5 · verified deploy: deployed, healthy, the fix is in the running version; no measured effect claimed',
+      links: [
+        { label: 'run record', href: DEV_RUNS.recordHref('docs/bench/campaign13/rehearsal-0.18/fst/B1.json') },
+        { label: 'pull request', href: 'https://github.com/satisfymath/c13-fst/pull/4' },
       ],
     },
     {
@@ -148,21 +321,9 @@ export const EVIDENCE = {
       caveat: 'A redeploy verdict from the same run was later found invalid and is recorded as such.',
       links: [{ label: 'DECISIONS.md D-015', href: `${LINKS.decisions}#d-015` }],
     },
-    {
-      id: 'holdout',
-      level: 'Honest result',
-      levelClass: 'honest',
-      levelN: 0,
-      title: 'Repositories it had never seen',
-      figure: [{ text: '7 / 10', big: true }, { text: 'bootstrapped' }, { text: '0 / 7', big: true }, { text: 'validated improvements' }],
-      verdict: '16:16:37 opp_65ff7491fae54f8b: no proven fix (GET /api/articles/feed: session medians 32.37 -> 32.68 ms (-1% faster), permutation p = 0.9)',
-      // docs/EVIDENCE.md L44–84, L95
-      body: 'The holdout was run once and frozen. It has not yet found a validated improvement in an unseen, mature library, and one earlier L4 was a false positive. All of the results on this page cost US$1.24 at list price.',
-      caveat: 'Version 0.12.2 is an experimental candidate, not 1.0. What blocks 1.0: no useful cycle has been shown on an application not used in development.',
-      links: [{ label: 'EVIDENCE.md', href: LINKS.evidence }, { label: 'RELEASE.md', href: `${GH}/blob/main/docs/RELEASE.md` }],
-    },
   ] as Finding[],
-  foot: 'Production impact is measured from Unbidden’s own probes, not user traffic. A few real projects, run a few times each: the repository makes no claim about rates.',
+  // main b8082e9: docs/EVIDENCE.md, "Across unseen repositories", "Known limits"
+  foot: 'The blind holdout, run once and frozen: 7 of 10 bootstrapped, 0 of 7 with a validated improvement, and one earlier L4 was a false positive. It has not yet found a validated improvement in an unseen, mature library. Production impact comes from Unbidden’s own probes, not user traffic.',
   footLink: { label: 'Read docs/EVIDENCE.md', href: LINKS.evidence },
 }
 
@@ -174,11 +335,11 @@ export const INSTALL = {
   notes: [
     'macOS on Apple silicon, verified by hand. Linux x86-64 with glibc 2.28 or newer, verified in CI only.',
     'The machine provides git; Docker with buildx and compose for the sandbox; Ollama for the local and mixed options; a Meta API key for mixed and api.',
-    'Open source under Apache 2.0. Version 0.12.2, an experimental candidate, not 1.0.',
+    'Open source under Apache 2.0. Version 0.18.1, an experimental candidate, not 1.0.',
   ],
 }
 
 export const FOOTER = {
-  version: 'v0.12.2 · experimental candidate',
-  credit: 'Film sequence generated locally with MiniMax H3 (FL2VA) on Apple silicon from eight approved frames; no inference runs in the browser. Site built from the public repository; evidence levels are the repository’s own.',
+  version: 'v0.18.1 · experimental candidate',
+  credit: 'Film sequence generated locally with MiniMax H3 (FL2VA) on Apple silicon from nine approved frames; no inference runs in the browser. Site built from the public repository; evidence levels are the repository’s own.',
 }

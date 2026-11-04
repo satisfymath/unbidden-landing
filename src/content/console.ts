@@ -1,7 +1,8 @@
 /**
- * Terminal material for the operator's console. Every string here is copied from satisfymath/unbidden-ai at main
- * 5ecd617 (0.12.2) or from logs the repository itself ships. Sources are given per block as path:line. Nothing is invented;
- * where a value is not documented it is omitted rather than guessed. See docs/CONTENT_SOURCES.md.
+ * Terminal material for the operator's console. Every string here is copied from satisfymath/unbidden-ai or from logs
+ * the repository itself ships. path:line references are to main at 5ecd617 (0.12.2) unless a block names main at b8082e9
+ * (0.17.1); the strings were re-checked against b8082e9. Nothing is invented; where a value is not documented it is
+ * omitted rather than guessed. See docs/CONTENT_SOURCES.md.
  */
 
 // unbidden/tui/brand.py:7-20
@@ -13,16 +14,11 @@ export const TUI = {
   ACCENT: '#F5B700',
   RING: ['⠀⡀⡤⠒⠒⠀', '⠼⠀⠀⠀⠀⡧', '⠘⠦⡀⡀⠴⠃'] as const,
   DOT: '⠛',
-  VERSION: '0.12.2',
+  VERSION: '0.18.1',
   // unbidden/tui/app.py:34-48
   PALETTE: { bg: '#0e0e0e', surface: '#161616', panel: '#2a2a2a', fg: '#ececec', primary: '#d7d7d7', secondary: '#9a9a9a' },
 }
-// brand.py:14-19 renders the ring as three rows of braille cells; the first row is five cells and the dot is the sixth.
-export const SPLASH_ROWS = [
-  '⠀⡀⡤⠒⠒⠀',
-  '⠼⠀⠀⠀⠀⡧',
-  '⠘⠦⡀⡀⠴⠃',
-] as const
+// unbidden/tui/brand.py: `" ".join(WORDMARK)`, the wordmark as the terminal letterspaces it
 export const SPLASH_WORDMARK = 'U N B i D D E N'
 
 /**
@@ -49,91 +45,6 @@ export const BRAILLE_MARK = [
 export const BRAILLE_DOT = { rows: [0, 1, 2], fromCol: 20 }
 
 export type Verb = 'Discovering' | 'Investigating' | 'Experimenting' | 'Proving' | 'Deciding' | 'Asking' | 'Guarding'
-export interface FeedLine { t: string; text: string; detail?: string; accent?: boolean }
-export interface FeedGroup { verb: Verb; lines: FeedLine[] }
-
-/**
- * One real cycle, as the agent logged it: docs/bench/stage10-regression/v4-3b5b99d/conduit/R10-B-1/cycles.log
- * (lines 1-11 and 232-262; the dependency-build failure at lines 12-231 is omitted). The lines are grouped under the
- * feed's verbs following unbidden/tui/feed.py:32-73; timestamps are the log's own.
- */
-export const FEED: { workspace: string; head: string; groups: FeedGroup[]; source: string; note: string } = {
-  workspace: 'conduit',
-  head: '029eb7781c60',
-  source: 'docs/bench/stage10-regression/v4-3b5b99d/conduit/R10-B-1/cycles.log',
-  note: 'Agent log of one real cycle on the Conduit repository (regression run v4-3b5b99d), laid out as the feed shows it. Timestamps as recorded.',
-  groups: [
-    {
-      verb: 'Discovering',
-      lines: [
-        { t: '15:28:20', text: 'HEAD is 029eb7781c60' },
-        { t: '15:28:21', text: 'connections: postgres:127.0.0.1:55440/postgres connected, http_api:http://127.0.0.1:18110 needs_capability' },
-        { t: '15:28:25', text: 'scan of 029eb7781c60: 0 reports, 0 new opportunities' },
-        { t: '15:29:57', text: 'map of 029eb7781c60: 38 resources, 0 blind spots' },
-      ],
-    },
-    {
-      verb: 'Investigating',
-      lines: [
-        { t: '15:29:58', text: 'robustness probe at 029eb7781c60: investigate (probe app (30 public functions sampled))' },
-        { t: '15:51:42', text: 'candidate: index on favorites.article_id, written from the finding', accent: true },
-      ],
-    },
-    {
-      verb: 'Experimenting',
-      lines: [
-        { t: '15:51:43', text: 'writing the workload (attempt 1)' },
-        { t: '15:52:08', text: 'validating the workload at the base' },
-        { t: '15:55:30', text: 'measuring 4 sessions per side, alternating' },
-        { t: '15:58:56', text: 'A/A control: base against base' },
-        { t: '16:00:37', text: 'confirming in 4 new sessions per side (1 candidate(s) at this commit)' },
-        { t: '16:04:03', text: 'running the CI test job on both sides' },
-      ],
-    },
-    {
-      verb: 'Proving',
-      lines: [{ t: '16:08:09', text: 'opp_8aa2df1342d54cdc: improved, evidence L4', accent: true }],
-    },
-    {
-      verb: 'Deciding',
-      lines: [
-        { t: '16:08:09', text: "opp_8aa2df1342d54cdc: propose_change (evidence L4 meets the mandate's L4)" },
-        { t: '16:08:09', text: 'opp_8aa2df1342d54cdc: branch unbidden/favorites-article-id-is-a-foreign-key-wi-d54cdc ready' },
-      ],
-    },
-    {
-      verb: 'Guarding',
-      lines: [
-        {
-          t: '16:08:09',
-          text: "opp_8aa2df1342d54cdc: not published: destination github.com is not in the mandate's allowlist; destination api.github.com is not in the mandate's allowlist",
-          accent: true,
-        },
-      ],
-    },
-    {
-      verb: 'Investigating',
-      lines: [{ t: '16:08:10', text: 'candidate: index on articles.author_id, written from the finding' }],
-    },
-    {
-      verb: 'Experimenting',
-      lines: [
-        { t: '16:08:31', text: 'validating the workload at the base' },
-        { t: '16:08:58', text: 'measuring 4 sessions per side, alternating' },
-        { t: '16:12:30', text: 'running the CI test job on both sides' },
-      ],
-    },
-    {
-      verb: 'Proving',
-      lines: [
-        {
-          t: '16:16:37',
-          text: 'opp_65ff7491fae54f8b: no proven fix (GET /api/articles/feed: session medians 32.37 -> 32.68 ms (-1% faster), permutation p = 0.9 (slower: 0.114), 95% interval of the effect [-2%, +0%]; no change of 20% or more either way)',
-        },
-      ],
-    },
-  ],
-}
 
 /** The cycle as docs/ARCHITECTURE.md:11-19 names it, mapped to the five stage labels of the page plus `operate`. */
 export const CYCLE_NODES = [
@@ -209,17 +120,8 @@ export const DOCTOR = {
   ],
   note: 'Recorded on an Apple M5 Pro on 2026-11-01 (product walk, docs/bench/product-walk-2026-11-01).',
 }
-// docs/bench/product-walk-2026-11-01/walk-stdout.log:85-92, the home screen of `unbidden` with no command
-export const HOME = [
-  'rich · head 9d8f9a372cc5 · mode supervised · models frontier',
-  'agent: not running',
-  'opportunities: none yet',
-  'no scan yet',
-  'spend: US$27.7637 spent on this machine · US$9.5308 available under the cap',
-  'next: unbidden scan',
-]
 
-// unbidden/cli.py:2131-2302 and unbidden/distribution/__init__.py:175-178 — every top-level command and its help text
+// main at b8082e9: unbidden/cli.py:2288-2449 and unbidden/distribution/__init__.py:175-178 — every top-level command and its help text; `host` and `export` from v0.18.1's cli.py
 export const HELP = {
   usage: 'usage: unbidden [-h] [--version] [--json] [--plain] <command> ...',
   description: "Intelligence that doesn't wait for instructions.",
@@ -253,12 +155,16 @@ export const HELP = {
     ['mode', 'show or set autonomy: supervised, autopilot or autonomous'],
     ['deploy', "deploy a local commit or branch with the mandate's steps"],
     ['drill', 'prove rollback works before autonomy relies on it'],
+    ['host', "bring the application up from the repository's own compose file"],
     ['hold', 'list holds, or release one (people only)'],
     ['deploys', 'every deploy seen, the code it ran and how that is known'],
     ['doctor', 'check the machine, local model, Docker, Meta API, GitHub and mandate'],
+    ['ask', "the agent's questions for you; answer one with its option"],
+    ['key', 'the Meta API key on this machine: its state, set a new one (proven), or remove it'],
     ['models', 'show or set the model profile: local, local-first or frontier'],
     ['route', 'which model serves each task here, and why (dry)'],
     ['spend', 'remote model spend on this machine against the verified credit balance'],
+    ['export', 'the evidence bundle of this workspace: records, transcripts, spend'],
     ['egress', 'everything that left this machine, with the exact payloads'],
     ['probe', 'look for crashes with property-based tests, run offline'],
     ['investigate', 'explain a failure between two versions, read-only'],
@@ -275,12 +181,24 @@ export const HELP = {
   ] as [string, string][],
 }
 
-// unbidden/tui/text.py:34-71 — the app's slash commands
+/** The site's own grouping of `--help`, by what a person is trying to do. Names and help text stay verbatim in HELP. */
+export const COMMAND_GROUPS: { id: string; label: string; names: string[] }[] = [
+  { id: 'setup', label: 'Set up', names: ['init', 'setup', 'prepare', 'doctor', 'key', 'connections', 'approve-writes', 'update', 'uninstall'] },
+  { id: 'run', label: 'Run', names: ['app', 'start', 'stop', 'watch', 'status', 'map', 'ui', 'chat'] },
+  { id: 'find', label: 'Find and prove', names: ['scan', 'inbox', 'show', 'try', 'why', 'decide', 'activity', 'probe', 'investigate', 'forge'] },
+  { id: 'decide', label: 'Decide', names: ['ask', 'review', 'approve', 'reject'] },
+  { id: 'operate', label: 'Operate', names: ['mode', 'drill', 'host', 'deploy', 'deploys', 'hold', 'kill', 'resume'] },
+  { id: 'audit', label: 'Watch and audit', names: ['health', 'errors', 'logs', 'models', 'route', 'spend', 'export', 'egress'] },
+]
+
+// unbidden/tui/text.py:34-71 — the app's slash commands (/ask and /key: main at b8082e9, text.py:66-69)
 export const SLASH = [
   ['/start [--ui] [--force]', 'run the agent in the background; --ui serves the dashboard'],
   ['/stop', 'stop the agent cleanly; nothing stays frozen'],
   ['/kill [reason]', 'engage the kill switch: nothing runs or leaves until /resume'],
   ['/resume', 'release the kill switch'],
+  ['/ask [id]', "answer the agent's oldest question, or the one named, with arrows and Enter"],
+  ['/key', 'paste a new Meta API key; it is proven with one short call before it counts'],
   ['/inbox [--all]', 'open opportunities, most proven first'],
   ['/why <id>', 'every decision, verdict and outbound payload behind one opportunity'],
   ['/approve <id> [--hours N]', 'let the pull request for this opportunity open'],
@@ -359,7 +277,7 @@ export const THEN = [
 ] as [string, string][]
 // README.md:39-49
 export const INSTALL_LINE = 'curl -fsSL https://unbidden.cl/install.sh | sh'
-export const VERSION_LINE = ['unbidden --version', '# unbidden 0.12.2'] as const
+export const VERSION_LINE = ['unbidden --version', '# unbidden 0.18.1'] as const
 
 // cli-spinners "dots" frames (the CLI uses Rich's default status spinner); used for the active feed line
 export const SPINNER = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
