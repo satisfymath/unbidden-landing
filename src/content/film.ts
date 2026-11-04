@@ -47,7 +47,7 @@ const SEGMENTS: Seg[] = [
   { from: '1', to: '2', title: 'Pedestal down: the ridge and the astronaut are revealed', act: 'discovery', weight: 2.4, frames: 90, tailTrim: 22, status: 'review' },
   { from: '2', to: '4', title: 'One long dolly from the ridge to the helmet and the emblem', act: 'discovery', weight: 1.6, frames: 90, tailTrim: 28, status: 'review' },
   { from: '4', to: '6A', title: 'The arc around the right shoulder; the planet leaves the background', act: 'orbit', weight: 1.5, frames: 90, tailTrim: 13, status: 'review' },
-  { from: '6A', to: '6C', title: 'Orbit to the frontal close-up; the reflection fills the visor', act: 'orbit', weight: 1.5, frames: 90, tailTrim: 21, status: 'review' },
+  { from: '6A', to: '6C', title: 'Orbit to the frontal close-up; the reflection fills the visor', act: 'orbit', weight: 1.5, frames: 90, tailTrim: 22, status: 'review' },
   { from: '6C', to: '6E', title: 'Crossing to the far profile; the reflection compresses', act: 'orbit', weight: 1.5, frames: 90, tailTrim: 18, status: 'review' },
   { from: '6E', to: '6F', title: 'Around the back and easing out to full body', act: 'orbit', weight: 1.3, frames: 90, tailTrim: 18, status: 'review' },
   { from: '6F', to: '7', title: 'The great pullback with a rise', act: 'pullback', weight: 1.3, frames: 90, tailTrim: 6, status: 'review' },
