@@ -5,3 +5,4 @@ production/
 *.log
 test-results/
 playwright-report/
+__pycache__/

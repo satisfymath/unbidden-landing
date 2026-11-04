@@ -1,0 +1,85 @@
+# unbidden.cl: this landing plus the product's install.sh, on Cloudflare Pages (project "unbidden").
+#   push to a branch  checks, then a preview at <branch>.unbidden.pages.dev; the domain is not touched
+#   push to main      checks, then production at unbidden.cl
+#   every 6 hours     republishes only if install.sh changed on the product's main
+#   Run workflow      publishes now (from main: production), for an urgent installer fix or a re-publish
+# Secrets: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID. Manual: docs/DEPLOY.md
+name: Site
+
+on:
+  push:
+    branches: ['**']
+    paths-ignore: ['docs/**', 'scripts/v3/**', 'scripts/v4/**', 'README.md']
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: site-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      go: ${{ steps.check.outputs.go }}
+    steps:
+      - id: check
+        run: |
+          if [ "$GITHUB_EVENT_NAME" != schedule ]; then echo go=true >> "$GITHUB_OUTPUT"; exit 0; fi
+          a=$(curl -fsSL --retry 3 https://raw.githubusercontent.com/satisfymath/unbidden-ai/main/install.sh | sha256sum | cut -d' ' -f1)
+          b=$(curl -fsSL --retry 3 https://unbidden.cl/install.sh | sha256sum | cut -d' ' -f1)
+          echo "product $a, site $b"
+          if [ "$a" = "$b" ]; then echo go=false >> "$GITHUB_OUTPUT"; else echo go=true >> "$GITHUB_OUTPUT"; fi
+
+  site:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run qa
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: qa-results
+          path: test-results
+          retention-days: 3
+      - run: sh scripts/deploy/assemble.sh
+      - name: Publish
+        id: publish
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            if [ "$GITHUB_REF_NAME" = main ]; then echo "::error::the Cloudflare secrets are missing: main cannot publish"; exit 1; fi
+            echo "::notice::the Cloudflare secrets are missing: checks passed, no preview published"
+            exit 0
+          fi
+          npx -y wrangler@4 pages deploy dist --project-name unbidden --branch "$GITHUB_REF_NAME" --commit-hash "$GITHUB_SHA" | tee /tmp/deploy.log
+          url=$(grep -Eo 'https://[a-zA-Z0-9.-]+\.pages\.dev' /tmp/deploy.log | head -1)
+          [ -n "$url" ] || { echo "::error::no deployment URL in wrangler's output"; exit 1; }
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+      - name: Check what was published
+        if: steps.publish.outputs.url != ''
+        run: |
+          sh scripts/deploy/smoke.sh "${{ steps.publish.outputs.url }}"
+          if [ "$GITHUB_REF_NAME" = main ]; then
+            sh scripts/deploy/smoke.sh https://unbidden.cl
+            echo "### Published to https://unbidden.cl" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "### Preview: ${{ steps.publish.outputs.url }}" >> "$GITHUB_STEP_SUMMARY"
+          fi

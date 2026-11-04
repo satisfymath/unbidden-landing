@@ -12,6 +12,9 @@ Landing de [UNBIDDEN](https://github.com/satisfymath/unbidden-ai): una película
 | `npm run posters` | posters WebP/AVIF desde `sequence/` → `public/media/posters/` |
 | `npm run qa` | Playwright: carga sin errores, scrub adelante/atrás, reduced motion, anchos 360–1920, teclado y enlaces |
 
+## Publicar
+Cada rama publica una preview y `main` publica en unbidden.cl, con QA antes. El paso a paso está en `docs/DEPLOY.md`.
+
 ## Pipeline de video (local)
 Ver `docs/PIPELINE.md` y `docs/CLIP_STATUS.md`.
 ```
