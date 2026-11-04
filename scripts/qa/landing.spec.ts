@@ -183,7 +183,7 @@ test('evidence: the 39-repository campaign adds up and keeps its caveats', async
   await page.locator('.camp').scrollIntoViewIfNeeded()
   await expect(page.locator('.camp__table tbody tr')).toHaveCount(4)
   await expect(page.locator('.camp__table tbody tr').first().locator('.unit--on')).toHaveCount(39)
-  await expect(page.locator('.camp .camp__notes')).toContainText('The final pass over the same 39 has not run.')
+  await expect(page.locator('.camp .camp__notes')).toContainText('The final pass over the same 39 has started and has no results yet.')
 })
 
 test('the development runs: the 39 add up, the totals match the record, a repository opens its own', async ({ page }) => {

@@ -62,6 +62,6 @@ Rutas temporales y trazas de Playwright del product walk; "asking the local mode
 | "Latency L5 en campaña 12" (fst, spoolman) | `DEV-EVIDENCE.md`; `docs/ROAD-TO-1.0.md` línea de L5, "2 applications, 1 class" |
 | Comandos `host` y `export` | `unbidden/cli.py` en v0.18.1 |
 
-La réplica de la app sigue siendo la grabación de 0.17.1, y así lo dice la web.
+La réplica de la app sigue siendo la grabación de 0.17.1, y así lo dice la web. Versión actual 0.18.3; "la pasada final empezó": `docs/RELEASE.md` 0.18.2 y 0.18.3 (mencionan sus primeros minutos); sin resultados publicados aún. Volver a revisar esta frase en cada release.
 
 `REPORT.md` existe solo en el clon local (`~/unbidden-ai-campaign`): esos commits de `feat/64-campaign` no están en GitHub. La web enlaza D-065, que resume parte de estas cifras, y el corpus público.

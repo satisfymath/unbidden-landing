@@ -14,7 +14,7 @@ export const TUI = {
   ACCENT: '#F5B700',
   RING: ['⠀⡀⡤⠒⠒⠀', '⠼⠀⠀⠀⠀⡧', '⠘⠦⡀⡀⠴⠃'] as const,
   DOT: '⠛',
-  VERSION: '0.18.1',
+  VERSION: '0.18.3',
   // unbidden/tui/app.py:34-48
   PALETTE: { bg: '#0e0e0e', surface: '#161616', panel: '#2a2a2a', fg: '#ececec', primary: '#d7d7d7', secondary: '#9a9a9a' },
 }
@@ -277,7 +277,7 @@ export const THEN = [
 ] as [string, string][]
 // README.md:39-49
 export const INSTALL_LINE = 'curl -fsSL https://unbidden.cl/install.sh | sh'
-export const VERSION_LINE = ['unbidden --version', '# unbidden 0.18.1'] as const
+export const VERSION_LINE = ['unbidden --version', '# unbidden 0.18.3'] as const
 
 // cli-spinners "dots" frames (the CLI uses Rich's default status spinner); used for the active feed line
 export const SPINNER = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
