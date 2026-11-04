@@ -1,0 +1,193 @@
+{
+ "as_of": "2026-11-04 17:35",
+ "candidate": "5bbaaf3",
+ "corpus": 39,
+ "done": 16,
+ "by_class": {
+  "dev": 8,
+  "independent": 8,
+  "frontier": 0
+ },
+ "spent_usd": 3.29,
+ "l5_verified_deploy": [
+  "fst"
+ ],
+ "prs": [
+  {
+   "repo": "marshmallow",
+   "cls": "dev",
+   "title": "security: bump certifi 2026.7.22 → 2026.10.18",
+   "url": "https://github.com/satisfymath/c13-marshmallow/pull/3",
+   "status": "merged",
+   "state": "MERGED",
+   "green": 4,
+   "red": 0,
+   "checks": 5
+  },
+  {
+   "repo": "oauthlib",
+   "cls": "independent",
+   "title": "fix: 1 ruff-baseline B006 finding in oauthlib/oauth2/rfc6749/endpoints/",
+   "url": "https://github.com/satisfymath/c13-oauthlib/pull/2",
+   "status": "merged",
+   "state": "MERGED",
+   "green": 23,
+   "red": 0,
+   "checks": 23
+  },
+  {
+   "repo": "rich",
+   "cls": "dev",
+   "title": "fix: 1 ruff-baseline F821 finding in examples/",
+   "url": "https://github.com/satisfymath/c13-rich/pull/18",
+   "status": "merged",
+   "state": "MERGED",
+   "green": 19,
+   "red": 0,
+   "checks": 19
+  },
+  {
+   "repo": "rich",
+   "cls": "dev",
+   "title": "fix: 2 ruff-baseline F821 findings in rich/",
+   "url": "https://github.com/satisfymath/c13-rich/pull/19",
+   "status": "stale",
+   "state": "CLOSED",
+   "green": 19,
+   "red": 0,
+   "checks": 19
+  },
+  {
+   "repo": "rich",
+   "cls": "dev",
+   "title": "fix: 2 ruff-baseline F821 findings in tests/",
+   "url": "https://github.com/satisfymath/c13-rich/pull/20",
+   "status": "stale",
+   "state": "CLOSED",
+   "green": 19,
+   "red": 0,
+   "checks": 19
+  },
+  {
+   "repo": "rich",
+   "cls": "dev",
+   "title": "fix: IndexError in _split_text (rich/cells.py)",
+   "url": "https://github.com/satisfymath/c13-rich/pull/21",
+   "status": "stale",
+   "state": "CLOSED",
+   "green": 2,
+   "red": 17,
+   "checks": 19
+  },
+  {
+   "repo": "rich",
+   "cls": "dev",
+   "title": "fix: ZeroDivisionError in _split_text (rich/cells.py)",
+   "url": "https://github.com/satisfymath/c13-rich/pull/22",
+   "status": "stale",
+   "state": "CLOSED",
+   "green": 2,
+   "red": 17,
+   "checks": 19
+  },
+  {
+   "repo": "python-mss",
+   "cls": "independent",
+   "title": "fix: AttributeError in as_region (src/mss/models.py)",
+   "url": "https://github.com/satisfymath/c13-python-mss/pull/1",
+   "status": "pr_opened",
+   "state": "OPEN",
+   "green": 2,
+   "red": 18,
+   "checks": 20
+  },
+  {
+   "repo": "python-progressbar",
+   "cls": "independent",
+   "title": "security: bump certifi 2026.5.20 → 2026.10.18",
+   "url": "https://github.com/satisfymath/c13-python-progressbar/pull/3",
+   "status": "merged",
+   "state": "MERGED",
+   "green": 18,
+   "red": 0,
+   "checks": 18
+  },
+  {
+   "repo": "reader",
+   "cls": "independent",
+   "title": "fix: 19 ruff-baseline F821 findings in tests/data/",
+   "url": "https://github.com/satisfymath/c13-reader/pull/1",
+   "status": "merged",
+   "state": "MERGED",
+   "green": 17,
+   "red": 0,
+   "checks": 17
+  },
+  {
+   "repo": "dooit",
+   "cls": "independent",
+   "title": "security: bump Pygments 2.19.2 → 2.20.0",
+   "url": "https://github.com/satisfymath/c13-dooit/pull/3",
+   "status": "stale",
+   "state": "CLOSED",
+   "green": 0,
+   "red": 0,
+   "checks": 0
+  },
+  {
+   "repo": "dooit",
+   "cls": "independent",
+   "title": "security: bump idna 3.10 → 3.15",
+   "url": "https://github.com/satisfymath/c13-dooit/pull/4",
+   "status": "merged",
+   "state": "MERGED",
+   "green": 0,
+   "red": 0,
+   "checks": 0
+  },
+  {
+   "repo": "fst",
+   "cls": "dev",
+   "title": "security: bump dnspython 2.8.0 → 2.9.0",
+   "url": "https://github.com/satisfymath/c13-fst/pull/17",
+   "status": "merged",
+   "state": "MERGED",
+   "green": 8,
+   "red": 0,
+   "checks": 10
+  },
+  {
+   "repo": "aegra",
+   "cls": "dev",
+   "title": "security: bump certifi 2026.1.4 → 2026.10.18",
+   "url": "https://github.com/satisfymath/c13-aegra/pull/4",
+   "status": "pr_opened",
+   "state": "OPEN",
+   "green": 5,
+   "red": 1,
+   "checks": 6
+  },
+  {
+   "repo": "aegra",
+   "cls": "dev",
+   "title": "security: bump filelock 4.0.9 → 4.2.1",
+   "url": "https://github.com/satisfymath/c13-aegra/pull/5",
+   "status": "pr_opened",
+   "state": "OPEN",
+   "green": 5,
+   "red": 1,
+   "checks": 6
+  },
+  {
+   "repo": "aegra",
+   "cls": "dev",
+   "title": "security: bump langgraph-checkpoint-postgres 3.1.2 → 3.1.3",
+   "url": "https://github.com/satisfymath/c13-aegra/pull/6",
+   "status": "pr_opened",
+   "state": "OPEN",
+   "green": 5,
+   "red": 1,
+   "checks": 6
+  }
+ ]
+}

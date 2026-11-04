@@ -6,6 +6,7 @@ import { AsciiText } from '../console/AsciiLive'
 import { CountUp } from '../console/CountUp'
 import { Eyebrow } from '../console/Eyebrow'
 import { DevRuns } from './DevRuns'
+import { FinalPass } from './FinalPass'
 import './Evidence.css'
 
 /** `L1 ▰ L2 ▰ L3 ▰ L4 ▰ L5 ▱ L6 ▱` with the exact definition on hover/focus. */
@@ -121,6 +122,8 @@ export function Evidence({ id }: { id: string }) {
         </div>
 
         <DevRuns />
+
+        <FinalPass />
 
         <div className="since reveal">
           <div className="since__main">

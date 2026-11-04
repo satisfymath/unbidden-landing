@@ -1,0 +1,21 @@
+/* the final pass while it runs: every merged pull request, in the order it happened */
+.fp { display: grid; gap: var(--s-16); margin-top: clamp(var(--s-64), 8vw, 112px); }
+.fp__stamp { display: block; margin-top: var(--s-8); font-size: var(--t-xs); line-height: 18px; color: var(--muted); }
+.fp__list { padding-block: var(--s-8); }
+.fp__row { display: grid; grid-template-columns: minmax(0, 160px) 96px minmax(0, 1fr) 190px 56px; gap: var(--s-16); align-items: baseline; padding: var(--s-12) clamp(var(--s-16), 2.4vw, var(--s-32)); border-top: 1px solid var(--line-2); }
+.fp__row:first-child { border-top: 0; }
+.fp__repo { font-size: var(--t-sm); line-height: 20px; color: var(--ink); overflow-wrap: anywhere; }
+.fp__class { font-size: var(--t-xs); line-height: 20px; color: var(--ink-2); }
+.fp__class--independent { color: var(--accent); }
+.fp__title { font-size: 13px; line-height: 20px; color: var(--ink-2); overflow-wrap: anywhere; }
+.fp__checks { font-size: var(--t-xs); line-height: 20px; color: var(--muted); }
+.fp__pr { font-size: var(--t-xs); line-height: 20px; color: var(--muted); text-align: right; }
+.fp__pr:hover { color: var(--ink); }
+@media (max-width: 960px) {
+  .fp__row { grid-template-columns: minmax(0, 1fr) auto; gap: 2px var(--s-12); }
+  .fp__repo { grid-column: 1; }
+  .fp__class { grid-column: 2; grid-row: 1; text-align: right; }
+  .fp__title { grid-column: 1 / -1; }
+  .fp__checks { grid-column: 1; }
+  .fp__pr { grid-column: 2; }
+}

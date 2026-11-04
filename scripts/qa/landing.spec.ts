@@ -183,7 +183,7 @@ test('evidence: the 39-repository campaign adds up and keeps its caveats', async
   await page.locator('.camp').scrollIntoViewIfNeeded()
   await expect(page.locator('.camp__table tbody tr')).toHaveCount(4)
   await expect(page.locator('.camp__table tbody tr').first().locator('.unit--on')).toHaveCount(39)
-  await expect(page.locator('.camp .camp__notes')).toContainText('The final pass over the same 39 has started and has no results yet.')
+  await expect(page.locator('.camp .camp__notes')).toContainText('The final pass over the same 39 is running')
 })
 
 test('the development runs: the 39 add up, the totals match the record, a repository opens its own', async ({ page }) => {
@@ -199,6 +199,30 @@ test('the development runs: the 39 add up, the totals match the record, a reposi
   await runs.locator('.dr__row', { hasText: 'misago' }).click()
   await expect(runs.locator('.dr__panel')).toContainText('mail catcher')
   await expect(runs.locator('.dr__panel a')).toHaveAttribute('href', /v0\.18\.1\/docs\/bench\/campaign13\/dev-host\/misago-final\.json$/)
+})
+
+test('the final pass says it is running, and its numbers add up to what it links', async ({ page }) => {
+  await page.goto('/', { waitUntil: 'networkidle' })
+  const fp = page.locator('.fp')
+  await fp.scrollIntoViewIfNeeded()
+  await expect(fp).toContainText('not its result')
+  await expect(fp).toContainText('As of')
+  const merged = await fp.locator('.fp__row').count()
+  await expect(fp.locator('.dr__big .sr-only')).toHaveText(String(merged))
+  await expect(fp.locator('.fp__pr').first()).toHaveAttribute('href', /github\.com\/satisfymath\/c13-.+\/pull\/\d+$/)
+})
+
+test('the app draws the product\u2019s ring: only the dots that are set, the dot in amber', async ({ page }, info) => {
+  test.skip(info.project.name === 'reduced-motion')
+  await page.goto('/', { waitUntil: 'networkidle' })
+  await page.locator('.app__win').scrollIntoViewIfNeeded()
+  const rows = page.locator('.app__row--braille')
+  await expect(rows).toHaveCount(3)
+  // \u2880\u2864\u2812\u2812\u2800 + \u281b, \u28bc\u2800\u2800\u2800\u2800\u2867, \u2818\u2826\u28c0\u28c0\u2834\u2803 of unbidden/tui/brand.py
+  const dots = await rows.evaluateAll((r) => r.reduce((n, e) => n + e.querySelectorAll('circle').length, 0))
+  expect(dots).toBe(36)
+  await expect(rows.first().locator('.is-a circle')).toHaveCount(4)
+  expect(await page.locator('.app__win').evaluate((e) => /[\u2800-\u28ff]/.test(e.querySelector('.app__row--braille')!.textContent ?? ''))).toBe(false)
 })
 
 test('console: --help lists every command and doctor shows the recorded machine', async ({ page }) => {

@@ -62,6 +62,11 @@ Rutas temporales y trazas de Playwright del product walk; "asking the local mode
 | "Latency L5 en campaña 12" (fst, spoolman) | `DEV-EVIDENCE.md`; `docs/ROAD-TO-1.0.md` línea de L5, "2 applications, 1 class" |
 | Comandos `host` y `export` | `unbidden/cli.py` en v0.18.1 |
 
-La réplica de la app sigue siendo la grabación de 0.17.1, y así lo dice la web. Versión actual 0.18.4; "la pasada final empezó": `docs/RELEASE.md` 0.18.2 y 0.18.3 (mencionan sus primeros minutos); sin resultados publicados aún. Volver a revisar esta frase en cada release.
+## Pasada final de la campaña 13, en curso
+`src/content/final-pass.json` lo escribe `python3 scripts/evidence/final_pass.py <checkout>` desde `docs/bench/campaign13/final` (rama `feat/87-final-pass`, registros aún no públicos), `bench/campaign13/corpus.yaml` y el estado de cada PR en GitHub. Las notas salen de `run-header.json` (`libraries-first`), las carpetas `final-0.18.*` y `FINDINGS.md`. Hay que regenerarlo y reescribir la sección cuando la pasada termine.
+
+La definición de L5 con verified deploy viene de `docs/EVIDENCE.md` (sin commit en esa rama) y `docs/RELEASE.md` 0.18.0.
+
+La réplica de la app sigue siendo la grabación de 0.17.1, y así lo dice la web. Versión actual 0.18.7.
 
 `REPORT.md` existe solo en el clon local (`~/unbidden-ai-campaign`): esos commits de `feat/64-campaign` no están en GitHub. La web enlaza D-065, que resume parte de estas cifras, y el corpus público.

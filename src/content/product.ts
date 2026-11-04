@@ -11,7 +11,7 @@ export const LINKS = {
   evidence: `${GH}/blob/main/docs/EVIDENCE.md`,
   decisions: `${GH}/blob/main/docs/DECISIONS.md`,
   install: `${GH}/blob/main/docs/INSTALL.md`,
-  release: `${GH}/releases/tag/v0.18.4`,
+  release: `${GH}/releases/tag/v0.18.7`,
   road: `${GH}/blob/main/docs/ROAD-TO-1.0.md`,
   corpus: `${GH}/blob/main/bench/campaign13/corpus.yaml`,
   findings: `${GH}/blob/main/docs/bench/campaign13/FINDINGS.md`,
@@ -157,7 +157,7 @@ export const CAMPAIGN = {
   notes: [
     'The full chain ran on fst (twice) and spoolman, whose run needed the US$2 default monthly cap raised to US$10. Spoolman: index measured 14.69 → 2.77 ms, 15 green checks.',
     'Five of the first eight pull requests were green on the team’s CI. Three failed its formatter, a defect since fixed; on the next pass one failed its type check, which candidates now go through too.',
-    'These numbers come from candidates older than today’s release. The final pass over the same 39 has started and has no results yet.',
+    'These numbers come from candidates older than today’s release. The final pass over the same 39 is running; its figures so far are further down.',
   ],
   links: [
     { label: 'the 39 repositories', href: LINKS.corpus },
@@ -198,13 +198,28 @@ export const DEV_RUNS = {
   notes: [
     'Not one pass: the counts come from different versions and runs. traefik-manager passed all 2192 once and is flaky; oauthlib’s later offline runs need the network to build.',
     'Two rollback drills are recorded as passed, on codex-lb and misago. misago’s judged health on its mail catcher’s page, a defect found afterwards; TimeTracker’s was declared, its head adds a migration.',
-    'On copies under satisfymath, nothing upstream. The final pass over the 39 has started and has no results yet.',
+    'On copies under satisfymath, nothing upstream. The final pass over the 39 is running, below.',
   ],
   links: [
     { label: 'DEV-EVIDENCE.md', href: `${TAG}/docs/bench/campaign13/DEV-EVIDENCE.md` },
     { label: 'dev-evidence.json', href: `${TAG}/docs/bench/campaign13/dev-evidence.json` },
   ],
   recordHref: (record: string) => `${TAG}/${record}`,
+}
+
+/**
+ * The final pass, on feat/87-final-pass: docs/bench/campaign13/final and FINDINGS.md; its figures are in
+ * ./final-pass.json, written by scripts/evidence/final_pass.py from the records and GitHub. The records are not public yet.
+ */
+export const FINAL_PASS = {
+  eyebrow: 'Campaign 13 · the final pass, still running',
+  figureLabel: (independent: number, dev: number) => `pull requests merged so far, on ${independent} independent and ${dev} development repositories`,
+  lede: 'The same 39 repositories, on copies. Unbidden opens and merges; people only prepared each copy and its mandate. These are figures from a pass in progress, not its result.',
+  notes: [
+    'Libraries run first, so most applications and every frontier repository are still to come. Nothing here is the rate the pass will end on.',
+    'Five earlier starts were stopped to fix general defects they exposed, on these same repositories. This start runs on 0.18.6, so it is not blind to them.',
+  ],
+  nature: (security: number, lint: number, closed: number) => `Modest changes: ${security} security bumps and ${lint} lint fixes, each at L4 when proposed. Libraries deploy nothing. Another ${closed} pull requests closed as stale when a merge moved their base.`,
 }
 
 export const SINCE = {
@@ -335,11 +350,11 @@ export const INSTALL = {
   notes: [
     'macOS on Apple silicon, verified by hand. Linux x86-64 with glibc 2.28 or newer, verified in CI only.',
     'The machine provides git; Docker with buildx and compose for the sandbox; Ollama for the local and mixed options; a Meta API key for mixed and api.',
-    'Open source under Apache 2.0. Version 0.18.4, an experimental candidate, not 1.0.',
+    'Open source under Apache 2.0. Version 0.18.7, an experimental candidate, not 1.0.',
   ],
 }
 
 export const FOOTER = {
-  version: 'v0.18.4 · experimental candidate',
+  version: 'v0.18.7 · experimental candidate',
   credit: 'Film sequence generated locally with MiniMax H3 (FL2VA) on Apple silicon from nine approved frames; no inference runs in the browser. Site built from the public repository; evidence levels are the repository’s own.',
 }
