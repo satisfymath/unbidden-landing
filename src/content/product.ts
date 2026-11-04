@@ -11,7 +11,7 @@ export const LINKS = {
   evidence: `${GH}/blob/main/docs/EVIDENCE.md`,
   decisions: `${GH}/blob/main/docs/DECISIONS.md`,
   install: `${GH}/blob/main/docs/INSTALL.md`,
-  release: `${GH}/releases/tag/v0.18.3`,
+  release: `${GH}/releases/tag/v0.18.4`,
   road: `${GH}/blob/main/docs/ROAD-TO-1.0.md`,
   corpus: `${GH}/blob/main/bench/campaign13/corpus.yaml`,
   findings: `${GH}/blob/main/docs/bench/campaign13/FINDINGS.md`,
@@ -335,11 +335,11 @@ export const INSTALL = {
   notes: [
     'macOS on Apple silicon, verified by hand. Linux x86-64 with glibc 2.28 or newer, verified in CI only.',
     'The machine provides git; Docker with buildx and compose for the sandbox; Ollama for the local and mixed options; a Meta API key for mixed and api.',
-    'Open source under Apache 2.0. Version 0.18.3, an experimental candidate, not 1.0.',
+    'Open source under Apache 2.0. Version 0.18.4, an experimental candidate, not 1.0.',
   ],
 }
 
 export const FOOTER = {
-  version: 'v0.18.3 · experimental candidate',
+  version: 'v0.18.4 · experimental candidate',
   credit: 'Film sequence generated locally with MiniMax H3 (FL2VA) on Apple silicon from nine approved frames; no inference runs in the browser. Site built from the public repository; evidence levels are the repository’s own.',
 }
