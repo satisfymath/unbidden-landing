@@ -3,6 +3,7 @@
 #   push to main      checks, then production at unbidden.cl
 #   every 6 hours     republishes only if install.sh changed on the product's main
 #   Run workflow      publishes now (from main: production), for an urgent installer fix or a re-publish
+#   ("Run workflow" needs this file on main. A push changing only ignored paths runs nothing.)
 # Secrets: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID. Manual: docs/DEPLOY.md
 name: Site
 
