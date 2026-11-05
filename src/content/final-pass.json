@@ -1,0 +1,4775 @@
+{
+ "source": {
+  "commit": "b7c61b2c0a50938670b69039a6cf991e236356e5",
+  "generated_at": "2026-11-04T23:41+00:00",
+  "rule": "merged only by the product, on the team's own CI green on the pull request's exact head",
+  "where": "copies of the repositories under github.com/satisfymath (c13-<name>); nothing upstream"
+ },
+ "totals": {
+  "repositories_run": 32,
+  "runs": 36,
+  "pull_requests": 44,
+  "pull_requests_ci_green": 30,
+  "merges": 14,
+  "merged_by_unbidden": 13,
+  "merged_verified_independently": 13,
+  "merged_by_kind": {
+   "quality": 5,
+   "security": 8
+  }
+ },
+ "spent_usd": 4.08,
+ "versions": [
+  {
+   "version": "0.18.6",
+   "records": 32,
+   "spent_usd": 3.8126
+  },
+  {
+   "version": "0.18.9",
+   "records": 4,
+   "spent_usd": 0.2675
+  }
+ ],
+ "funnel": [
+  {
+   "id": "corpus",
+   "label": "In the corpus",
+   "n": 39,
+   "by": {
+    "dev": 12,
+    "independent": 19,
+    "frontier": 8
+   },
+   "names": [
+    "fst",
+    "conduit",
+    "spoolman",
+    "codex-lb",
+    "aegra",
+    "ctfd",
+    "timetracker",
+    "rich",
+    "marshmallow",
+    "pyjwt",
+    "humanize",
+    "sqlmodel",
+    "mimirq",
+    "mediacms",
+    "misago",
+    "brightbean-studio",
+    "traefik-manager",
+    "oauthlib",
+    "rdflib",
+    "graphtage",
+    "python-progressbar",
+    "python-mss",
+    "reader",
+    "harlequin",
+    "dooit",
+    "pipx",
+    "recruitops-agent",
+    "aiogramshopbot",
+    "gymhero",
+    "dinkydash",
+    "tracklater",
+    "librephotos",
+    "netbox",
+    "archery",
+    "resumeio-to-pdf",
+    "ai-avatar-system",
+    "zod",
+    "gin",
+    "weblate"
+   ]
+  },
+  {
+   "id": "record",
+   "label": "Have a record",
+   "n": 32,
+   "by": {
+    "dev": 11,
+    "independent": 14,
+    "frontier": 7
+   },
+   "names": [
+    "fst",
+    "conduit",
+    "spoolman",
+    "codex-lb",
+    "aegra",
+    "ctfd",
+    "rich",
+    "marshmallow",
+    "pyjwt",
+    "humanize",
+    "sqlmodel",
+    "mimirq",
+    "mediacms",
+    "oauthlib",
+    "rdflib",
+    "graphtage",
+    "python-progressbar",
+    "python-mss",
+    "reader",
+    "harlequin",
+    "dooit",
+    "pipx",
+    "aiogramshopbot",
+    "dinkydash",
+    "tracklater",
+    "librephotos",
+    "netbox",
+    "archery",
+    "resumeio-to-pdf",
+    "ai-avatar-system",
+    "zod",
+    "gin"
+   ]
+  },
+  {
+   "id": "opportunity",
+   "label": "Found an opportunity",
+   "n": 26,
+   "by": {
+    "dev": 10,
+    "independent": 12,
+    "frontier": 4
+   },
+   "names": [
+    "fst",
+    "conduit",
+    "spoolman",
+    "codex-lb",
+    "aegra",
+    "ctfd",
+    "rich",
+    "marshmallow",
+    "pyjwt",
+    "sqlmodel",
+    "mimirq",
+    "mediacms",
+    "oauthlib",
+    "rdflib",
+    "python-progressbar",
+    "python-mss",
+    "reader",
+    "harlequin",
+    "dooit",
+    "aiogramshopbot",
+    "dinkydash",
+    "tracklater",
+    "librephotos",
+    "archery",
+    "resumeio-to-pdf",
+    "ai-avatar-system"
+   ]
+  },
+  {
+   "id": "experiment",
+   "label": "Ran an experiment",
+   "n": 19,
+   "by": {
+    "dev": 9,
+    "independent": 9,
+    "frontier": 1
+   },
+   "names": [
+    "fst",
+    "spoolman",
+    "codex-lb",
+    "aegra",
+    "ctfd",
+    "rich",
+    "marshmallow",
+    "pyjwt",
+    "sqlmodel",
+    "oauthlib",
+    "python-progressbar",
+    "python-mss",
+    "reader",
+    "harlequin",
+    "dooit",
+    "aiogramshopbot",
+    "dinkydash",
+    "tracklater",
+    "resumeio-to-pdf"
+   ]
+  },
+  {
+   "id": "pull",
+   "label": "Opened a pull request",
+   "n": 16,
+   "by": {
+    "dev": 7,
+    "independent": 8,
+    "frontier": 1
+   },
+   "names": [
+    "fst",
+    "spoolman",
+    "aegra",
+    "ctfd",
+    "rich",
+    "marshmallow",
+    "sqlmodel",
+    "oauthlib",
+    "python-progressbar",
+    "python-mss",
+    "reader",
+    "harlequin",
+    "dooit",
+    "aiogramshopbot",
+    "tracklater",
+    "resumeio-to-pdf"
+   ]
+  },
+  {
+   "id": "green",
+   "label": "Green on the team’s CI",
+   "n": 12,
+   "by": {
+    "dev": 6,
+    "independent": 5,
+    "frontier": 1
+   },
+   "names": [
+    "fst",
+    "spoolman",
+    "aegra",
+    "rich",
+    "marshmallow",
+    "sqlmodel",
+    "oauthlib",
+    "python-progressbar",
+    "reader",
+    "aiogramshopbot",
+    "tracklater",
+    "resumeio-to-pdf"
+   ]
+  },
+  {
+   "id": "merged",
+   "label": "Merged by the product",
+   "n": 13,
+   "by": {
+    "dev": 6,
+    "independent": 6,
+    "frontier": 1
+   },
+   "names": [
+    "fst",
+    "spoolman",
+    "aegra",
+    "rich",
+    "marshmallow",
+    "sqlmodel",
+    "oauthlib",
+    "python-progressbar",
+    "reader",
+    "dooit",
+    "aiogramshopbot",
+    "tracklater",
+    "resumeio-to-pdf"
+   ]
+  },
+  {
+   "id": "l5",
+   "label": "L5, a verified deploy",
+   "n": 3,
+   "by": {
+    "dev": 3
+   },
+   "names": [
+    "fst",
+    "spoolman",
+    "aegra"
+   ]
+  }
+ ],
+ "fate": {
+  "red": 10,
+  "green": 17,
+  "merged": 14,
+  "none": 3
+ },
+ "kinds": {
+  "security": 31,
+  "quality": 10,
+  "correctness": 3
+ },
+ "decisions": [
+  [
+   "run_experiment",
+   191
+  ],
+  [
+   "wait",
+   76
+  ],
+  [
+   "decline",
+   53
+  ],
+  [
+   "propose_change",
+   49
+  ],
+  [
+   "investigate",
+   17
+  ]
+ ],
+ "statuses": [
+  [
+   "open",
+   123
+  ],
+  [
+   "declined",
+   53
+  ],
+  [
+   "proposed",
+   21
+  ],
+  [
+   "experimenting",
+   6
+  ],
+  [
+   "verified",
+   3
+  ]
+ ],
+ "declined": [
+  [
+   "Improved, but the team’s suite did not validate it",
+   16
+  ],
+  [
+   "The team’s CI does not check those paths",
+   14
+  ],
+  [
+   "The team’s CI does not run that tool",
+   9
+  ],
+  [
+   "Its experiments found no proven fix",
+   7
+  ],
+  [
+   "Other reasons",
+   7
+  ]
+ ],
+ "opportunities": 206,
+ "stopped": [
+  "timetracker",
+  "misago",
+  "brightbean-studio",
+  "traefik-manager",
+  "recruitops-agent",
+  "gymhero",
+  "weblate"
+ ],
+ "pull_requests": [
+  {
+   "repo": "aegra",
+   "version": "0.18.6",
+   "n": 6,
+   "title": "security: bump langgraph-checkpoint-postgres 3.1.2 → 3.1.3",
+   "url": "https://github.com/satisfymath/c13-aegra/pull/6",
+   "kind": "security",
+   "ci": "red",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "aegra",
+   "version": "0.18.6",
+   "n": 5,
+   "title": "security: bump filelock 4.0.9 → 4.2.1",
+   "url": "https://github.com/satisfymath/c13-aegra/pull/5",
+   "kind": "security",
+   "ci": "red",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "aegra",
+   "version": "0.18.6",
+   "n": 4,
+   "title": "security: bump certifi 2026.1.4 → 2026.10.18",
+   "url": "https://github.com/satisfymath/c13-aegra/pull/4",
+   "kind": "security",
+   "ci": "red",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "aiogramshopbot",
+   "version": "0.18.6",
+   "n": 3,
+   "title": "security: bump python-dotenv 1.0.1 → 1.2.2",
+   "url": "https://github.com/satisfymath/c13-aiogramshopbot/pull/3",
+   "kind": "security",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "aiogramshopbot",
+   "version": "0.18.6",
+   "n": 2,
+   "title": "security: bump pillow 12.1.0 → 13.0.0",
+   "url": "https://github.com/satisfymath/c13-aiogramshopbot/pull/2",
+   "kind": "security",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "aiogramshopbot",
+   "version": "0.18.6",
+   "n": 1,
+   "title": "fix: 2 ruff-baseline F811 findings in ./",
+   "url": "https://github.com/satisfymath/c13-aiogramshopbot/pull/1",
+   "kind": "quality",
+   "ci": "green",
+   "merged": true,
+   "verified": "verified"
+  },
+  {
+   "repo": "ctfd",
+   "version": "0.18.6",
+   "n": 1,
+   "title": "security: bump idna 3.10 → 3.15",
+   "url": "https://github.com/satisfymath/c13-ctfd/pull/1",
+   "kind": "security",
+   "ci": "red",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "dooit",
+   "version": "0.18.6",
+   "n": 4,
+   "title": "security: bump idna 3.10 → 3.15",
+   "url": "https://github.com/satisfymath/c13-dooit/pull/4",
+   "kind": "security",
+   "ci": "none",
+   "merged": true,
+   "verified": "verified"
+  },
+  {
+   "repo": "dooit",
+   "version": "0.18.6",
+   "n": 3,
+   "title": "security: bump Pygments 2.19.2 → 2.20.0",
+   "url": "https://github.com/satisfymath/c13-dooit/pull/3",
+   "kind": "security",
+   "ci": "none",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "fst",
+   "version": "0.18.6",
+   "n": 17,
+   "title": "security: bump dnspython 2.8.0 → 2.9.0",
+   "url": "https://github.com/satisfymath/c13-fst/pull/17",
+   "kind": "security",
+   "ci": "green",
+   "merged": true,
+   "verified": "verified"
+  },
+  {
+   "repo": "harlequin",
+   "version": "0.18.6",
+   "n": 4,
+   "title": "security: bump multidict 6.7.1 → 6.9.1",
+   "url": "https://github.com/satisfymath/c13-harlequin/pull/4",
+   "kind": "security",
+   "ci": "red",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "harlequin",
+   "version": "0.18.6",
+   "n": 3,
+   "title": "security: bump msgpack 1.2.1 → 1.2.3",
+   "url": "https://github.com/satisfymath/c13-harlequin/pull/3",
+   "kind": "security",
+   "ci": "red",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "harlequin",
+   "version": "0.18.6",
+   "n": 2,
+   "title": "security: bump aiohttp 3.14.3 → 3.14.4",
+   "url": "https://github.com/satisfymath/c13-harlequin/pull/2",
+   "kind": "security",
+   "ci": "red",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "marshmallow",
+   "version": "0.18.6",
+   "n": 3,
+   "title": "security: bump certifi 2026.7.22 → 2026.10.18",
+   "url": "https://github.com/satisfymath/c13-marshmallow/pull/3",
+   "kind": "security",
+   "ci": "green",
+   "merged": true,
+   "verified": "verified"
+  },
+  {
+   "repo": "oauthlib",
+   "version": "0.18.6",
+   "n": 2,
+   "title": "fix: 1 ruff-baseline B006 finding in oauthlib/oauth2/rfc6749/endpoints/",
+   "url": "https://github.com/satisfymath/c13-oauthlib/pull/2",
+   "kind": "quality",
+   "ci": "green",
+   "merged": true,
+   "verified": "verified"
+  },
+  {
+   "repo": "python-mss",
+   "version": "0.18.6",
+   "n": 1,
+   "title": "fix: AttributeError in as_region (src/mss/models.py)",
+   "url": "https://github.com/satisfymath/c13-python-mss/pull/1",
+   "kind": "correctness",
+   "ci": "red",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "python-progressbar",
+   "version": "0.18.6",
+   "n": 3,
+   "title": "security: bump certifi 2026.5.20 → 2026.10.18",
+   "url": "https://github.com/satisfymath/c13-python-progressbar/pull/3",
+   "kind": "security",
+   "ci": "green",
+   "merged": true,
+   "verified": "verified"
+  },
+  {
+   "repo": "reader",
+   "version": "0.18.6",
+   "n": 1,
+   "title": "fix: 19 ruff-baseline F821 findings in tests/data/",
+   "url": "https://github.com/satisfymath/c13-reader/pull/1",
+   "kind": "quality",
+   "ci": "green",
+   "merged": true,
+   "verified": "verified"
+  },
+  {
+   "repo": "resumeio-to-pdf",
+   "version": "0.18.6",
+   "n": 5,
+   "title": "security: bump urllib3 2.5.0 → 2.8.0",
+   "url": "https://github.com/satisfymath/c13-resumeio-to-pdf/pull/5",
+   "kind": "security",
+   "ci": "none",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "resumeio-to-pdf",
+   "version": "0.18.6",
+   "n": 4,
+   "title": "security: bump starlette 0.47.3 → 1.3.1",
+   "url": "https://github.com/satisfymath/c13-resumeio-to-pdf/pull/4",
+   "kind": "security",
+   "ci": "none",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "resumeio-to-pdf",
+   "version": "0.18.6",
+   "n": 3,
+   "title": "security: bump idna 3.10 → 3.15",
+   "url": "https://github.com/satisfymath/c13-resumeio-to-pdf/pull/3",
+   "kind": "security",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "resumeio-to-pdf",
+   "version": "0.18.6",
+   "n": 2,
+   "title": "security: bump certifi 2025.8.3 → 2026.10.18",
+   "url": "https://github.com/satisfymath/c13-resumeio-to-pdf/pull/2",
+   "kind": "security",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "resumeio-to-pdf",
+   "version": "0.18.6",
+   "n": 1,
+   "title": "security: bump anyio 4.10.0 → 4.14.2",
+   "url": "https://github.com/satisfymath/c13-resumeio-to-pdf/pull/1",
+   "kind": "security",
+   "ci": "green",
+   "merged": true,
+   "verified": "verified"
+  },
+  {
+   "repo": "rich",
+   "version": "0.18.6",
+   "n": 22,
+   "title": "fix: ZeroDivisionError in _split_text (rich/cells.py)",
+   "url": "https://github.com/satisfymath/c13-rich/pull/22",
+   "kind": "correctness",
+   "ci": "red",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "rich",
+   "version": "0.18.6",
+   "n": 21,
+   "title": "fix: IndexError in _split_text (rich/cells.py)",
+   "url": "https://github.com/satisfymath/c13-rich/pull/21",
+   "kind": "correctness",
+   "ci": "red",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "rich",
+   "version": "0.18.6",
+   "n": 20,
+   "title": "fix: 2 ruff-baseline F821 findings in tests/",
+   "url": "https://github.com/satisfymath/c13-rich/pull/20",
+   "kind": "quality",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "rich",
+   "version": "0.18.6",
+   "n": 19,
+   "title": "fix: 2 ruff-baseline F821 findings in rich/",
+   "url": "https://github.com/satisfymath/c13-rich/pull/19",
+   "kind": "quality",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "rich",
+   "version": "0.18.6",
+   "n": 18,
+   "title": "fix: 1 ruff-baseline F821 finding in examples/",
+   "url": "https://github.com/satisfymath/c13-rich/pull/18",
+   "kind": "quality",
+   "ci": "green",
+   "merged": true,
+   "verified": "verified"
+  },
+  {
+   "repo": "spoolman",
+   "version": "0.18.6",
+   "n": 12,
+   "title": "security: bump urllib3 2.7.0 → 2.8.0",
+   "url": "https://github.com/satisfymath/c13-spoolman/pull/12",
+   "kind": "security",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "spoolman",
+   "version": "0.18.6",
+   "n": 11,
+   "title": "security: bump msgpack 1.2.1 → 1.2.3",
+   "url": "https://github.com/satisfymath/c13-spoolman/pull/11",
+   "kind": "security",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "spoolman",
+   "version": "0.18.6",
+   "n": 10,
+   "title": "security: bump certifi 2026.6.17 → 2026.10.18",
+   "url": "https://github.com/satisfymath/c13-spoolman/pull/10",
+   "kind": "security",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "spoolman",
+   "version": "0.18.6",
+   "n": 9,
+   "title": "security: bump anyio 4.14.1 → 4.14.2",
+   "url": "https://github.com/satisfymath/c13-spoolman/pull/9",
+   "kind": "security",
+   "ci": "green",
+   "merged": true,
+   "verified": "verified"
+  },
+  {
+   "repo": "tracklater",
+   "version": "0.18.6",
+   "n": 1,
+   "title": "fix: 2 ruff-baseline F811 findings in tracklater/tests/",
+   "url": "https://github.com/satisfymath/c13-tracklater/pull/1",
+   "kind": "quality",
+   "ci": "green",
+   "merged": true,
+   "verified": "verified"
+  },
+  {
+   "repo": "aegra",
+   "version": "0.18.9",
+   "n": 9,
+   "title": "fix(deps): bump langgraph-sdk 0.4.2 → 0.4.6 (security)",
+   "url": "https://github.com/satisfymath/c13-aegra/pull/9",
+   "kind": "security",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "aegra",
+   "version": "0.18.9",
+   "n": 8,
+   "title": "fix(deps): bump filelock 4.0.9 → 4.2.1 (security)",
+   "url": "https://github.com/satisfymath/c13-aegra/pull/8",
+   "kind": "security",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "aegra",
+   "version": "0.18.9",
+   "n": 7,
+   "title": "fix(deps): bump certifi 2026.1.4 → 2026.10.18 (security)",
+   "url": "https://github.com/satisfymath/c13-aegra/pull/7",
+   "kind": "security",
+   "ci": "green",
+   "merged": true,
+   "verified": "verified"
+  },
+  {
+   "repo": "rich",
+   "version": "0.18.9",
+   "n": 25,
+   "title": "fix: 2 ruff-baseline F821 findings in rich/",
+   "url": "https://github.com/satisfymath/c13-rich/pull/25",
+   "kind": "quality",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "rich",
+   "version": "0.18.9",
+   "n": 24,
+   "title": "fix: 2 ruff-baseline F821 findings in tests/",
+   "url": "https://github.com/satisfymath/c13-rich/pull/24",
+   "kind": "quality",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "rich",
+   "version": "0.18.9",
+   "n": 23,
+   "title": "fix: 1 ruff-baseline F821 finding in examples/",
+   "url": "https://github.com/satisfymath/c13-rich/pull/23",
+   "kind": "quality",
+   "ci": "green",
+   "merged": true,
+   "verified": "verified"
+  },
+  {
+   "repo": "sqlmodel",
+   "version": "0.18.9",
+   "n": 5,
+   "title": "fix(deps): bump starlette 0.50.0 → 1.3.1 (security)",
+   "url": "https://github.com/satisfymath/c13-sqlmodel/pull/5",
+   "kind": "security",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "sqlmodel",
+   "version": "0.18.9",
+   "n": 4,
+   "title": "fix(deps): bump idna 3.11 → 3.15 (security)",
+   "url": "https://github.com/satisfymath/c13-sqlmodel/pull/4",
+   "kind": "security",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "sqlmodel",
+   "version": "0.18.9",
+   "n": 3,
+   "title": "fix(deps): bump certifi 2025.11.12 → 2026.10.18 (security)",
+   "url": "https://github.com/satisfymath/c13-sqlmodel/pull/3",
+   "kind": "security",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "sqlmodel",
+   "version": "0.18.9",
+   "n": 2,
+   "title": "fix(deps): bump black 26.5.1 → 26.10.1 (security)",
+   "url": "https://github.com/satisfymath/c13-sqlmodel/pull/2",
+   "kind": "security",
+   "ci": "green",
+   "merged": false,
+   "verified": "not run"
+  },
+  {
+   "repo": "sqlmodel",
+   "version": "0.18.9",
+   "n": 1,
+   "title": "fix(deps): bump anyio 4.12.0 → 4.14.2 (security)",
+   "url": "https://github.com/satisfymath/c13-sqlmodel/pull/1",
+   "kind": "security",
+   "ci": "green",
+   "merged": true,
+   "verified": "verified"
+  }
+ ],
+ "repositories": [
+  {
+   "name": "fst",
+   "cls": "dev",
+   "family": "api-postgres",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "autonomous",
+     "checks": "passed",
+     "tests": 58,
+     "opportunities": 7,
+     "experiments": 1,
+     "deploys": 2,
+     "level": "L5",
+     "spent": 0.4434,
+     "first_pr_min": 24.8,
+     "calls": 11,
+     "host": null,
+     "decisions": {
+      "decline": 3,
+      "investigate": 2,
+      "propose_change": 1,
+      "run_experiment": 3,
+      "wait": 4
+     },
+     "items": [
+      {
+       "title": "1 ruff I001 finding in hooks/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI runs ruff the same way and passes on this commit: Unbidden's environment"
+      },
+      {
+       "title": "3 ruff DTZ011 findings in scripts/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI runs ruff the same way and passes on this commit: Unbidden's environment"
+      },
+      {
+       "title": "1 ruff FURB167 finding in scripts/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI runs ruff the same way and passes on this commit: Unbidden's environment"
+      },
+      {
+       "title": "dnspython 2.8.0: 1 known vulnerability, fixed in 2.9.0",
+       "category": "security",
+       "status": "verified",
+       "level": "L5",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "item.owner_id is a foreign key without an index, filtered on by 2 endpoint(s)",
+       "category": "performance",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "not measurable at this commit: deferred: the host is busy (1-minute load 8.73 > 4.50 for 18 CPUs) after waiting 900 s before candidate session 1"
+      },
+      {
+       "title": "GET /api/v1/items/ reports count: unverified against the stored data",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "blocked: GET /api/v1/items/ accepts oauth2; the granted credential is not of that kind (without one it answers 401)"
+      },
+      {
+       "title": "GET /api/v1/users/ reports count: unverified against the stored data",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "blocked: GET /api/v1/users/ accepts oauth2; the granted credential is not of that kind (without one it answers 401)"
+      }
+     ],
+     "prs": [
+      {
+       "n": 17,
+       "title": "security: bump dnspython 2.8.0 → 2.9.0",
+       "url": "https://github.com/satisfymath/c13-fst/pull/17",
+       "kind": "security",
+       "ci": "green",
+       "merged": true,
+       "verified": "verified"
+      }
+     ]
+    }
+   ],
+   "tests": 58,
+   "checks": "passed",
+   "opportunities": 7,
+   "experiments": 1,
+   "pulls": 1,
+   "green": 1,
+   "merged": 1,
+   "level": "L5",
+   "spent": 0.4434
+  },
+  {
+   "name": "conduit",
+   "cls": "dev",
+   "family": "api-postgres",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 90,
+     "opportunities": 17,
+     "experiments": 0,
+     "deploys": 1,
+     "level": "L1",
+     "spent": 0.0701,
+     "first_pr_min": null,
+     "calls": 1,
+     "host": "`docker compose up` failed: Image unbidden-conduit-app Building Dockerfile:14 -------------------- 13 | COPY poetry.lock pyproject.toml ./ …",
+     "decisions": {
+      "run_experiment": 17,
+      "wait": 17
+     },
+     "items": [
+      {
+       "title": "GitPython 3.1.26: 64 known vulnerabilities, fixed in 3.2.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "Mako 1.1.6: 4 known vulnerabilities, fixed in 1.3.12",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "PyJWT 2.4.0: 25 known vulnerabilities, fixed in 2.15.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "Pygments 2.11.2: 4 known vulnerabilities, fixed in 2.20.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "anyio 3.5.0: 4 known vulnerabilities, fixed in 4.14.2",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "black 22.6.0: 5 known vulnerabilities, fixed in 26.10.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "certifi 2021.10.8: 8 known vulnerabilities, fixed in 2026.10.18",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "dnspython 2.2.0: 2 known vulnerabilities, fixed in 2.9.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "fastapi 0.79.1: 1 known vulnerability, fixed in 0.109.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "h11 0.12.0: 2 known vulnerabilities, fixed in 0.16.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "idna 3.3: 4 known vulnerabilities, fixed in 3.15",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "pip 22.2.2: 14 known vulnerabilities, fixed in 26.2.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "pydantic 1.9.2: 2 known vulnerabilities, fixed in 1.10.13",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "pytest 7.1.2: 2 known vulnerabilities, fixed in 9.0.3",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "python-dotenv 0.19.2: 2 known vulnerabilities, fixed in 1.2.2",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "setuptools 65.1.0: 9 known vulnerabilities, fixed in 84.1.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "starlette 0.19.1: 18 known vulnerabilities, fixed in 1.3.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      }
+     ],
+     "prs": []
+    }
+   ],
+   "tests": 90,
+   "checks": "passed",
+   "opportunities": 17,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "L1",
+   "spent": 0.0701
+  },
+  {
+   "name": "spoolman",
+   "cls": "dev",
+   "family": "api-postgres",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "autonomous",
+     "checks": "passed",
+     "tests": 278,
+     "opportunities": 7,
+     "experiments": 7,
+     "deploys": 2,
+     "level": "L5",
+     "spent": 0.0567,
+     "first_pr_min": 3.6,
+     "calls": 6,
+     "host": null,
+     "decisions": {
+      "investigate": 1,
+      "propose_change": 7,
+      "run_experiment": 11,
+      "wait": 6
+     },
+     "items": [
+      {
+       "title": "certifi 2026.6.17: 2 known vulnerabilities, fixed in 2026.10.18",
+       "category": "security",
+       "status": "experimenting",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "msgpack 1.2.1: 1 known vulnerability, fixed in 1.2.3",
+       "category": "security",
+       "status": "experimenting",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "setuptools 83.0.0: 1 known vulnerability, fixed in 84.1.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: ving dependencies cause: Because your project depends on setuptools>=83.0,<84.dev0 and setuptools==84.1.0, we can conclude tha…"
+      },
+      {
+       "title": "urllib3 2.7.0: 6 known vulnerabilities, fixed in 2.8.0",
+       "category": "security",
+       "status": "experimenting",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "anyio 4.14.1: 6 known vulnerabilities, fixed in 4.14.2",
+       "category": "security",
+       "status": "verified",
+       "level": "L5",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "filament.vendor_id is a foreign key without an index, filtered on by 1 endpoint…",
+       "category": "performance",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "not measurable at this commit: cannot measure: the mandate's monthly spend cap stops model calls (remote spend this month is US$2.30, at the US$2.00 …"
+      },
+      {
+       "title": "GET /api/v1/spool/group reports [].spool_count, [].in_use_count: unverified aga…",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "investigation queued or running"
+      }
+     ],
+     "prs": [
+      {
+       "n": 12,
+       "title": "security: bump urllib3 2.7.0 → 2.8.0",
+       "url": "https://github.com/satisfymath/c13-spoolman/pull/12",
+       "kind": "security",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 11,
+       "title": "security: bump msgpack 1.2.1 → 1.2.3",
+       "url": "https://github.com/satisfymath/c13-spoolman/pull/11",
+       "kind": "security",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 10,
+       "title": "security: bump certifi 2026.6.17 → 2026.10.18",
+       "url": "https://github.com/satisfymath/c13-spoolman/pull/10",
+       "kind": "security",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 9,
+       "title": "security: bump anyio 4.14.1 → 4.14.2",
+       "url": "https://github.com/satisfymath/c13-spoolman/pull/9",
+       "kind": "security",
+       "ci": "green",
+       "merged": true,
+       "verified": "verified"
+      }
+     ]
+    }
+   ],
+   "tests": 278,
+   "checks": "passed",
+   "opportunities": 7,
+   "experiments": 7,
+   "pulls": 4,
+   "green": 4,
+   "merged": 1,
+   "level": "L5",
+   "spent": 0.0567
+  },
+  {
+   "name": "codex-lb",
+   "cls": "dev",
+   "family": "api-postgres",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "autonomous",
+     "checks": "passed",
+     "tests": 6422,
+     "opportunities": 20,
+     "experiments": 2,
+     "deploys": 4,
+     "level": "L3",
+     "spent": 0.0449,
+     "first_pr_min": null,
+     "calls": 1,
+     "host": "up",
+     "decisions": {
+      "decline": 2,
+      "investigate": 10,
+      "run_experiment": 10,
+      "wait": 6
+     },
+     "items": [
+      {
+       "title": "brotli 1.2.0: 2 known vulnerabilities, fixed in 1.2.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "certifi 2026.7.22: 2 known vulnerabilities, fixed in 2026.10.18",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "dnspython 2.8.0: 1 known vulnerability, fixed in 2.9.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "filelock 3.29.0: 9 known vulnerabilities, fixed in 4.2.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "httpx2 2.10.0: 6 known vulnerabilities, fixed in 2.12.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "multidict 6.7.1: 2 known vulnerabilities, fixed in 6.9.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "urllib3 2.7.0: 6 known vulnerabilities, fixed in 2.8.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "virtualenv 21.3.3: 19 known vulnerabilities, fixed in 21.14.9",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "aiohttp 3.14.3: 8 known vulnerabilities, fixed in 3.14.4",
+       "category": "security",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: infra_failure)"
+      },
+      {
+       "title": "anyio 4.13.0: 4 known vulnerabilities, fixed in 4.14.2",
+       "category": "security",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: infra_failure)"
+      },
+      {
+       "title": "GET /api/automations reports total: unverified against the stored data",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "investigation queued or running"
+      },
+      {
+       "title": "GET /api/automations/runs reports items[].attemptCount, total: unverified again…",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "investigation queued or running"
+      },
+      {
+       "title": "GET /api/conversation-archive/records reports total: unverified against the sto…",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "investigation queued or running"
+      },
+      {
+       "title": "GET /api/request-logs reports total: unverified against the stored data",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "investigate",
+       "why": "whether the reported numbers agree with the stored data is unverified: read both, read-only"
+      },
+      {
+       "title": "GET /api/sticky-sessions reports stalePromptCacheCount, total: unverified again…",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "investigate",
+       "why": "whether the reported numbers agree with the stored data is unverified: read both, read-only"
+      },
+      {
+       "title": "GET /v1/usage reports request_count: unverified against the stored data",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "investigate",
+       "why": "whether the reported numbers agree with the stored data is unverified: read both, read-only"
+      },
+      {
+       "title": "GET /api/conversations reports conversations[].requestCount, conversations[].re…",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "investigation queued or running"
+      },
+      {
+       "title": "GET /api/dashboard/overview reports timeframe.bucketCount: unverified against t…",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "investigation queued or running"
+      },
+      {
+       "title": "GET /api/fleet/observability reports pressure.windows[].requestCount, pressure.…",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "blocked: GET /api/fleet/observability accepts http:bearer; the granted credential is not of that kind"
+      },
+      {
+       "title": "GET /api/reports reports daily[].errorCount, daily[].cancelledCount: unverified…",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "investigate",
+       "why": "whether the reported numbers agree with the stored data is unverified: read both, read-only"
+      }
+     ],
+     "prs": []
+    }
+   ],
+   "tests": 6422,
+   "checks": "passed",
+   "opportunities": 20,
+   "experiments": 2,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "L3",
+   "spent": 0.0449
+  },
+  {
+   "name": "aegra",
+   "cls": "dev",
+   "family": "api-postgres",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "autonomous",
+     "checks": "passed",
+     "tests": 2429,
+     "opportunities": 8,
+     "experiments": 8,
+     "deploys": 4,
+     "level": "L4",
+     "spent": 0.1742,
+     "first_pr_min": 12.3,
+     "calls": 7,
+     "host": "up",
+     "decisions": {
+      "decline": 2,
+      "investigate": 2,
+      "propose_change": 3,
+      "run_experiment": 8,
+      "wait": 3
+     },
+     "items": [
+      {
+       "title": "certifi 2026.1.4: 2 known vulnerabilities, fixed in 2026.10.18",
+       "category": "security",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "filelock 4.0.9: 13 known vulnerabilities, fixed in 4.2.1",
+       "category": "security",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "langgraph-checkpoint-postgres 3.1.2: 1 known vulnerability, fixed in 3.1.3",
+       "category": "security",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "langgraph-sdk 0.4.2: 3 known vulnerabilities, fixed in 0.4.6",
+       "category": "security",
+       "status": "experimenting",
+       "level": "L4",
+       "decision": "wait",
+       "why": "3 pull request(s) open (cap 3)"
+      },
+      {
+       "title": "opentelemetry-api 1.39.1: 1 known vulnerability, fixed in 1.45.1",
+       "category": "security",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "2 experiments found no proven fix"
+      },
+      {
+       "title": "virtualenv 21.14.5: 8 known vulnerabilities, fixed in 21.14.9",
+       "category": "security",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "2 experiments found no proven fix"
+      },
+      {
+       "title": "GET /assistants reports total: unverified against the stored data",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "investigation queued or running"
+      },
+      {
+       "title": "GET /threads reports total: unverified against the stored data",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "investigation queued or running"
+      }
+     ],
+     "prs": [
+      {
+       "n": 6,
+       "title": "security: bump langgraph-checkpoint-postgres 3.1.2 → 3.1.3",
+       "url": "https://github.com/satisfymath/c13-aegra/pull/6",
+       "kind": "security",
+       "ci": "red",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 5,
+       "title": "security: bump filelock 4.0.9 → 4.2.1",
+       "url": "https://github.com/satisfymath/c13-aegra/pull/5",
+       "kind": "security",
+       "ci": "red",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 4,
+       "title": "security: bump certifi 2026.1.4 → 2026.10.18",
+       "url": "https://github.com/satisfymath/c13-aegra/pull/4",
+       "kind": "security",
+       "ci": "red",
+       "merged": false,
+       "verified": "not run"
+      }
+     ]
+    },
+    {
+     "version": "0.18.9",
+     "mode": "autonomous",
+     "checks": "passed",
+     "tests": 2429,
+     "opportunities": 8,
+     "experiments": 9,
+     "deploys": 6,
+     "level": "L5",
+     "spent": 0.0824,
+     "first_pr_min": 13.3,
+     "calls": 8,
+     "host": "up",
+     "decisions": {
+      "decline": 3,
+      "investigate": 2,
+      "propose_change": 5,
+      "run_experiment": 9,
+      "wait": 2
+     },
+     "items": [
+      {
+       "title": "langgraph-checkpoint-postgres 3.1.2: 1 known vulnerability, fixed in 3.1.3",
+       "category": "security",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: infra_failure)"
+      },
+      {
+       "title": "opentelemetry-api 1.39.1: 1 known vulnerability, fixed in 1.45.1",
+       "category": "security",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: infra_failure)"
+      },
+      {
+       "title": "virtualenv 21.14.5: 8 known vulnerabilities, fixed in 21.14.9",
+       "category": "security",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "2 experiments found no proven fix"
+      },
+      {
+       "title": "certifi 2026.1.4: 2 known vulnerabilities, fixed in 2026.10.18",
+       "category": "security",
+       "status": "verified",
+       "level": "L5",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "filelock 4.0.9: 13 known vulnerabilities, fixed in 4.2.1",
+       "category": "security",
+       "status": "experimenting",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "langgraph-sdk 0.4.2: 3 known vulnerabilities, fixed in 0.4.6",
+       "category": "security",
+       "status": "experimenting",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "GET /assistants reports total: unverified against the stored data",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "investigation queued or running"
+      },
+      {
+       "title": "GET /threads reports total: unverified against the stored data",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "investigation queued or running"
+      }
+     ],
+     "prs": [
+      {
+       "n": 9,
+       "title": "fix(deps): bump langgraph-sdk 0.4.2 → 0.4.6 (security)",
+       "url": "https://github.com/satisfymath/c13-aegra/pull/9",
+       "kind": "security",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 8,
+       "title": "fix(deps): bump filelock 4.0.9 → 4.2.1 (security)",
+       "url": "https://github.com/satisfymath/c13-aegra/pull/8",
+       "kind": "security",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 7,
+       "title": "fix(deps): bump certifi 2026.1.4 → 2026.10.18 (security)",
+       "url": "https://github.com/satisfymath/c13-aegra/pull/7",
+       "kind": "security",
+       "ci": "green",
+       "merged": true,
+       "verified": "verified"
+      }
+     ]
+    }
+   ],
+   "tests": 2429,
+   "checks": "passed",
+   "opportunities": 8,
+   "experiments": 9,
+   "pulls": 6,
+   "green": 3,
+   "merged": 1,
+   "level": "L5",
+   "spent": 0.2566
+  },
+  {
+   "name": "ctfd",
+   "cls": "dev",
+   "family": "web-flask",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 679,
+     "opportunities": 10,
+     "experiments": 2,
+     "deploys": 4,
+     "level": "L4",
+     "spent": 0.0765,
+     "first_pr_min": 88.9,
+     "calls": 3,
+     "host": "up",
+     "decisions": {
+      "propose_change": 1,
+      "run_experiment": 11,
+      "wait": 2
+     },
+     "items": [
+      {
+       "title": "pillow 12.2.0: 80 known vulnerabilities, fixed in 13.0.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "pydantic 1.6.2: 2 known vulnerabilities, fixed in 1.10.13",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "pytest 8.4.2: 2 known vulnerabilities, fixed in 9.0.3",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "python-dotenv 0.13.0: 2 known vulnerabilities, fixed in 1.2.2",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "requests 2.32.4: 2 known vulnerabilities, fixed in 2.33.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "urllib3 2.6.0: 10 known vulnerabilities, fixed in 2.8.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "Flask 2.1.3: 4 known vulnerabilities, fixed in 3.1.3",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "the bumped dependencies do not install: t\\\" 2>/dev/null // uv pip install --python /deps/.venv/bin/python pytest==9.1.1 // uv pip install --python /d…"
+      },
+      {
+       "title": "Werkzeug 2.2.3: 16 known vulnerabilities, fixed in 3.1.9",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.20 from the lab's history of this kind)"
+      },
+      {
+       "title": "cryptography 45.0.6: 13 known vulnerabilities, fixed in 50.0.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "the bumped dependencies do not install: t\\\" 2>/dev/null // uv pip install --python /deps/.venv/bin/python pytest==9.1.1 // uv pip install --python /d…"
+      },
+      {
+       "title": "idna 3.10: 2 known vulnerabilities, fixed in 3.15",
+       "category": "security",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      }
+     ],
+     "prs": [
+      {
+       "n": 1,
+       "title": "security: bump idna 3.10 → 3.15",
+       "url": "https://github.com/satisfymath/c13-ctfd/pull/1",
+       "kind": "security",
+       "ci": "red",
+       "merged": false,
+       "verified": "not run"
+      }
+     ]
+    }
+   ],
+   "tests": 679,
+   "checks": "passed",
+   "opportunities": 10,
+   "experiments": 2,
+   "pulls": 1,
+   "green": 0,
+   "merged": 0,
+   "level": "L4",
+   "spent": 0.0765
+  },
+  {
+   "name": "timetracker",
+   "cls": "dev",
+   "family": "web-flask",
+   "stopped": true,
+   "runs": [],
+   "tests": null,
+   "checks": null,
+   "opportunities": 0,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": null,
+   "spent": 0
+  },
+  {
+   "name": "rich",
+   "cls": "dev",
+   "family": "library",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 981,
+     "opportunities": 13,
+     "experiments": 6,
+     "deploys": 0,
+     "level": "L4",
+     "spent": 1.0042,
+     "first_pr_min": 5.2,
+     "calls": 9,
+     "host": null,
+     "decisions": {
+      "decline": 1,
+      "propose_change": 5,
+      "run_experiment": 17,
+      "wait": 9
+     },
+     "items": [
+      {
+       "title": "1 ruff-baseline F821 finding in examples/",
+       "category": "bugs",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "3 ruff-baseline F811 findings in tests/",
+       "category": "bugs",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: flakier)"
+      },
+      {
+       "title": "Pygments 2.19.2: 2 known vulnerabilities, fixed in 2.20.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "black 22.12.0: 5 known vulnerabilities, fixed in 26.10.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "filelock 3.16.1: 6 known vulnerabilities, fixed in 4.2.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "pip 25.2: 12 known vulnerabilities, fixed in 26.2.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "pytest 7.4.4: 2 known vulnerabilities, fixed in 9.0.3",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "setuptools 80.9.0: 3 known vulnerabilities, fixed in 84.1.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "virtualenv 20.34.0: 21 known vulnerabilities, fixed in 21.14.9",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "2 ruff-baseline F821 findings in rich/",
+       "category": "bugs",
+       "status": "open",
+       "level": "L4",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.73 from the lab's history of this kind)"
+      },
+      {
+       "title": "2 ruff-baseline F821 findings in tests/",
+       "category": "bugs",
+       "status": "open",
+       "level": "L4",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.73 from the lab's history of this kind)"
+      },
+      {
+       "title": "IndexError in _split_text (rich/cells.py)",
+       "category": "bugs",
+       "status": "open",
+       "level": "L4",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "ZeroDivisionError in _split_text (rich/cells.py)",
+       "category": "bugs",
+       "status": "open",
+       "level": "L4",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      }
+     ],
+     "prs": [
+      {
+       "n": 22,
+       "title": "fix: ZeroDivisionError in _split_text (rich/cells.py)",
+       "url": "https://github.com/satisfymath/c13-rich/pull/22",
+       "kind": "correctness",
+       "ci": "red",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 21,
+       "title": "fix: IndexError in _split_text (rich/cells.py)",
+       "url": "https://github.com/satisfymath/c13-rich/pull/21",
+       "kind": "correctness",
+       "ci": "red",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 20,
+       "title": "fix: 2 ruff-baseline F821 findings in tests/",
+       "url": "https://github.com/satisfymath/c13-rich/pull/20",
+       "kind": "quality",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 19,
+       "title": "fix: 2 ruff-baseline F821 findings in rich/",
+       "url": "https://github.com/satisfymath/c13-rich/pull/19",
+       "kind": "quality",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 18,
+       "title": "fix: 1 ruff-baseline F821 finding in examples/",
+       "url": "https://github.com/satisfymath/c13-rich/pull/18",
+       "kind": "quality",
+       "ci": "green",
+       "merged": true,
+       "verified": "verified"
+      }
+     ]
+    },
+    {
+     "version": "0.18.9",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 981,
+     "opportunities": 11,
+     "experiments": 4,
+     "deploys": 0,
+     "level": "L4",
+     "spent": 0.1347,
+     "first_pr_min": 6.1,
+     "calls": 10,
+     "host": null,
+     "decisions": {
+      "decline": 1,
+      "propose_change": 3,
+      "run_experiment": 14,
+      "wait": 7
+     },
+     "items": [
+      {
+       "title": "1 ruff-baseline F821 finding in examples/",
+       "category": "bugs",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "3 ruff-baseline F811 findings in tests/",
+       "category": "bugs",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: flakier)"
+      },
+      {
+       "title": "Pygments 2.19.2: 2 known vulnerabilities, fixed in 2.20.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "black 22.12.0: 5 known vulnerabilities, fixed in 26.10.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "filelock 3.16.1: 6 known vulnerabilities, fixed in 4.2.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "pip 25.2: 12 known vulnerabilities, fixed in 26.2.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "pytest 7.4.4: 2 known vulnerabilities, fixed in 9.0.3",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "setuptools 80.9.0: 3 known vulnerabilities, fixed in 84.1.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "virtualenv 20.34.0: 21 known vulnerabilities, fixed in 21.14.9",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: bumping a dependency in poetry.lock is not supported yet (declared)"
+      },
+      {
+       "title": "2 ruff-baseline F821 findings in tests/",
+       "category": "bugs",
+       "status": "open",
+       "level": "L4",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.55 from the lab's history of this kind)"
+      },
+      {
+       "title": "2 ruff-baseline F821 findings in rich/",
+       "category": "bugs",
+       "status": "open",
+       "level": "L4",
+       "decision": "run_experiment",
+       "why": "bridge: too much code to rewrite safely as a synthetic task"
+      }
+     ],
+     "prs": [
+      {
+       "n": 25,
+       "title": "fix: 2 ruff-baseline F821 findings in rich/",
+       "url": "https://github.com/satisfymath/c13-rich/pull/25",
+       "kind": "quality",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 24,
+       "title": "fix: 2 ruff-baseline F821 findings in tests/",
+       "url": "https://github.com/satisfymath/c13-rich/pull/24",
+       "kind": "quality",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 23,
+       "title": "fix: 1 ruff-baseline F821 finding in examples/",
+       "url": "https://github.com/satisfymath/c13-rich/pull/23",
+       "kind": "quality",
+       "ci": "green",
+       "merged": true,
+       "verified": "verified"
+      }
+     ]
+    }
+   ],
+   "tests": 981,
+   "checks": "passed",
+   "opportunities": 13,
+   "experiments": 6,
+   "pulls": 8,
+   "green": 6,
+   "merged": 2,
+   "level": "L4",
+   "spent": 1.1389
+  },
+  {
+   "name": "marshmallow",
+   "cls": "dev",
+   "family": "library",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 1192,
+     "opportunities": 8,
+     "experiments": 4,
+     "deploys": 0,
+     "level": "L4",
+     "spent": 0.1545,
+     "first_pr_min": 3.9,
+     "calls": 3,
+     "host": null,
+     "decisions": {
+      "decline": 6,
+      "propose_change": 1,
+      "run_experiment": 5,
+      "wait": 1
+     },
+     "items": [
+      {
+       "title": "1 ruff ICN001 finding in examples/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI does not run ruff: its style is not the team's standard"
+      },
+      {
+       "title": "1 ruff ICN001 finding in performance/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI does not run ruff: its style is not the team's standard"
+      },
+      {
+       "title": "1 mypy error in src/marshmallow/fields.py",
+       "category": "types",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI runs mypy the same way and passes on this commit: Unbidden's environment"
+      },
+      {
+       "title": "2 mypy errors in tests/test_fields.py",
+       "category": "types",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI runs mypy the same way and passes on this commit: Unbidden's environment"
+      },
+      {
+       "title": "certifi 2026.7.22: 2 known vulnerabilities, fixed in 2026.10.18",
+       "category": "security",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "filelock 4.0.3: 14 known vulnerabilities, fixed in 4.2.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: uv lock --upgrade-package filelock==4.2.1 failed: error: No solution found when resolving dependencies for split (markers: pyt…"
+      },
+      {
+       "title": "uv 0.12.18: 2 known vulnerabilities, fixed in 0.13.4",
+       "category": "security",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: infra_failure)"
+      },
+      {
+       "title": "virtualenv 21.11.1: 11 known vulnerabilities, fixed in 21.14.9",
+       "category": "security",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "2 experiments found no proven fix"
+      }
+     ],
+     "prs": [
+      {
+       "n": 3,
+       "title": "security: bump certifi 2026.7.22 → 2026.10.18",
+       "url": "https://github.com/satisfymath/c13-marshmallow/pull/3",
+       "kind": "security",
+       "ci": "green",
+       "merged": true,
+       "verified": "verified"
+      }
+     ]
+    }
+   ],
+   "tests": 1192,
+   "checks": "passed",
+   "opportunities": 8,
+   "experiments": 4,
+   "pulls": 1,
+   "green": 1,
+   "merged": 1,
+   "level": "L4",
+   "spent": 0.1545
+  },
+  {
+   "name": "pyjwt",
+   "cls": "dev",
+   "family": "library",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 476,
+     "opportunities": 1,
+     "experiments": 2,
+     "deploys": 0,
+     "level": "L1",
+     "spent": 0.1178,
+     "first_pr_min": null,
+     "calls": 1,
+     "host": null,
+     "decisions": {
+      "decline": 1,
+      "run_experiment": 2
+     },
+     "items": [
+      {
+       "title": "pytest 8.4.2: 2 known vulnerabilities, fixed in 9.0.3",
+       "category": "security",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "2 experiments found no proven fix"
+      }
+     ],
+     "prs": []
+    }
+   ],
+   "tests": 476,
+   "checks": "passed",
+   "opportunities": 1,
+   "experiments": 2,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "L1",
+   "spent": 0.1178
+  },
+  {
+   "name": "humanize",
+   "cls": "dev",
+   "family": "library",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 878,
+     "opportunities": 0,
+     "experiments": 0,
+     "deploys": 0,
+     "level": "-",
+     "spent": 0.1078,
+     "first_pr_min": null,
+     "calls": 1,
+     "host": null,
+     "decisions": {},
+     "items": [],
+     "prs": []
+    }
+   ],
+   "tests": 878,
+   "checks": "passed",
+   "opportunities": 0,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "-",
+   "spent": 0.1078
+  },
+  {
+   "name": "sqlmodel",
+   "cls": "dev",
+   "family": "library",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 268,
+     "opportunities": 5,
+     "experiments": 5,
+     "deploys": 0,
+     "level": "L3",
+     "spent": 0.1131,
+     "first_pr_min": null,
+     "calls": 3,
+     "host": null,
+     "decisions": {
+      "decline": 5,
+      "run_experiment": 5
+     },
+     "items": [
+      {
+       "title": "anyio 4.12.0: 4 known vulnerabilities, fixed in 4.14.2",
+       "category": "security",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: infra_failure)"
+      },
+      {
+       "title": "black 26.5.1: 1 known vulnerability, fixed in 26.10.1",
+       "category": "security",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: infra_failure)"
+      },
+      {
+       "title": "certifi 2025.11.12: 2 known vulnerabilities, fixed in 2026.10.18",
+       "category": "security",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: infra_failure)"
+      },
+      {
+       "title": "idna 3.11: 2 known vulnerabilities, fixed in 3.15",
+       "category": "security",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: infra_failure)"
+      },
+      {
+       "title": "starlette 0.50.0: 10 known vulnerabilities, fixed in 1.3.1",
+       "category": "security",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: infra_failure)"
+      }
+     ],
+     "prs": []
+    },
+    {
+     "version": "0.18.9",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 268,
+     "opportunities": 5,
+     "experiments": 5,
+     "deploys": 0,
+     "level": "L4",
+     "spent": 0.0211,
+     "first_pr_min": 16.1,
+     "calls": 3,
+     "host": null,
+     "decisions": {
+      "propose_change": 5,
+      "run_experiment": 9,
+      "wait": 2
+     },
+     "items": [
+      {
+       "title": "anyio 4.12.0: 4 known vulnerabilities, fixed in 4.14.2",
+       "category": "security",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "black 26.5.1: 1 known vulnerability, fixed in 26.10.1",
+       "category": "security",
+       "status": "open",
+       "level": "L4",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.84 from the lab's history of this kind)"
+      },
+      {
+       "title": "certifi 2025.11.12: 2 known vulnerabilities, fixed in 2026.10.18",
+       "category": "security",
+       "status": "open",
+       "level": "L4",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.84 from the lab's history of this kind)"
+      },
+      {
+       "title": "idna 3.11: 2 known vulnerabilities, fixed in 3.15",
+       "category": "security",
+       "status": "open",
+       "level": "L4",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.73 from the lab's history of this kind)"
+      },
+      {
+       "title": "starlette 0.50.0: 10 known vulnerabilities, fixed in 1.3.1",
+       "category": "security",
+       "status": "open",
+       "level": "L4",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.73 from the lab's history of this kind)"
+      }
+     ],
+     "prs": [
+      {
+       "n": 5,
+       "title": "fix(deps): bump starlette 0.50.0 → 1.3.1 (security)",
+       "url": "https://github.com/satisfymath/c13-sqlmodel/pull/5",
+       "kind": "security",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 4,
+       "title": "fix(deps): bump idna 3.11 → 3.15 (security)",
+       "url": "https://github.com/satisfymath/c13-sqlmodel/pull/4",
+       "kind": "security",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 3,
+       "title": "fix(deps): bump certifi 2025.11.12 → 2026.10.18 (security)",
+       "url": "https://github.com/satisfymath/c13-sqlmodel/pull/3",
+       "kind": "security",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 2,
+       "title": "fix(deps): bump black 26.5.1 → 26.10.1 (security)",
+       "url": "https://github.com/satisfymath/c13-sqlmodel/pull/2",
+       "kind": "security",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 1,
+       "title": "fix(deps): bump anyio 4.12.0 → 4.14.2 (security)",
+       "url": "https://github.com/satisfymath/c13-sqlmodel/pull/1",
+       "kind": "security",
+       "ci": "green",
+       "merged": true,
+       "verified": "verified"
+      }
+     ]
+    }
+   ],
+   "tests": 268,
+   "checks": "passed",
+   "opportunities": 5,
+   "experiments": 5,
+   "pulls": 5,
+   "green": 5,
+   "merged": 1,
+   "level": "L4",
+   "spent": 0.1342
+  },
+  {
+   "name": "mimirq",
+   "cls": "independent",
+   "family": "api-postgres",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "infra_failed",
+     "tests": null,
+     "opportunities": 12,
+     "experiments": 0,
+     "deploys": 1,
+     "level": "L1",
+     "spent": 0.0078,
+     "first_pr_min": null,
+     "calls": 1,
+     "host": "the repository tracks no compose file (compose.yml, docker-compose.yml)",
+     "decisions": {
+      "run_experiment": 12
+     },
+     "items": [
+      {
+       "title": "PyJWT 2.13.0: 29 known vulnerabilities, fixed in 2.15.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "accelerate 1.13.0: 2 known vulnerabilities, no fix published",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "chromadb 1.5.7: 8 known vulnerabilities, no fix published",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "diskcache 5.6.3: 2 known vulnerabilities, no fix published",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "nltk 3.10.2: 34 known vulnerabilities, fixed in 3.10.4",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "opentelemetry-api 1.40.0: 1 known vulnerability, fixed in 1.45.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "pillow 12.3.0: 55 known vulnerabilities, fixed in 13.0.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "pypdf 6.15.0: 40 known vulnerabilities, fixed in 6.21.4",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "ragas 0.4.3: 2 known vulnerabilities, no fix published",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "sentence-transformers 5.3.0: 2 known vulnerabilities, fixed in 5.6.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "setuptools 84.0.0: 1 known vulnerability, fixed in 84.1.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "unstructured 0.18.32: 3 known vulnerabilities, fixed in 0.24.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      }
+     ],
+     "prs": []
+    }
+   ],
+   "tests": 0,
+   "checks": "infra_failed",
+   "opportunities": 12,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "L1",
+   "spent": 0.0078
+  },
+  {
+   "name": "mediacms",
+   "cls": "independent",
+   "family": "web-django",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "autonomous",
+     "checks": "infra_failed",
+     "tests": null,
+     "opportunities": 2,
+     "experiments": 0,
+     "deploys": 4,
+     "level": "L1",
+     "spent": 0.0173,
+     "first_pr_min": null,
+     "calls": 1,
+     "host": "up",
+     "decisions": {
+      "run_experiment": 2
+     },
+     "items": [
+      {
+       "title": "1 ruff-baseline B006 finding in files/models/",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "pillow 12.3.0: 55 known vulnerabilities, fixed in 13.0.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      }
+     ],
+     "prs": []
+    }
+   ],
+   "tests": 0,
+   "checks": "infra_failed",
+   "opportunities": 2,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "L1",
+   "spent": 0.0173
+  },
+  {
+   "name": "misago",
+   "cls": "independent",
+   "family": "web-django",
+   "stopped": true,
+   "runs": [],
+   "tests": null,
+   "checks": null,
+   "opportunities": 0,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": null,
+   "spent": 0
+  },
+  {
+   "name": "brightbean-studio",
+   "cls": "independent",
+   "family": "web-django",
+   "stopped": true,
+   "runs": [],
+   "tests": null,
+   "checks": null,
+   "opportunities": 0,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": null,
+   "spent": 0
+  },
+  {
+   "name": "traefik-manager",
+   "cls": "independent",
+   "family": "web-flask",
+   "stopped": true,
+   "runs": [],
+   "tests": null,
+   "checks": null,
+   "opportunities": 0,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": null,
+   "spent": 0
+  },
+  {
+   "name": "oauthlib",
+   "cls": "independent",
+   "family": "library",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 902,
+     "opportunities": 1,
+     "experiments": 1,
+     "deploys": 0,
+     "level": "L4",
+     "spent": 0.2676,
+     "first_pr_min": 3.8,
+     "calls": 2,
+     "host": null,
+     "decisions": {
+      "propose_change": 1,
+      "run_experiment": 1
+     },
+     "items": [
+      {
+       "title": "1 ruff-baseline B006 finding in oauthlib/oauth2/rfc6749/endpoints/",
+       "category": "bugs",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      }
+     ],
+     "prs": [
+      {
+       "n": 2,
+       "title": "fix: 1 ruff-baseline B006 finding in oauthlib/oauth2/rfc6749/endpoints/",
+       "url": "https://github.com/satisfymath/c13-oauthlib/pull/2",
+       "kind": "quality",
+       "ci": "green",
+       "merged": true,
+       "verified": "verified"
+      }
+     ]
+    }
+   ],
+   "tests": 902,
+   "checks": "passed",
+   "opportunities": 1,
+   "experiments": 1,
+   "pulls": 1,
+   "green": 1,
+   "merged": 1,
+   "level": "L4",
+   "spent": 0.2676
+  },
+  {
+   "name": "rdflib",
+   "cls": "independent",
+   "family": "library",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "infra_failed",
+     "tests": null,
+     "opportunities": 3,
+     "experiments": 0,
+     "deploys": 0,
+     "level": "L1",
+     "spent": 0.1393,
+     "first_pr_min": null,
+     "calls": 2,
+     "host": null,
+     "decisions": {
+      "run_experiment": 3
+     },
+     "items": [
+      {
+       "title": "certifi 2026.7.22: 2 known vulnerabilities, fixed in 2026.10.18",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "setuptools 71.1.0: 5 known vulnerabilities, fixed in 84.1.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "urllib3 2.7.0: 6 known vulnerabilities, fixed in 2.8.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      }
+     ],
+     "prs": []
+    }
+   ],
+   "tests": 0,
+   "checks": "infra_failed",
+   "opportunities": 3,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "L1",
+   "spent": 0.1393
+  },
+  {
+   "name": "graphtage",
+   "cls": "independent",
+   "family": "library",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 289,
+     "opportunities": 0,
+     "experiments": 0,
+     "deploys": 0,
+     "level": "-",
+     "spent": 0.0782,
+     "first_pr_min": null,
+     "calls": 1,
+     "host": null,
+     "decisions": {},
+     "items": [],
+     "prs": []
+    }
+   ],
+   "tests": 289,
+   "checks": "passed",
+   "opportunities": 0,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "-",
+   "spent": 0.0782
+  },
+  {
+   "name": "python-progressbar",
+   "cls": "independent",
+   "family": "library",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 3,
+     "opportunities": 2,
+     "experiments": 1,
+     "deploys": 0,
+     "level": "L4",
+     "spent": 0.1102,
+     "first_pr_min": 3.3,
+     "calls": 1,
+     "host": null,
+     "decisions": {
+      "decline": 1,
+      "propose_change": 1,
+      "run_experiment": 3
+     },
+     "items": [
+      {
+       "title": "certifi 2026.5.20: 2 known vulnerabilities, fixed in 2026.10.18",
+       "category": "security",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "IndexError in format_unit_value (progressbar/widgets.py)",
+       "category": "bugs",
+       "status": "declined",
+       "level": "L2",
+       "decision": "decline",
+       "why": "2 experiments found no proven fix"
+      }
+     ],
+     "prs": [
+      {
+       "n": 3,
+       "title": "security: bump certifi 2026.5.20 → 2026.10.18",
+       "url": "https://github.com/satisfymath/c13-python-progressbar/pull/3",
+       "kind": "security",
+       "ci": "green",
+       "merged": true,
+       "verified": "verified"
+      }
+     ]
+    }
+   ],
+   "tests": 3,
+   "checks": "passed",
+   "opportunities": 2,
+   "experiments": 1,
+   "pulls": 1,
+   "green": 1,
+   "merged": 1,
+   "level": "L4",
+   "spent": 0.1102
+  },
+  {
+   "name": "python-mss",
+   "cls": "independent",
+   "family": "library",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "failed",
+     "tests": 3,
+     "opportunities": 8,
+     "experiments": 1,
+     "deploys": 0,
+     "level": "L4",
+     "spent": 0.1792,
+     "first_pr_min": 2.8,
+     "calls": 2,
+     "host": null,
+     "decisions": {
+      "decline": 7,
+      "propose_change": 1,
+      "run_experiment": 1
+     },
+     "items": [
+      {
+       "title": "4 ruff ERA001 findings in demos/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI checks ruff only in docs, src: these findings are outside what it holds to"
+      },
+      {
+       "title": "2 ruff PLR0915 findings in demos/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI checks ruff only in docs, src: these findings are outside what it holds to"
+      },
+      {
+       "title": "3 ruff PLR2004 findings in demos/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI checks ruff only in docs, src: these findings are outside what it holds to"
+      },
+      {
+       "title": "1 ruff S101 finding in demos/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI checks ruff only in docs, src: these findings are outside what it holds to"
+      },
+      {
+       "title": "2 ruff F401 findings in demos/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI checks ruff only in docs, src: these findings are outside what it holds to"
+      },
+      {
+       "title": "2 ruff I001 findings in demos/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI checks ruff only in docs, src: these findings are outside what it holds to"
+      },
+      {
+       "title": "1 ruff E501 finding in demos/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI checks ruff only in docs, src: these findings are outside what it holds to"
+      },
+      {
+       "title": "AttributeError in as_region (src/mss/models.py)",
+       "category": "bugs",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      }
+     ],
+     "prs": [
+      {
+       "n": 1,
+       "title": "fix: AttributeError in as_region (src/mss/models.py)",
+       "url": "https://github.com/satisfymath/c13-python-mss/pull/1",
+       "kind": "correctness",
+       "ci": "red",
+       "merged": false,
+       "verified": "not run"
+      }
+     ]
+    },
+    {
+     "version": "0.18.9",
+     "mode": "custom",
+     "checks": "failed",
+     "tests": 3,
+     "opportunities": 7,
+     "experiments": 0,
+     "deploys": 0,
+     "level": "L1",
+     "spent": 0.0293,
+     "first_pr_min": null,
+     "calls": 1,
+     "host": null,
+     "decisions": {
+      "decline": 7
+     },
+     "items": [
+      {
+       "title": "4 ruff ERA001 findings in demos/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI checks ruff only in docs, src: these findings are outside what it holds to"
+      },
+      {
+       "title": "2 ruff PLR0915 findings in demos/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI checks ruff only in docs, src: these findings are outside what it holds to"
+      },
+      {
+       "title": "3 ruff PLR2004 findings in demos/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI checks ruff only in docs, src: these findings are outside what it holds to"
+      },
+      {
+       "title": "1 ruff S101 finding in demos/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI checks ruff only in docs, src: these findings are outside what it holds to"
+      },
+      {
+       "title": "2 ruff F401 findings in demos/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI checks ruff only in docs, src: these findings are outside what it holds to"
+      },
+      {
+       "title": "2 ruff I001 findings in demos/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI checks ruff only in docs, src: these findings are outside what it holds to"
+      },
+      {
+       "title": "1 ruff E501 finding in demos/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI checks ruff only in docs, src: these findings are outside what it holds to"
+      }
+     ],
+     "prs": []
+    }
+   ],
+   "tests": 3,
+   "checks": "failed",
+   "opportunities": 8,
+   "experiments": 1,
+   "pulls": 1,
+   "green": 0,
+   "merged": 0,
+   "level": "L4",
+   "spent": 0.2085
+  },
+  {
+   "name": "reader",
+   "cls": "independent",
+   "family": "library",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 2210,
+     "opportunities": 2,
+     "experiments": 3,
+     "deploys": 0,
+     "level": "L4",
+     "spent": 0.1358,
+     "first_pr_min": 11.5,
+     "calls": 4,
+     "host": null,
+     "decisions": {
+      "decline": 1,
+      "propose_change": 1,
+      "run_experiment": 2
+     },
+     "items": [
+      {
+       "title": "7 ruff-baseline F811 findings in tests/",
+       "category": "bugs",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: infra_failure)"
+      },
+      {
+       "title": "19 ruff-baseline F821 findings in tests/data/",
+       "category": "bugs",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      }
+     ],
+     "prs": [
+      {
+       "n": 1,
+       "title": "fix: 19 ruff-baseline F821 findings in tests/data/",
+       "url": "https://github.com/satisfymath/c13-reader/pull/1",
+       "kind": "quality",
+       "ci": "green",
+       "merged": true,
+       "verified": "verified"
+      }
+     ]
+    }
+   ],
+   "tests": 2210,
+   "checks": "passed",
+   "opportunities": 2,
+   "experiments": 3,
+   "pulls": 1,
+   "green": 1,
+   "merged": 1,
+   "level": "L4",
+   "spent": 0.1358
+  },
+  {
+   "name": "harlequin",
+   "cls": "independent",
+   "family": "cli",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "failed",
+     "tests": 2214,
+     "opportunities": 7,
+     "experiments": 4,
+     "deploys": 0,
+     "level": "L4",
+     "spent": 0.144,
+     "first_pr_min": 30.8,
+     "calls": 1,
+     "host": null,
+     "decisions": {
+      "decline": 1,
+      "propose_change": 3,
+      "run_experiment": 7,
+      "wait": 1
+     },
+     "items": [
+      {
+       "title": "urllib3 2.7.0: 6 known vulnerabilities, fixed in 2.8.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "virtualenv 21.7.1: 19 known vulnerabilities, fixed in 21.14.9",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "aiohttp 3.14.3: 8 known vulnerabilities, fixed in 3.14.4",
+       "category": "security",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "filelock 3.32.2: 12 known vulnerabilities, fixed in 4.2.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: uv lock --upgrade-package filelock==4.2.1 failed: error: No solution found when resolving dependencies for split (markers: pyt…"
+      },
+      {
+       "title": "msgpack 1.2.1: 1 known vulnerability, fixed in 1.2.3",
+       "category": "security",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "multidict 6.7.1: 2 known vulnerabilities, fixed in 6.9.1",
+       "category": "security",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "pyarrow 21.0.0: 2 known vulnerabilities, fixed in 23.0.1",
+       "category": "security",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: infra_failure)"
+      }
+     ],
+     "prs": [
+      {
+       "n": 4,
+       "title": "security: bump multidict 6.7.1 → 6.9.1",
+       "url": "https://github.com/satisfymath/c13-harlequin/pull/4",
+       "kind": "security",
+       "ci": "red",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 3,
+       "title": "security: bump msgpack 1.2.1 → 1.2.3",
+       "url": "https://github.com/satisfymath/c13-harlequin/pull/3",
+       "kind": "security",
+       "ci": "red",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 2,
+       "title": "security: bump aiohttp 3.14.3 → 3.14.4",
+       "url": "https://github.com/satisfymath/c13-harlequin/pull/2",
+       "kind": "security",
+       "ci": "red",
+       "merged": false,
+       "verified": "not run"
+      }
+     ]
+    }
+   ],
+   "tests": 2214,
+   "checks": "failed",
+   "opportunities": 7,
+   "experiments": 4,
+   "pulls": 3,
+   "green": 0,
+   "merged": 0,
+   "level": "L4",
+   "spent": 0.144
+  },
+  {
+   "name": "dooit",
+   "cls": "independent",
+   "family": "cli",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 81,
+     "opportunities": 7,
+     "experiments": 4,
+     "deploys": 0,
+     "level": "L4",
+     "spent": 0.0691,
+     "first_pr_min": 6.7,
+     "calls": 1,
+     "host": null,
+     "decisions": {
+      "decline": 1,
+      "propose_change": 2,
+      "run_experiment": 9,
+      "wait": 4
+     },
+     "items": [
+      {
+       "title": "aiohttp 3.12.15: 72 known vulnerabilities, fixed in 3.14.4",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: .10 and aiohttp==3.14.4 depends on Python>=3.10, we can conclude that aiohttp==3.14.4 cannot be used. 0.875 error: No solution…"
+      },
+      {
+       "title": "filelock 3.19.1: 6 known vulnerabilities, fixed in 4.2.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: uv lock --upgrade-package filelock==4.2.1 failed: error: No solution found when resolving dependencies for split (markers: pyt…"
+      },
+      {
+       "title": "idna 3.10: 2 known vulnerabilities, fixed in 3.15",
+       "category": "security",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "msgpack 1.1.1: 3 known vulnerabilities, fixed in 1.2.3",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: n>=3.10 and msgpack==1.2.3 depends on Python>=3.10, we can conclude that msgpack==1.2.3 cannot be used. 0.636 error: No soluti…"
+      },
+      {
+       "title": "pytest 8.4.2: 2 known vulnerabilities, fixed in 9.0.3",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: ython>=3.10 and pytest==9.0.3 depends on Python>=3.10, we can conclude that pytest==9.0.3 cannot be used. 0.559 error: No solu…"
+      },
+      {
+       "title": "virtualenv 20.34.0: 21 known vulnerabilities, fixed in 21.14.9",
+       "category": "security",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "2 experiments found no proven fix"
+      },
+      {
+       "title": "Pygments 2.19.2: 2 known vulnerabilities, fixed in 2.20.0",
+       "category": "security",
+       "status": "open",
+       "level": "L4",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.44 from the lab's history of this kind)"
+      }
+     ],
+     "prs": [
+      {
+       "n": 4,
+       "title": "security: bump idna 3.10 → 3.15",
+       "url": "https://github.com/satisfymath/c13-dooit/pull/4",
+       "kind": "security",
+       "ci": "none",
+       "merged": true,
+       "verified": "verified"
+      },
+      {
+       "n": 3,
+       "title": "security: bump Pygments 2.19.2 → 2.20.0",
+       "url": "https://github.com/satisfymath/c13-dooit/pull/3",
+       "kind": "security",
+       "ci": "none",
+       "merged": false,
+       "verified": "not run"
+      }
+     ]
+    }
+   ],
+   "tests": 81,
+   "checks": "passed",
+   "opportunities": 7,
+   "experiments": 4,
+   "pulls": 2,
+   "green": 0,
+   "merged": 1,
+   "level": "L4",
+   "spent": 0.0691
+  },
+  {
+   "name": "pipx",
+   "cls": "independent",
+   "family": "cli",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "failed",
+     "tests": 2225,
+     "opportunities": 0,
+     "experiments": 0,
+     "deploys": 0,
+     "level": "-",
+     "spent": 0.1211,
+     "first_pr_min": null,
+     "calls": 1,
+     "host": null,
+     "decisions": {},
+     "items": [],
+     "prs": []
+    }
+   ],
+   "tests": 2225,
+   "checks": "failed",
+   "opportunities": 0,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "-",
+   "spent": 0.1211
+  },
+  {
+   "name": "recruitops-agent",
+   "cls": "independent",
+   "family": "api-postgres",
+   "stopped": true,
+   "runs": [],
+   "tests": null,
+   "checks": null,
+   "opportunities": 0,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": null,
+   "spent": 0
+  },
+  {
+   "name": "aiogramshopbot",
+   "cls": "independent",
+   "family": "api-postgres",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 45,
+     "opportunities": 10,
+     "experiments": 4,
+     "deploys": 1,
+     "level": "L4",
+     "spent": 0.023,
+     "first_pr_min": 5.8,
+     "calls": 2,
+     "host": "`docker compose up` failed: r response from daemon: failed to create task for container: failed to create shim task: OCI runtime create fai…",
+     "decisions": {
+      "decline": 1,
+      "propose_change": 3,
+      "run_experiment": 12,
+      "wait": 6
+     },
+     "items": [
+      {
+       "title": "2 ruff-baseline F811 findings in ./",
+       "category": "bugs",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "aiohttp 3.10.11: 74 known vulnerabilities, fixed in 3.14.4",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "the bumped dependencies do not install: t\\\" 2>/dev/null // uv pip install --python /deps/.venv/bin/python pytest==9.1.1 // uv pip install --python /d…"
+      },
+      {
+       "title": "ecdsa 0.19.2: 2 known vulnerabilities, no fix published",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "no published version of ecdsa fixes its advisories (GHSA-wj6h-64fc-37mp, PYSEC-2026-1325)"
+      },
+      {
+       "title": "pytest 8.4.2: 2 known vulnerabilities, fixed in 9.0.3",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "the bumped dependencies do not install: t\\\" 2>/dev/null // uv pip install --python /deps/.venv/bin/python pytest==9.1.1 // uv pip install --python /d…"
+      },
+      {
+       "title": "python-jose 3.5.0: 2 known vulnerabilities, no fix published",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "no published version of python-jose fixes its advisories (GHSA-3qf3-8w2g-rqmx, PYSEC-2026-4298)"
+      },
+      {
+       "title": "python-multipart 0.0.21: 12 known vulnerabilities, fixed in 0.0.31",
+       "category": "security",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: infra_failure)"
+      },
+      {
+       "title": "sqladmin 0.22.0: 4 known vulnerabilities, fixed in 0.27.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "the bumped dependencies do not install: t\\\" 2>/dev/null // uv pip install --python /deps/.venv/bin/python pytest==9.1.1 // uv pip install --python /d…"
+      },
+      {
+       "title": "starlette 0.46.2: 14 known vulnerabilities, fixed in 1.3.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "the bumped dependencies do not install: t\\\" 2>/dev/null // uv pip install --python /deps/.venv/bin/python pytest==9.1.1 // uv pip install --python /d…"
+      },
+      {
+       "title": "pillow 12.1.0: 92 known vulnerabilities, fixed in 13.0.0",
+       "category": "security",
+       "status": "open",
+       "level": "L4",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "python-dotenv 1.0.1: 2 known vulnerabilities, fixed in 1.2.2",
+       "category": "security",
+       "status": "open",
+       "level": "L4",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      }
+     ],
+     "prs": [
+      {
+       "n": 3,
+       "title": "security: bump python-dotenv 1.0.1 → 1.2.2",
+       "url": "https://github.com/satisfymath/c13-aiogramshopbot/pull/3",
+       "kind": "security",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 2,
+       "title": "security: bump pillow 12.1.0 → 13.0.0",
+       "url": "https://github.com/satisfymath/c13-aiogramshopbot/pull/2",
+       "kind": "security",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 1,
+       "title": "fix: 2 ruff-baseline F811 findings in ./",
+       "url": "https://github.com/satisfymath/c13-aiogramshopbot/pull/1",
+       "kind": "quality",
+       "ci": "green",
+       "merged": true,
+       "verified": "verified"
+      }
+     ]
+    }
+   ],
+   "tests": 45,
+   "checks": "passed",
+   "opportunities": 10,
+   "experiments": 4,
+   "pulls": 3,
+   "green": 3,
+   "merged": 1,
+   "level": "L4",
+   "spent": 0.023
+  },
+  {
+   "name": "gymhero",
+   "cls": "independent",
+   "family": "api-postgres",
+   "stopped": true,
+   "runs": [],
+   "tests": null,
+   "checks": null,
+   "opportunities": 0,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": null,
+   "spent": 0
+  },
+  {
+   "name": "dinkydash",
+   "cls": "independent",
+   "family": "web-flask",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "failed",
+     "tests": 1863,
+     "opportunities": 3,
+     "experiments": 1,
+     "deploys": 1,
+     "level": "L3",
+     "spent": 0.0159,
+     "first_pr_min": null,
+     "calls": 1,
+     "host": "the repository tracks no compose file (compose.yml, docker-compose.yml)",
+     "decisions": {
+      "decline": 2,
+      "run_experiment": 4,
+      "wait": 1
+     },
+     "items": [
+      {
+       "title": "pillow 12.3.0: 55 known vulnerabilities, fixed in 13.0.0",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "the bumped dependencies do not install: t\\\" 2>/dev/null // uv pip install --python /deps/.venv/bin/python pytest==9.1.1 // uv pip install --python /d…"
+      },
+      {
+       "title": "setuptools 84.0.0: 1 known vulnerability, fixed in 84.1.0",
+       "category": "security",
+       "status": "declined",
+       "level": "L3",
+       "decision": "decline",
+       "why": "improved, but the team's suite did not validate it (tests: infra_failure)"
+      },
+      {
+       "title": "16 ruff-baseline F811 findings in tests/",
+       "category": "bugs",
+       "status": "declined",
+       "level": "L2",
+       "decision": "decline",
+       "why": "context: does_not_fit, excerpts around every finding need 15594 bytes, over the 8297 the egress cap leaves; nothing partial is sent"
+      }
+     ],
+     "prs": []
+    }
+   ],
+   "tests": 1863,
+   "checks": "failed",
+   "opportunities": 3,
+   "experiments": 1,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "L3",
+   "spent": 0.0159
+  },
+  {
+   "name": "tracklater",
+   "cls": "independent",
+   "family": "web-flask",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 105,
+     "opportunities": 1,
+     "experiments": 1,
+     "deploys": 1,
+     "level": "L4",
+     "spent": 0.0471,
+     "first_pr_min": 8.6,
+     "calls": 4,
+     "host": "`docker compose up` failed: Image unbidden-tracklater-tracklater Building Image unbidden-tracklater-tracklater Built Network unbidden-track…",
+     "decisions": {
+      "propose_change": 1,
+      "run_experiment": 1
+     },
+     "items": [
+      {
+       "title": "2 ruff-baseline F811 findings in tracklater/tests/",
+       "category": "bugs",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      }
+     ],
+     "prs": [
+      {
+       "n": 1,
+       "title": "fix: 2 ruff-baseline F811 findings in tracklater/tests/",
+       "url": "https://github.com/satisfymath/c13-tracklater/pull/1",
+       "kind": "quality",
+       "ci": "green",
+       "merged": true,
+       "verified": "verified"
+      }
+     ]
+    }
+   ],
+   "tests": 105,
+   "checks": "passed",
+   "opportunities": 1,
+   "experiments": 1,
+   "pulls": 1,
+   "green": 1,
+   "merged": 1,
+   "level": "L4",
+   "spent": 0.0471
+  },
+  {
+   "name": "librephotos",
+   "cls": "frontier",
+   "family": "monorepo-subdir",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "out_of_scope",
+     "tests": null,
+     "opportunities": 8,
+     "experiments": 0,
+     "deploys": 0,
+     "level": "L1",
+     "spent": 0.0045,
+     "first_pr_min": null,
+     "calls": 0,
+     "host": null,
+     "decisions": {
+      "decline": 8
+     },
+     "items": [
+      {
+       "title": "2 eslint:packages/api-client parse-error findings in packages/api-client/",
+       "category": "config",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "category 'config' has no value under this mandate"
+      },
+      {
+       "title": "3 eslint:apps/mobile react-hooks/immutability findings in apps/mobile/src/compo…",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI does not run eslint: its style is not the team's standard"
+      },
+      {
+       "title": "1 eslint:apps/mobile react-hooks/set-state-in-effect finding in apps/mobile/src…",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI does not run eslint: its style is not the team's standard"
+      },
+      {
+       "title": "7 eslint:apps/mobile react-hooks/refs findings in apps/mobile/src/db/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI does not run eslint: its style is not the team's standard"
+      },
+      {
+       "title": "4 eslint:apps/mobile react-hooks/set-state-in-effect findings in apps/mobile/sr…",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI does not run eslint: its style is not the team's standard"
+      },
+      {
+       "title": "1 eslint:apps/mobile react-hooks/refs finding in apps/mobile/src/features/viewe…",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI does not run eslint: its style is not the team's standard"
+      },
+      {
+       "title": "1 eslint:apps/mobile react-hooks/set-state-in-effect finding in apps/mobile/src…",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI does not run eslint: its style is not the team's standard"
+      },
+      {
+       "title": "1 eslint:apps/mobile react-hooks/refs finding in apps/mobile/src/providers/",
+       "category": "lint",
+       "status": "declined",
+       "level": "L1",
+       "decision": "decline",
+       "why": "the team's CI does not run eslint: its style is not the team's standard"
+      }
+     ],
+     "prs": []
+    }
+   ],
+   "tests": 0,
+   "checks": "out_of_scope",
+   "opportunities": 8,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "L1",
+   "spent": 0.0045
+  },
+  {
+   "name": "netbox",
+   "cls": "frontier",
+   "family": "web-django",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "infra_failed",
+     "tests": null,
+     "opportunities": 0,
+     "experiments": 0,
+     "deploys": 1,
+     "level": "-",
+     "spent": 0.0034,
+     "first_pr_min": null,
+     "calls": 0,
+     "host": "the repository tracks no compose file (compose.yml, docker-compose.yml)",
+     "decisions": {},
+     "items": [],
+     "prs": []
+    }
+   ],
+   "tests": 0,
+   "checks": "infra_failed",
+   "opportunities": 0,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "-",
+   "spent": 0.0034
+  },
+  {
+   "name": "archery",
+   "cls": "frontier",
+   "family": "web-django-mysql",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "blocked",
+     "tests": null,
+     "opportunities": 5,
+     "experiments": 0,
+     "deploys": 1,
+     "level": "L1",
+     "spent": 0.0053,
+     "first_pr_min": null,
+     "calls": 0,
+     "host": "the repository tracks no compose file (compose.yml, docker-compose.yml)",
+     "decisions": {
+      "run_experiment": 5
+     },
+     "items": [
+      {
+       "title": "1 ruff-baseline F821 finding in common/utils/",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "1 ruff-baseline F821 finding in sql/engines/cloud/",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "1 ruff-baseline F811 finding in sql/engines/",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "2 ruff-baseline F811 findings in sql/utils/",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      },
+      {
+       "title": "2 ruff-baseline F811 findings in sql/",
+       "category": "bugs",
+       "status": "open",
+       "level": "L1",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)"
+      }
+     ],
+     "prs": []
+    }
+   ],
+   "tests": 0,
+   "checks": "blocked",
+   "opportunities": 5,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "L1",
+   "spent": 0.0053
+  },
+  {
+   "name": "resumeio-to-pdf",
+   "cls": "frontier",
+   "family": "api-nodb",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "passed",
+     "tests": 28,
+     "opportunities": 6,
+     "experiments": 5,
+     "deploys": 1,
+     "level": "L4",
+     "spent": 0.0209,
+     "first_pr_min": 3.6,
+     "calls": 1,
+     "host": "the repository tracks no compose file (compose.yml, docker-compose.yml)",
+     "decisions": {
+      "propose_change": 5,
+      "run_experiment": 8,
+      "wait": 3
+     },
+     "items": [
+      {
+       "title": "anyio 4.10.0: 4 known vulnerabilities, fixed in 4.14.2",
+       "category": "security",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "black 26.3.1: 1 known vulnerability, fixed in 26.10.1",
+       "category": "security",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "cannot write the bump: esolving dependencies cause: Because resumeio-to-pdf:dev depends on black==26.3.1 and black==26.10.1, we can conclude that res…"
+      },
+      {
+       "title": "certifi 2025.8.3: 2 known vulnerabilities, fixed in 2026.10.18",
+       "category": "security",
+       "status": "open",
+       "level": "L4",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.84 from the lab's history of this kind)"
+      },
+      {
+       "title": "idna 3.10: 2 known vulnerabilities, fixed in 3.15",
+       "category": "security",
+       "status": "open",
+       "level": "L4",
+       "decision": "run_experiment",
+       "why": "reproduce it and measure a candidate offline (p 0.84 from the lab's history of this kind)"
+      },
+      {
+       "title": "starlette 0.47.3: 12 known vulnerabilities, fixed in 1.3.1",
+       "category": "security",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      },
+      {
+       "title": "urllib3 2.5.0: 12 known vulnerabilities, fixed in 2.8.0",
+       "category": "security",
+       "status": "proposed",
+       "level": "L4",
+       "decision": "propose_change",
+       "why": "evidence L4 meets the mandate's L4"
+      }
+     ],
+     "prs": [
+      {
+       "n": 5,
+       "title": "security: bump urllib3 2.5.0 → 2.8.0",
+       "url": "https://github.com/satisfymath/c13-resumeio-to-pdf/pull/5",
+       "kind": "security",
+       "ci": "none",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 4,
+       "title": "security: bump starlette 0.47.3 → 1.3.1",
+       "url": "https://github.com/satisfymath/c13-resumeio-to-pdf/pull/4",
+       "kind": "security",
+       "ci": "none",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 3,
+       "title": "security: bump idna 3.10 → 3.15",
+       "url": "https://github.com/satisfymath/c13-resumeio-to-pdf/pull/3",
+       "kind": "security",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 2,
+       "title": "security: bump certifi 2025.8.3 → 2026.10.18",
+       "url": "https://github.com/satisfymath/c13-resumeio-to-pdf/pull/2",
+       "kind": "security",
+       "ci": "green",
+       "merged": false,
+       "verified": "not run"
+      },
+      {
+       "n": 1,
+       "title": "security: bump anyio 4.10.0 → 4.14.2",
+       "url": "https://github.com/satisfymath/c13-resumeio-to-pdf/pull/1",
+       "kind": "security",
+       "ci": "green",
+       "merged": true,
+       "verified": "verified"
+      }
+     ]
+    }
+   ],
+   "tests": 28,
+   "checks": "passed",
+   "opportunities": 6,
+   "experiments": 5,
+   "pulls": 5,
+   "green": 3,
+   "merged": 1,
+   "level": "L4",
+   "spent": 0.0209
+  },
+  {
+   "name": "ai-avatar-system",
+   "cls": "frontier",
+   "family": "python+typescript",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "custom",
+     "checks": "out_of_scope",
+     "tests": null,
+     "opportunities": 2,
+     "experiments": 0,
+     "deploys": 0,
+     "level": "L1",
+     "spent": 0.0597,
+     "first_pr_min": null,
+     "calls": 6,
+     "host": null,
+     "decisions": {
+      "wait": 2
+     },
+     "items": [
+      {
+       "title": "3 eslint@frontend react-hooks/exhaustive-deps findings in frontend/components/",
+       "category": "lint",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "found in a service analyzed in isolation: the lab cannot reproduce it inside the repository yet"
+      },
+      {
+       "title": "2 eslint@frontend @next/next/no-img-element findings in frontend/components/",
+       "category": "lint",
+       "status": "open",
+       "level": "L1",
+       "decision": "wait",
+       "why": "found in a service analyzed in isolation: the lab cannot reproduce it inside the repository yet"
+      }
+     ],
+     "prs": []
+    }
+   ],
+   "tests": 0,
+   "checks": "out_of_scope",
+   "opportunities": 2,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "L1",
+   "spent": 0.0597
+  },
+  {
+   "name": "zod",
+   "cls": "frontier",
+   "family": "typescript",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "A only",
+     "checks": "out_of_scope",
+     "tests": null,
+     "opportunities": 0,
+     "experiments": 0,
+     "deploys": 0,
+     "level": "-",
+     "spent": 0.0,
+     "first_pr_min": null,
+     "calls": 0,
+     "host": null,
+     "decisions": {},
+     "items": [],
+     "prs": []
+    }
+   ],
+   "tests": 0,
+   "checks": "out_of_scope",
+   "opportunities": 0,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "-",
+   "spent": 0.0
+  },
+  {
+   "name": "gin",
+   "cls": "frontier",
+   "family": "go",
+   "stopped": false,
+   "runs": [
+    {
+     "version": "0.18.6",
+     "mode": "A only",
+     "checks": "out_of_scope",
+     "tests": null,
+     "opportunities": 0,
+     "experiments": 0,
+     "deploys": 0,
+     "level": "-",
+     "spent": 0.0,
+     "first_pr_min": null,
+     "calls": 0,
+     "host": null,
+     "decisions": {},
+     "items": [],
+     "prs": []
+    }
+   ],
+   "tests": 0,
+   "checks": "out_of_scope",
+   "opportunities": 0,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": "-",
+   "spent": 0.0
+  },
+  {
+   "name": "weblate",
+   "cls": "frontier",
+   "family": "web-django-large",
+   "stopped": true,
+   "runs": [],
+   "tests": null,
+   "checks": null,
+   "opportunities": 0,
+   "experiments": 0,
+   "pulls": 0,
+   "green": 0,
+   "merged": 0,
+   "level": null,
+   "spent": 0
+  }
+ ],
+ "compare": [
+  {
+   "id": "checks executed, tests collected (Level A)",
+   "label": "Ran the team’s tests",
+   "cls": "dev",
+   "c12": {
+    "on": 10,
+    "of": 12,
+    "pct": 83,
+    "lo": 55,
+    "hi": 95
+   },
+   "c13": {
+    "on": 11,
+    "of": 11,
+    "pct": 100,
+    "lo": 74,
+    "hi": 100
+   },
+   "source": "REPORT.md §3 (denominator: every repository of the class)"
+  },
+  {
+   "id": "checks executed, tests collected (Level A)",
+   "label": "Ran the team’s tests",
+   "cls": "independent",
+   "c12": {
+    "on": 7,
+    "of": 19,
+    "pct": 37,
+    "lo": 19,
+    "hi": 59
+   },
+   "c13": {
+    "on": 11,
+    "of": 14,
+    "pct": 79,
+    "lo": 52,
+    "hi": 92
+   },
+   "source": "REPORT.md §3 (denominator: every repository of the class)"
+  },
+  {
+   "id": "Level B runs with >=1 opportunity",
+   "label": "Found an opportunity",
+   "cls": "dev",
+   "c12": {
+    "on": 8,
+    "of": 8,
+    "pct": 100,
+    "lo": 68,
+    "hi": 100
+   },
+   "c13": {
+    "on": 13,
+    "of": 14,
+    "pct": 93,
+    "lo": 69,
+    "hi": 99
+   },
+   "source": "REPORT.md §4"
+  },
+  {
+   "id": "Level B runs with >=1 opportunity",
+   "label": "Found an opportunity",
+   "cls": "independent",
+   "c12": {
+    "on": 2,
+    "of": 16,
+    "pct": 12,
+    "lo": 3,
+    "hi": 36
+   },
+   "c13": {
+    "on": 13,
+    "of": 15,
+    "pct": 87,
+    "lo": 62,
+    "hi": 96
+   },
+   "source": "REPORT.md §4"
+  },
+  {
+   "id": "Level B runs with >=1 experiment",
+   "label": "Ran an experiment",
+   "cls": "dev",
+   "c12": {
+    "on": 5,
+    "of": 8,
+    "pct": 62,
+    "lo": 31,
+    "hi": 86
+   },
+   "c13": {
+    "on": 12,
+    "of": 14,
+    "pct": 86,
+    "lo": 60,
+    "hi": 96
+   },
+   "source": "REPORT.md §4"
+  },
+  {
+   "id": "Level B runs with >=1 experiment",
+   "label": "Ran an experiment",
+   "cls": "independent",
+   "c12": {
+    "on": 1,
+    "of": 16,
+    "pct": 6,
+    "lo": 1,
+    "hi": 28
+   },
+   "c13": {
+    "on": 9,
+    "of": 15,
+    "pct": 60,
+    "lo": 36,
+    "hi": 80
+   },
+   "source": "REPORT.md §4"
+  },
+  {
+   "id": "Level B runs with a pull request",
+   "label": "Opened a pull request",
+   "cls": "dev",
+   "c12": {
+    "on": 3,
+    "of": 8,
+    "pct": 38,
+    "lo": 14,
+    "hi": 69
+   },
+   "c13": {
+    "on": 9,
+    "of": 14,
+    "pct": 64,
+    "lo": 39,
+    "hi": 84
+   },
+   "source": "REPORT.md §5"
+  },
+  {
+   "id": "Level B runs with a pull request",
+   "label": "Opened a pull request",
+   "cls": "independent",
+   "c12": {
+    "on": 1,
+    "of": 16,
+    "pct": 6,
+    "lo": 1,
+    "hi": 28
+   },
+   "c13": {
+    "on": 8,
+    "of": 15,
+    "pct": 53,
+    "lo": 30,
+    "hi": 75
+   },
+   "source": "REPORT.md §5"
+  },
+  {
+   "id": "pull requests green on the exact head",
+   "label": "Pull requests green on CI",
+   "cls": "dev",
+   "c12": {
+    "on": 4,
+    "of": 7,
+    "pct": 57,
+    "lo": 25,
+    "hi": 84
+   },
+   "c13": {
+    "on": 20,
+    "of": 26,
+    "pct": 77,
+    "lo": 58,
+    "hi": 89
+   },
+   "source": "REPORT.md §6"
+  },
+  {
+   "id": "pull requests green on the exact head",
+   "label": "Pull requests green on CI",
+   "cls": "independent",
+   "c12": {
+    "on": 1,
+    "of": 1,
+    "pct": 100,
+    "lo": 21,
+    "hi": 100
+   },
+   "c13": {
+    "on": 7,
+    "of": 13,
+    "pct": 54,
+    "lo": 29,
+    "hi": 77
+   },
+   "source": "REPORT.md §6"
+  },
+  {
+   "id": "pull requests merged by the product",
+   "label": "Pull requests merged",
+   "cls": "dev",
+   "c12": {
+    "on": 1,
+    "of": 7,
+    "pct": 14,
+    "lo": 3,
+    "hi": 51
+   },
+   "c13": {
+    "on": 7,
+    "of": 26,
+    "pct": 27,
+    "lo": 14,
+    "hi": 46
+   },
+   "source": "REPORT.md §7"
+  },
+  {
+   "id": "pull requests merged by the product",
+   "label": "Pull requests merged",
+   "cls": "independent",
+   "c12": {
+    "on": 0,
+    "of": 1,
+    "pct": 0,
+    "lo": 0,
+    "hi": 79
+   },
+   "c13": {
+    "on": 6,
+    "of": 13,
+    "pct": 46,
+    "lo": 23,
+    "hi": 71
+   },
+   "source": "REPORT.md §7"
+  }
+ ],
+ "story": {
+  "repo": "aegra",
+  "version": "0.18.9",
+  "pr": "https://github.com/satisfymath/c13-aegra/pull/7",
+  "steps": [
+   {
+    "ts": "2026-11-04T21:17:42.601554+00:00",
+    "at": "21:17:42",
+    "actor": "operator",
+    "type": "operations.deployed",
+    "text": "Brought the app up from its own compose file; the rollback drill passed, there and back",
+    "kind": ""
+   },
+   {
+    "ts": "2026-11-04T21:19:59.550529+00:00",
+    "at": "21:19:59",
+    "actor": "observer",
+    "type": "opportunity.opened",
+    "text": "certifi 2026.1.4: 2 known vulnerabilities, fixed in 2026.10.18",
+    "kind": ""
+   },
+   {
+    "ts": "2026-11-04T21:21:39.454501+00:00",
+    "at": "21:21:39",
+    "actor": "director",
+    "type": "decision.made",
+    "text": "run_experiment: reproduce it and measure a candidate offline (p 0.60 from the lab's history of this kind)",
+    "kind": ""
+   },
+   {
+    "ts": "2026-11-04T21:28:57.672111+00:00",
+    "at": "21:28:57",
+    "actor": "lab",
+    "type": "verdict.recorded",
+    "text": "L4, the team’s tests passed: certifi 2026.1.4 → 2026.10.18: advisories GHSA-6q48-6c7w-9gw2, PYSEC-2026-4320 gone",
+    "kind": ""
+   },
+   {
+    "ts": "2026-11-04T21:29:09.227208+00:00",
+    "at": "21:29:09",
+    "actor": "director",
+    "type": "decision.made",
+    "text": "propose_change: evidence L4 meets the mandate's L4",
+    "kind": ""
+   },
+   {
+    "ts": "2026-11-04T21:29:16.271042+00:00",
+    "at": "21:29:16",
+    "actor": "publisher",
+    "type": "proposal.published",
+    "text": "Pull request #7 opened on the copy",
+    "kind": "wait"
+   },
+   {
+    "ts": "2026-11-04T22:14:07.726869+00:00",
+    "at": "22:14:07",
+    "actor": "agent",
+    "type": "agent.note",
+    "text": "The team’s CI is green on the exact head of #7",
+    "kind": ""
+   },
+   {
+    "ts": "2026-11-04T22:14:12.143684+00:00",
+    "at": "22:14:12",
+    "actor": "publisher",
+    "type": "operations.merged",
+    "text": "Merged #7 as 600c12e; the head it measured was 3b53895",
+    "kind": "merge"
+   },
+   {
+    "ts": "2026-11-04T22:14:15.143832+00:00",
+    "at": "22:14:15",
+    "actor": "publisher",
+    "type": "proposal.stale",
+    "text": "The 2 other open proposals go stale: the base branch moved; the evidence must be measured again",
+    "kind": ""
+   },
+   {
+    "ts": "2026-11-04T22:15:03.850411+00:00",
+    "at": "22:15:03",
+    "actor": "operator",
+    "type": "operations.deployed",
+    "text": "Deployed; health answered ok",
+    "kind": ""
+   },
+   {
+    "ts": "2026-11-04T22:15:44.906352+00:00",
+    "at": "22:15:44",
+    "actor": "observer",
+    "type": "opportunity.resolved",
+    "text": "A complete pypi-advisories report no longer shows it",
+    "kind": ""
+   },
+   {
+    "ts": "2026-11-04T22:16:02.874701+00:00",
+    "at": "22:16:02",
+    "actor": "observer",
+    "type": "impact.judged",
+    "text": "10 endpoints judged after the deploy: healthy",
+    "kind": ""
+   },
+   {
+    "ts": "2026-11-04T22:16:03.227316+00:00",
+    "at": "22:16:03",
+    "actor": "observer",
+    "type": "outcome.recorded",
+    "text": "L5 recorded, by verified deploy. No effect claimed",
+    "kind": "l5"
+   }
+  ],
+  "endpoints": [
+   {
+    "target": "GET /",
+    "before": 42.1,
+    "after": 42.3,
+    "impact": "healthy"
+   },
+   {
+    "target": "GET /assistants",
+    "before": 3.0,
+    "after": 3.1,
+    "impact": "healthy"
+   },
+   {
+    "target": "GET /custom/protected",
+    "before": 42.1,
+    "after": 42.8,
+    "impact": "healthy"
+   },
+   {
+    "target": "GET /custom/public",
+    "before": 42.1,
+    "after": 43.0,
+    "impact": "healthy"
+   },
+   {
+    "target": "GET /custom/whoami",
+    "before": 42.4,
+    "after": 43.1,
+    "impact": "healthy"
+   },
+   {
+    "target": "GET /health",
+    "before": 45.9,
+    "after": 45.7,
+    "impact": "healthy"
+   },
+   {
+    "target": "GET /info",
+    "before": 42.1,
+    "after": 42.9,
+    "impact": "healthy"
+   },
+   {
+    "target": "GET /live",
+    "before": 42.1,
+    "after": 42.7,
+    "impact": "healthy"
+   },
+   {
+    "target": "GET /ready",
+    "before": 45.6,
+    "after": 46.0,
+    "impact": "healthy"
+   },
+   {
+    "target": "GET /threads",
+    "before": 44.0,
+    "after": 44.5,
+    "impact": "healthy"
+   }
+  ],
+  "rounds": {
+   "before": 30,
+   "after": 15
+  },
+  "confounders": [
+   "1 commit(s) between the two measured versions: 600c12e fix(deps): bump certifi 2026.1.4 → 2026.10.18 (security) (#7)",
+   "traffic is unbidden's own probes, not users",
+   "data volume and cache state differ between the two windows"
+  ],
+  "verify": {
+   "changed": [
+    "uv.lock"
+   ],
+   "at_base": [
+    "GHSA-6q48-6c7w-9gw2",
+    "PYSEC-2026-4320"
+   ],
+   "at_head": [],
+   "verdict": "verified"
+  }
+ }
+}

@@ -1,3 +1,4 @@
+import { BrailleText } from './BrailleCells'
 import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { FEED_START, OPEN_ROWS, TUI_REC, TUI_TEXT, rowText, type Row } from '../content/tui'
 import { useReducedMotion } from '../hooks/useReducedMotion'
@@ -20,7 +21,7 @@ function RowLine({ row }: { row: Row }) {
   const cls = `app__row ${timed ? 'app__row--timed' : ''} ${detail ? 'app__row--detail' : ''} ${braille ? 'app__row--braille' : ''}`
   return (
     <p className={cls}>
-      {row.length === 0 ? '\u00a0' : row.map((s, i) => <span key={i} className={`${s.b ? 'is-b ' : ''}${s.d ? 'is-d ' : ''}${s.a ? 'is-a' : ''}`.trim() || undefined}>{s.t}</span>)}
+      {row.length === 0 ? '\u00a0' : row.map((s, i) => <span key={i} className={`${s.b ? 'is-b ' : ''}${s.d ? 'is-d ' : ''}${s.a ? 'is-a' : ''}`.trim() || undefined}>{braille ? <BrailleText text={s.t} /> : s.t}</span>)}
     </p>
   )
 }

@@ -1,0 +1,25 @@
+/* the page stays short: what needs reading opens on request */
+.more { border-top: 1px solid var(--line); interpolate-size: allow-keywords; }
+.more:last-child { border-bottom: 1px solid var(--line); }
+.more__row { display: grid; grid-template-columns: minmax(0, 1fr) auto 16px; align-items: center; gap: var(--s-16) var(--s-24); min-height: 72px; padding-block: var(--s-16); cursor: pointer; list-style: none; transition: color 180ms var(--ease); }
+.more__row::-webkit-details-marker { display: none; }
+.more__title { font-size: var(--t-xl); line-height: 28px; font-weight: 300; letter-spacing: -0.012em; color: var(--ink); }
+.more__hint { font-size: var(--t-sm); line-height: 20px; color: var(--muted); transition: color 180ms var(--ease); }
+.more__row:hover .more__hint { color: var(--ink-2); }
+.more__row:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 4px; }
+.more__plus { position: relative; width: 16px; height: 16px; transition: transform 320ms var(--ease); }
+.more__plus::before, .more__plus::after { content: ''; position: absolute; inset: 7.5px 0 auto; height: 1px; background: var(--ink-2); }
+.more__plus::after { transform: rotate(90deg); transition: transform 320ms var(--ease); }
+.more[open] .more__plus { transform: rotate(180deg); }
+.more[open] .more__plus::after { transform: rotate(0deg); }
+.more::details-content { block-size: 0; overflow: clip; transition: block-size 420ms var(--ease), content-visibility 420ms allow-discrete; }
+.more[open]::details-content { block-size: auto; }
+.more__body { display: grid; gap: var(--s-16); padding-block: var(--s-8) var(--s-48); min-width: 0; }
+.more__body > * { margin-top: 0; }
+@media (max-width: 640px) {
+  .more__row { grid-template-columns: minmax(0, 1fr) 16px; min-height: 64px; gap: 2px var(--s-16); }
+  .more__title { font-size: var(--t-lg); line-height: 26px; }
+  .more__hint { grid-row: 2; font-size: var(--t-xs); line-height: 18px; }
+  .more__plus { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (prefers-reduced-motion: reduce) { .more::details-content, .more__plus, .more__plus::after { transition: none; } }

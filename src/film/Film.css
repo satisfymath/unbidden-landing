@@ -130,7 +130,9 @@
 .film__splash { position: absolute; left: 0; right: 0; z-index: 5; margin-top: clamp(24px, 4vh, 44px); display: grid; justify-items: center; pointer-events: none; }
 .splash__mark { font-size: clamp(9px, 1.05vw, 14px); font-weight: 700; }
 .splash__word { min-height: 1.2em; font-family: var(--font-mono); font-size: clamp(26px, 3.8vw, 54px); line-height: 1.2; font-weight: 400; white-space: nowrap; color: var(--term-fg); }
-.braille { margin: 0; font-family: Menlo, 'DejaVu Sans Mono', ui-monospace, monospace; font-weight: 400; line-height: 1.0; white-space: pre; color: var(--term-fg); }
+.braille { margin: 0; font-weight: 400; line-height: 2ch; white-space: pre; color: var(--term-fg); }
+.braille__row { display: block; height: 2ch; }
+.braille .brl { display: inline-block; height: 2ch; vertical-align: top; fill: currentColor; }
 .braille__dot { color: var(--term-accent); }
 
 /* static sequence (reduced motion / fallback) */

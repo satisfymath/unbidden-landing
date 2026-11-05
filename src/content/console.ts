@@ -12,9 +12,9 @@ export const TUI = {
   TAGLINE: "Intelligence that doesn't wait for instructions.",
   VERBS: ['Discovering.', 'Investigating.', 'Experimenting.', 'Proving.'],
   ACCENT: '#F5B700',
-  RING: ['⠀⡀⡤⠒⠒⠀', '⠼⠀⠀⠀⠀⡧', '⠘⠦⡀⡀⠴⠃'] as const,
+  RING: ['⢀⡤⠒⠒⠀', '⢼⠀⠀⠀⠀⡧', '⠘⠦⣀⣀⠴⠃'] as const,
   DOT: '⠛',
-  VERSION: '0.18.4',
+  VERSION: '0.18.10',
   // unbidden/tui/app.py:34-48
   PALETTE: { bg: '#0e0e0e', surface: '#161616', panel: '#2a2a2a', fg: '#ececec', primary: '#d7d7d7', secondary: '#9a9a9a' },
 }
@@ -95,7 +95,7 @@ export const LEVELS = [
   { id: 'L2', name: 'Reproduced', def: 'the finding is observed (a scan, a query plan, a discrepancy between an API and its data)' },
   { id: 'L3', name: 'Improved in the lab', def: "a change measured better in the sandbox, but the project's checks did not validate it on both sides" },
   { id: 'L4', name: 'Functionally validated', def: "the project's own checks pass on both sides (three rounds each), and the measurement passes criteria perf-v4" },
-  { id: 'L5', name: 'Operational result', def: 'measured on the running system after deploy, its confounders listed' },
+  { id: 'L5', name: 'Operational result', def: 'measured on the running system after deploy, its confounders listed; or, for a security, quality or correctness change, a verified deploy, which claims no measured effect' },
   { id: 'L6', name: 'Persisted', def: "L5 held over the mandate's period" },
 ]
 
@@ -277,7 +277,7 @@ export const THEN = [
 ] as [string, string][]
 // README.md:39-49
 export const INSTALL_LINE = 'curl -fsSL https://unbidden.cl/install.sh | sh'
-export const VERSION_LINE = ['unbidden --version', '# unbidden 0.18.4'] as const
+export const VERSION_LINE = ['unbidden --version', '# unbidden 0.18.10'] as const
 
 // cli-spinners "dots" frames (the CLI uses Rich's default status spinner); used for the active feed line
 export const SPINNER = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']

@@ -21,7 +21,9 @@
 .app__row { min-height: 20px; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--term-fg); }
 .app__row--timed { padding-left: 9ch; text-indent: -9ch; }
 .app__row--detail { padding-left: 10ch; text-indent: -10ch; }
-.app__row--braille { font-family: Menlo, 'DejaVu Sans Mono', ui-monospace, monospace; line-height: 1.05; min-height: 0; }
+.app__row--braille { line-height: 2ch; min-height: 2ch; }
+/* one terminal cell per character: 1ch by 2ch, so the dots come out round */
+.brl { display: inline-block; height: 2ch; vertical-align: top; fill: currentColor; }
 .is-b { font-weight: 700; }
 .is-d { color: var(--term-secondary); }
 .is-a { color: var(--term-accent); }

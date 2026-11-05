@@ -62,6 +62,22 @@ Rutas temporales y trazas de Playwright del product walk; "asking the local mode
 | "Latency L5 en campaña 12" (fst, spoolman) | `DEV-EVIDENCE.md`; `docs/ROAD-TO-1.0.md` línea de L5, "2 applications, 1 class" |
 | Comandos `host` y `export` | `unbidden/cli.py` en v0.18.1 |
 
-La réplica de la app sigue siendo la grabación de 0.17.1, y así lo dice la web. Versión actual 0.18.4; "la pasada final empezó": `docs/RELEASE.md` 0.18.2 y 0.18.3 (mencionan sus primeros minutos); sin resultados publicados aún. Volver a revisar esta frase en cada release.
+## Pasada final de la campaña 13
+`src/content/final-pass.json` lo escribe `python3 scripts/evidence/final_pass.py <checkout> [commit]`, fijado al commit `b7c61b2` del PR #41 de unbidden-ai (mergeado; los enlaces de la web apuntan a ese commit, así las cifras y sus fuentes no se mueven). El script lee con `git show`, y se niega a escribir si un total no calza con `final-evidence.json`.
+
+| Dato en la web | Fuente en ese commit |
+|---|---|
+| 13 mejoras, 14 merges, 44 PR, 30 verdes, 3 L5, US$4,08 | `docs/bench/campaign13/final-evidence.json`, `final/FINAL.md` |
+| Embudo y escalera de niveles | Contados por repositorio desde `final-evidence.json`. Ojo: `totals.highest_levels` cuenta por corrida (36), no por repositorio (39) |
+| Matriz, oportunidades, decisiones y razones | `final/MATRIX.md` |
+| Corrida de aegra: log, 10 endpoints, verificación | `final-rerun-0.18.9/aegra/export/{events,deploy_verdicts}.jsonl`, `final-rerun-0.18.9/verify/verify-aegra-pr7.json` |
+| Campaña 12 contra 13, con intervalos | `final/REPORT-aggregate.md`, sección "Campaign 13 against campaign 12" |
+| Regla que subió el tope de spoolman | `final/spoolman/export/asks.jsonl`, `bench/campaign13/asks.py` |
+
+No se publica el estado abierto o cerrado de los PR: al 2026-11-04 el JSON marca 4 como abiertos que GitHub ya tiene cerrados (aegra #4, #5, #6; python-mss #1). Merges y estado merged sí coinciden en los 44. El cuerpo del PR dice US$4,04; los registros dicen US$4,08, y la web usa los registros.
+
+La definición de L5 con verified deploy viene de `docs/EVIDENCE.md` (sin commit en esa rama) y `docs/RELEASE.md` 0.18.0.
+
+La réplica de la app sigue siendo la grabación de 0.17.1, y así lo dice la web. Versión actual 0.18.10.
 
 `REPORT.md` existe solo en el clon local (`~/unbidden-ai-campaign`): esos commits de `feat/64-campaign` no están en GitHub. La web enlaza D-065, que resume parte de estas cifras, y el corpus público.

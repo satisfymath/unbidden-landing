@@ -117,3 +117,6 @@
 .ladder__tip strong { color: var(--term-fg); font-weight: 600; }
 .finding__verdict { font-size: var(--t-xs); line-height: 18px; color: var(--term-primary); padding: var(--s-8) var(--s-12); border: 1px solid var(--term-panel); border-radius: var(--radius-sm); background: var(--term-bg); white-space: pre-wrap; word-break: break-word; }
 .finding__gt { color: var(--term-accent); }
+
+/* everything past the headline opens on request */
+.ev__more { margin-top: clamp(var(--s-40), 5vw, var(--s-64)); }
