@@ -6,8 +6,11 @@ import { AsciiText } from '../console/AsciiLive'
 import { CountUp } from '../console/CountUp'
 import { Eyebrow } from '../console/Eyebrow'
 import { DevRuns } from './DevRuns'
-import { FinalPass } from './FinalPass'
+import { Disclosure } from '../console/Disclosure'
+import { FinalCompare, FinalNotes, FinalPass, FinalPullRequests, FinalRepositories, FinalRun } from './FinalPass'
 import './Evidence.css'
+
+const MORE = EVIDENCE.more
 
 /** `L1 ▰ L2 ▰ L3 ▰ L4 ▰ L5 ▱ L6 ▱` with the exact definition on hover/focus. */
 function Ladder({ reached }: { reached: number }) {
@@ -53,6 +56,32 @@ function Cell({ cell, label, cls }: { cell: CampaignCell | null; label: string; 
 /** 02 — the evidence: the 39-repository campaign first, then single systems, each at the level it reached. */
 export function Evidence({ id }: { id: string }) {
   const ref = useReveal<HTMLElement>(0.05)
+  const FINDINGS = EVIDENCE.findings.map((f) => (
+              <li key={f.id} className="finding">
+                <div className="finding__head">
+                  <span className={`finding__level mono finding__level--${f.levelClass}`}>{f.level}</span>
+                  <h3 className="finding__title">{f.title}</h3>
+                  <p className="finding__figure tnum">
+                    {f.figure.map((part, j) =>
+                      part.big ? (
+                        <span key={j} className="finding__big">{part.num !== undefined ? <CountUp value={part.num} decimals={part.dec ?? (Number.isInteger(part.num) ? 0 : 2)} suffix={part.unit} /> : part.text}</span>
+                      ) : (
+                        <span key={j} className="finding__small">{part.text}</span>
+                      ),
+                    )}
+                  </p>
+                  {f.levelN > 0 ? <Ladder reached={f.levelN} /> : null}
+                </div>
+                <div className="finding__text">
+                  <p className="finding__body">{f.body}</p>
+                  {f.caveat ? <p className="finding__caveat">{f.caveat}</p> : null}
+                  {f.verdict ? <p className="finding__verdict mono"><span className="finding__gt" aria-hidden="true">&gt; </span>{f.verdict}</p> : null}
+                  <ul className="finding__links">
+                    {f.links.map((l) => <li key={l.href}><a className="mono" href={l.href} rel="noopener">{l.label} ↗</a></li>)}
+                  </ul>
+                </div>
+              </li>
+            ))
   return (
     <section id={id} className="section evidence" ref={ref} aria-labelledby={`${id}-title`}>
       <div className="container">
@@ -73,7 +102,16 @@ export function Evidence({ id }: { id: string }) {
       </div>
 
       <div className="container">
-        <div className="camp reveal">
+        <FinalPass />
+
+        <div className="ev__more">
+        <Disclosure {...MORE.prs}><FinalPullRequests /></Disclosure>
+        <Disclosure {...MORE.run}><FinalRun /></Disclosure>
+        <Disclosure {...MORE.repos}><FinalRepositories /></Disclosure>
+        <Disclosure {...MORE.read}><FinalNotes /></Disclosure>
+        <Disclosure {...MORE.c12}>
+        <FinalCompare />
+        <div className="camp">
           <div className="camp__scroll tile">
             <table className="camp__table">
               <caption className="sr-only">{CAMPAIGN.eyebrow}: how far Unbidden got on each class of repository</caption>
@@ -121,11 +159,20 @@ export function Evidence({ id }: { id: string }) {
           </ul>
         </div>
 
-        <DevRuns />
-
-        <FinalPass />
-
-        <div className="since reveal">
+        </Disclosure>
+        <Disclosure {...MORE.dev}><DevRuns /></Disclosure>
+        <Disclosure {...MORE.systems}>
+        <div className="results">
+          <ul className="findings">
+            {FINDINGS}
+          </ul>
+          <p className="evidence__foot">
+            {EVIDENCE.foot} <a href={EVIDENCE.footLink.href} rel="noopener">{EVIDENCE.footLink.label}</a>
+          </p>
+        </div>
+        </Disclosure>
+        <Disclosure {...MORE.since}>
+        <div className="since">
           <div className="since__main">
             <Eyebrow>{SINCE.eyebrow}</Eyebrow>
             <ol className="since__list">
@@ -147,39 +194,7 @@ export function Evidence({ id }: { id: string }) {
           </aside>
         </div>
 
-        <div className="results">
-          <Eyebrow>{EVIDENCE.resultsEyebrow}</Eyebrow>
-          <ul className="findings">
-            {EVIDENCE.findings.map((f) => (
-              <li key={f.id} className="finding reveal">
-                <div className="finding__head">
-                  <span className={`finding__level mono finding__level--${f.levelClass}`}>{f.level}</span>
-                  <h3 className="finding__title">{f.title}</h3>
-                  <p className="finding__figure tnum">
-                    {f.figure.map((part, j) =>
-                      part.big ? (
-                        <span key={j} className="finding__big">{part.num !== undefined ? <CountUp value={part.num} decimals={part.dec ?? (Number.isInteger(part.num) ? 0 : 2)} suffix={part.unit} /> : part.text}</span>
-                      ) : (
-                        <span key={j} className="finding__small">{part.text}</span>
-                      ),
-                    )}
-                  </p>
-                  {f.levelN > 0 ? <Ladder reached={f.levelN} /> : null}
-                </div>
-                <div className="finding__text">
-                  <p className="finding__body">{f.body}</p>
-                  {f.caveat ? <p className="finding__caveat">{f.caveat}</p> : null}
-                  {f.verdict ? <p className="finding__verdict mono"><span className="finding__gt" aria-hidden="true">&gt; </span>{f.verdict}</p> : null}
-                  <ul className="finding__links">
-                    {f.links.map((l) => <li key={l.href}><a className="mono" href={l.href} rel="noopener">{l.label} ↗</a></li>)}
-                  </ul>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <p className="evidence__foot reveal">
-            {EVIDENCE.foot} <a href={EVIDENCE.footLink.href} rel="noopener">{EVIDENCE.footLink.label}</a>
-          </p>
+        </Disclosure>
         </div>
       </div>
     </section>

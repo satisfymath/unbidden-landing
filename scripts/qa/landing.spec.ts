@@ -178,18 +178,43 @@ test('nav marks the section in view; a far jump skips the film instantly', async
   await expect(page.locator('.nav__links a[aria-current]')).toHaveText('Evidence')
 })
 
+const openMore = async (page: Page, title: string) => {
+  const row = page.locator('.more__row', { hasText: title })
+  await row.scrollIntoViewIfNeeded()
+  await row.click()
+  await expect(row.locator('..').locator('.more__body')).toBeVisible()
+}
+
+test('evidence: the number and its limits are in view, everything else opens on request', async ({ page }) => {
+  await page.goto('/', { waitUntil: 'networkidle' })
+  const fp = page.locator('.fp')
+  await fp.scrollIntoViewIfNeeded()
+  await expect(fp.locator('.dr__big .sr-only')).toHaveText('13')
+  await expect(fp).toContainText('no effect measured')
+  await expect(fp).toContainText('L4 at best')
+  await expect(page.locator('.more')).toHaveCount(8)
+  await expect(page.locator('.more[open]')).toHaveCount(0)
+  await expect(page.locator('.mx__table')).toBeHidden()
+  await expect(page.locator('.camp')).toBeHidden()
+  await page.locator('.more__row').first().focus()
+  await page.keyboard.press('Enter')
+  await expect(page.locator('.fs')).toBeVisible()
+  await page.keyboard.press('Enter')
+  await expect(page.locator('.fs')).toBeHidden()
+})
+
 test('evidence: the 39-repository campaign adds up and keeps its caveats', async ({ page }) => {
   await page.goto('/', { waitUntil: 'networkidle' })
-  await page.locator('.camp').scrollIntoViewIfNeeded()
+  await openMore(page, 'Campaign 12')
   await expect(page.locator('.camp__table tbody tr')).toHaveCount(4)
   await expect(page.locator('.camp__table tbody tr').first().locator('.unit--on')).toHaveCount(39)
-  await expect(page.locator('.camp .camp__notes')).toContainText('The final pass over the same 39 is running')
+  await expect(page.locator('.camp .camp__notes')).toContainText('The final pass over the same 39 is above')
 })
 
 test('the development runs: the 39 add up, the totals match the record, a repository opens its own', async ({ page }) => {
   await page.goto('/', { waitUntil: 'networkidle' })
+  await openMore(page, 'The development runs')
   const runs = page.locator('.dr')
-  await runs.scrollIntoViewIfNeeded()
   await expect(runs.locator('.dr__strip .unit')).toHaveCount(39)
   await expect(runs.locator('.dr__row')).toHaveCount(23)
   await expect(runs.locator('.dr__bar')).toHaveCount(15)
@@ -201,15 +226,64 @@ test('the development runs: the 39 add up, the totals match the record, a reposi
   await expect(runs.locator('.dr__panel a')).toHaveAttribute('href', /v0\.18\.1\/docs\/bench\/campaign13\/dev-host\/misago-final\.json$/)
 })
 
-test('the final pass says it is running, and its numbers add up to what it links', async ({ page }) => {
+test('the final pass adds up, and every chart answers to the record', async ({ page }) => {
   await page.goto('/', { waitUntil: 'networkidle' })
-  const fp = page.locator('.fp')
-  await fp.scrollIntoViewIfNeeded()
-  await expect(fp).toContainText('not its result')
-  await expect(fp).toContainText('As of')
-  const merged = await fp.locator('.fp__row').count()
-  await expect(fp.locator('.dr__big .sr-only')).toHaveText(String(merged))
-  await expect(fp.locator('.fp__pr').first()).toHaveAttribute('href', /github\.com\/satisfymath\/c13-.+\/pull\/\d+$/)
+  const fp = page.locator('#evidence')
+  await page.locator('.fp').scrollIntoViewIfNeeded()
+  await expect(page.locator('.fp .dr__big .sr-only')).toHaveText('13')
+  await openMore(page, 'The pull requests')
+  await openMore(page, 'One run, as it happened')
+  await openMore(page, 'All 39, one by one')
+  await openMore(page, 'Campaign 12')
+  await fp.locator('.fn__row').first().scrollIntoViewIfNeeded()
+  // the funnel: the stage names the repositories it counts
+  const stages = fp.locator('.fn__row')
+  await expect(stages).toHaveCount(8)
+  await stages.filter({ hasText: 'L5' }).click()
+  await expect(fp.locator('.fn__names')).toContainText('fst')
+  await expect(fp.locator('.fn__names')).toContainText('spoolman')
+  await expect(fp.locator('.fn__names')).toContainText('aegra')
+  // 44 squares, 44 real pull requests, 14 merged
+  await expect(fp.locator('.fs a.fs__sq')).toHaveCount(44)
+  await expect(fp.locator('.fs a.fs__sq--merged')).toHaveCount(14)
+  await expect(fp.locator('.fs a.fs__sq').first()).toHaveAttribute('href', /github\.com\/satisfymath\/c13-.+\/pull\/\d+$/)
+  await expect(fp.locator('.fp__row')).toHaveCount(14)
+  // the staircase holds each of the 39 exactly once
+  await expect(fp.locator('.fl__names > li')).toHaveCount(39)
+  // the run is a real log, ending in L5, and claims no effect
+  await expect(fp.locator('.fr__line')).toHaveCount(13)
+  await expect(fp.locator('.fr__line--l5')).toContainText('No effect claimed')
+  await expect(fp.locator('.fe__row')).toHaveCount(10)
+  // the matrix: 39 rows, filters, a row opens its reasons, a stopped one says so
+  const rows = fp.locator('.mx__row')
+  await expect(rows).toHaveCount(39)
+  await expect(fp.locator('.mx__open')).toContainText('dnspython')
+  await fp.locator('.mx__filter', { hasText: 'With a merge' }).click()
+  await expect(rows).toHaveCount(13)
+  await fp.locator('.mx__filter', { hasText: 'All 39' }).click()
+  await rows.filter({ hasText: 'misago' }).click()
+  await expect(fp.locator('.mx__open')).toContainText('nothing of it is counted')
+  await rows.filter({ hasText: 'humanize' }).click()
+  await expect(fp.locator('.mx__open a').first()).toHaveAttribute('href', /b7c61b2c0a50938670b69039a6cf991e236356e5\/docs\/bench\/campaign13\/final\/MATRIX\.md#humanize-0186$/)
+  // campaign 12 against 13, on the two classes measured on both sides
+  await expect(fp.locator('.cmp__row')).toHaveCount(12)
+  await expect(fp).toContainText('not a controlled effect')
+})
+
+test('the evidence page does not spill sideways', async ({ page }) => {
+  await page.goto('/', { waitUntil: 'networkidle' })
+  await page.locator('.fp').scrollIntoViewIfNeeded()
+  await openMore(page, 'All 39, one by one')
+  const spill = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
+  expect(spill).toBeLessThanOrEqual(0)
+  // the matrix fits: the level, its last column on a phone, is on screen without scrolling the table sideways
+  const fits = await page.locator('.mx__scroll').evaluate((e) => e.scrollWidth <= e.clientWidth + 1)
+  expect(fits || page.viewportSize()!.width > 760).toBe(true)
+  // every row stays one line, with room for its name
+  const worst = await page.locator('.mx__row').evaluateAll((rows) => Math.max(...rows.map((r) => r.getBoundingClientRect().height)))
+  expect(worst).toBeLessThan(60)
+  const name = await page.locator('.mx__name').first().evaluate((e) => e.getBoundingClientRect().width)
+  expect(name).toBeGreaterThan(100)
 })
 
 test('the app draws the product\u2019s ring: only the dots that are set, the dot in amber', async ({ page }, info) => {

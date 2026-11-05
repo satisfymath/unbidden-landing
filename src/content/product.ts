@@ -1,3 +1,5 @@
+import finalPass from './final-pass.json'
+
 /**
  * Copy for the editorial sections. Every claim traces to satisfymath/unbidden-ai: file:line notes are of main 5ecd617
  * (0.12.2) unless they name main b8082e9 (0.17.1, 2026-11-04), tag v0.18.1 (700a5da) or the branch feat/64-campaign (campaign 12's report).
@@ -11,7 +13,7 @@ export const LINKS = {
   evidence: `${GH}/blob/main/docs/EVIDENCE.md`,
   decisions: `${GH}/blob/main/docs/DECISIONS.md`,
   install: `${GH}/blob/main/docs/INSTALL.md`,
-  release: `${GH}/releases/tag/v0.18.7`,
+  release: `${GH}/releases/tag/v0.18.10`,
   road: `${GH}/blob/main/docs/ROAD-TO-1.0.md`,
   corpus: `${GH}/blob/main/bench/campaign13/corpus.yaml`,
   findings: `${GH}/blob/main/docs/bench/campaign13/FINDINGS.md`,
@@ -157,7 +159,7 @@ export const CAMPAIGN = {
   notes: [
     'The full chain ran on fst (twice) and spoolman, whose run needed the US$2 default monthly cap raised to US$10. Spoolman: index measured 14.69 → 2.77 ms, 15 green checks.',
     'Five of the first eight pull requests were green on the team’s CI. Three failed its formatter, a defect since fixed; on the next pass one failed its type check, which candidates now go through too.',
-    'These numbers come from candidates older than today’s release. The final pass over the same 39 is running; its figures so far are further down.',
+    'These numbers come from candidates older than today’s release. The final pass over the same 39 is above.',
   ],
   links: [
     { label: 'the 39 repositories', href: LINKS.corpus },
@@ -198,7 +200,7 @@ export const DEV_RUNS = {
   notes: [
     'Not one pass: the counts come from different versions and runs. traefik-manager passed all 2192 once and is flaky; oauthlib’s later offline runs need the network to build.',
     'Two rollback drills are recorded as passed, on codex-lb and misago. misago’s judged health on its mail catcher’s page, a defect found afterwards; TimeTracker’s was declared, its head adds a migration.',
-    'On copies under satisfymath, nothing upstream. The final pass over the 39 is running, below.',
+    'On copies under satisfymath, nothing upstream. These runs fed the final pass above.',
   ],
   links: [
     { label: 'DEV-EVIDENCE.md', href: `${TAG}/docs/bench/campaign13/DEV-EVIDENCE.md` },
@@ -208,28 +210,107 @@ export const DEV_RUNS = {
 }
 
 /**
- * The final pass, on feat/87-final-pass: docs/bench/campaign13/final and FINDINGS.md; its figures are in
- * ./final-pass.json, written by scripts/evidence/final_pass.py from the records and GitHub. The records are not public yet.
+ * The final pass: pull request #41 of unbidden-ai, merged, pinned to its head commit so the figures and their links cannot drift. ./final-pass.json is
+ * written by scripts/evidence/final_pass.py from final-evidence.json, final/MATRIX.md, final/REPORT-aggregate.md and aegra's
+ * export at that commit, and it refuses to write if a total disagrees. The pass closed at 20:36 -03: FINAL.md, FINDINGS.md.
  */
+const PASS = `${GH}/blob/${finalPass.source.commit}/docs/bench/campaign13`
 export const FINAL_PASS = {
-  eyebrow: 'Campaign 13 · the final pass, still running',
-  figureLabel: (independent: number, dev: number) => `pull requests merged so far, on ${independent} independent and ${dev} development repositories`,
-  lede: 'The same 39 repositories, on copies. Unbidden opens and merges; people only prepared each copy and its mandate. These are figures from a pass in progress, not its result.',
+  eyebrow: 'Campaign 13 · the final pass',
+  figureLabel: 'improvements merged by the product, each checked again apart from the agent',
+  lede: 'Modest ones: 8 security bumps and 5 quality fixes. 3 reached L5 by a verified deploy, with no effect measured, all on code that shaped it. On independent code it reached L4 at best. 7 repositories were stopped at the deadline.',
+  intro: 'The same 39 repositories, on copies, nothing upstream. Frontier models, and nobody helped during a run; people prepared each copy and its mandate. A merge needed the team’s own CI green on the exact head. Then a script apart from the agent checked every merge again.',
+  stamp: 'Closed at 20:36 (UTC−3) on the hackathon’s deadline. Runs on 0.18.6, 4 repeated on 0.18.9.',
+  facts: {
+    record: 'repositories with a record',
+    pulls: 'pull requests, 30 green on the team’s CI',
+    l5: 'L5 by verified deploy',
+    spend: 'of model spend',
+  },
+  funnel: {
+    title: 'Where the 39 went',
+    sub: 'Repositories that reached each stage. Pick one to see which.',
+    note: 'dooit merged with no CI to read, on the lab’s evidence alone, so merged exceeds green.',
+  },
+  fate: {
+    title: '44 pull requests, one square each',
+    sub: 'Every square opens the real pull request.',
+    groups: {
+      merged: { label: 'Merged', note: 'One fix merged in two runs, so 14 merges are 13 improvements.' },
+      green: { label: 'Green, not merged', note: 'A merge moves the base. Proposals on the same lock file go stale and are measured again; others ran out of time.' },
+      red: { label: 'Red on the team’s CI', note: 'Left to a person, by rule, even when the base was already red.' },
+      none: { label: 'No CI on the pull request', note: 'dooit #4 merged on the lab’s evidence alone. These 3 did not merge.' },
+    } as Record<string, { label: string; note: string }>,
+    kinds: 'By kind: 31 security, 10 quality, 3 correctness. No correctness change merged.',
+  },
+  decisions: {
+    title: 'It measures far more than it proposes',
+    sub: 'Every decision of its director across the 36 runs.',
+    labels: { run_experiment: 'Run an experiment', wait: 'Wait', decline: 'Decline', propose_change: 'Propose a change', investigate: 'Investigate' } as Record<string, string>,
+    declinedTitle: 'Why it declined',
+  },
+  levels: {
+    title: 'The highest level each repository reached',
+    rows: [
+      { id: 'L5', label: 'L5', note: 'deployed, healthy, attributable' },
+      { id: 'L4', label: 'L4', note: 'validated by the team’s suite' },
+      { id: 'L3', label: 'L3', note: 'improved in the lab' },
+      { id: 'L1', label: 'L1', note: 'a reasonable suspicion' },
+      { id: '-', label: 'None', note: 'nothing to prove, or out of reach' },
+      { id: 'stopped', label: 'Stopped', note: 'at the close, no record' },
+    ],
+  },
+  run: {
+    title: 'One improvement, from first sight to L5',
+    body: 'aegra, on 0.18.9. Unbidden brought the app up by itself, found a vulnerable certifi and took it all the way. This is its own event log, shortened. The names in the second column are parts of the product, not people.',
+    wait: 'waiting for CI',
+    endpoints: 'The 10 endpoints, median ms before and after',
+    endpointsNote: 'Within the criteria on all ten, so no change is claimed. The traffic is Unbidden’s own probes, not users, and the latency measurement proper was deferred because the host was busy.',
+    verify: 'Checked apart from the agent',
+    caveat: 'aegra is a development repository, deployed on this machine. A verified deploy says the change is live, attributable and healthy. It claims no measured effect.',
+  },
+  matrix: {
+    title: 'Every repository',
+    sub: 'Open a row for its pull requests and for every opportunity, with the decision and the reason.',
+    all: 'All 39',
+    merged: 'With a merge',
+    columns: ['Repository', 'Team’s tests', 'Opportunities', 'Experiments', 'PRs', 'Green', 'Merged', 'Level', 'US$'],
+    stopped: 'Stopped at the deadline, before its record. Its partial logs are kept, and nothing of it is counted.',
+    checks: { passed: 'passed', failed: 'failed', infra_failed: 'environment failed', blocked: 'blocked', out_of_scope: 'out of scope' } as Record<string, string>,
+    record: 'its record in MATRIX.md',
+    multi: 'Highest across its runs; pull requests and spend are added up.',
+  },
+  merges: { title: 'Every merge', independent: 'verified' },
+  compare: {
+    title: 'Against campaign 12, run by run',
+    sub: 'Share of runs, or of pull requests, with its 95% interval.',
+    c12: 'Campaign 12',
+    c13: 'Campaign 13',
+    note: 'This shows movement, not a controlled effect. The product was fixed against these same repositories, the final mandate grants every permission, and some samples are tiny: campaign 12’s independent class opened one pull request.',
+  },
   notes: [
-    'Libraries run first, so most applications and every frontier repository are still to come. Nothing here is the rate the pass will end on.',
-    'Five earlier starts were stopped to fix general defects they exposed, on these same repositories. This start runs on 0.18.6, so it is not blind to them.',
+    'Modest changes on purpose: dependency bumps and ruff fixes, each at L4 when proposed. Most repositories ran on a custom mandate that allows merges and no deploys, because the autonomous preset needs deploy steps and a passed drill.',
+    'The pass was stopped five times to fix general defects it exposed, 9 in all, released as 0.18.2 to 0.18.10. So it is not blind to these repositories. The stopped starts are kept and never added to the totals.',
+    'Stopped at the close: brightbean-studio, gymhero, misago, recruitops-agent, timetracker, traefik-manager, weblate. spoolman hit its spend cap once, and a rule written beforehand raised it.',
   ],
-  nature: (security: number, lint: number, closed: number) => `Modest changes: ${security} security bumps and ${lint} lint fixes, each at L4 when proposed. Libraries deploy nothing. Another ${closed} pull requests closed as stale when a merge moved their base.`,
+  links: [
+    { label: 'FINAL.md', href: `${PASS}/final/FINAL.md` },
+    { label: 'MATRIX.md', href: `${PASS}/final/MATRIX.md` },
+    { label: 'final-evidence.json', href: `${PASS}/final-evidence.json` },
+    { label: 'REPORT-aggregate.md', href: `${PASS}/final/REPORT-aggregate.md` },
+    { label: 'FINDINGS.md', href: `${PASS}/FINDINGS.md` },
+  ],
+  matrixHref: (name: string, version: string) => `${PASS}/final/MATRIX.md#${name}-${version.replaceAll('.', '')}`,
 }
 
 export const SINCE = {
-  eyebrow: 'Since then · campaign 13, in progress',
+  eyebrow: 'What changed between the two campaigns',
   items: [
     { version: '0.13', title: 'Every stop retried, asked or declared.', body: 'A block is no longer read as a verdict on the change.' },
     { version: '0.14', title: 'Known vulnerabilities, proven like any other change.', body: 'On an fst copy: dnspython bumped with the team’s lock tool, advisories 1 → 0, suite green on both sides, L4.' },
     { version: '0.16', title: 'The environment the team’s own CI job prepares.', body: 'It runs that job, then measures offline in it. humanize, graphtage, oauthlib and codex-lb passed for the first time.' },
     { version: '0.17', title: 'Failing tests repaired, only when the team’s CI fails them too.', body: 'A change to a test, a skip or an xfail is refused. So far proven on a seeded defect; on real repositories the rule opened nothing.' },
-    { version: '0.18', title: 'It brings an application up by itself.', body: 'From the repository’s own compose file, with generated secrets and free ports, then a rollback drill. codex-lb, misago and TimeTracker so far.' },
+    { version: '0.18', title: 'It brings an application up by itself.', body: 'From the repository’s own compose file, with generated secrets and free ports, then a rollback drill. In the final pass, aegra reached L5 this way.' },
     { version: '0.18', title: 'L5 beyond latency.', body: 'A security, quality or correctness change reaches L5 by a verified deploy: healthy, attributable, the fixed version running. It claims no measured effect.' },
   ],
   roadTitle: 'What 1.0 asks for',
@@ -246,9 +327,17 @@ export const EVIDENCE = {
   eyebrow: 'The evidence',
   title: '39 repositories. Where it held, and where it thins.',
   // main b8082e9: docs/DECISIONS.md D-065
-  lede:
-    'The installed product, real Meta models, every repository pinned before the first run. It proved dependable everywhere, and its value funnel thin on code it did not grow up with. Both are the result.',
-  resultsEyebrow: 'Single systems, at the level each one reached',
+  lede: 'The installed product on copies of 39 repositories, pinned before the first run. Nobody helped during a run.',
+  more: {
+    prs: { title: 'The pull requests', hint: '44 opened, 14 merges' },
+    run: { title: 'One run, as it happened', hint: 'aegra, its own log' },
+    repos: { title: 'All 39, one by one', hint: 'every decision and its reason' },
+    read: { title: 'How to read this pass', hint: 'limits and sources' },
+    c12: { title: 'Campaign 12, and the comparison', hint: 'the same 39, before' },
+    dev: { title: 'The development runs', hint: 'the suites behind the fixes' },
+    systems: { title: 'Single systems', hint: 'each at the level it reached' },
+    since: { title: 'What changed, and what 1.0 asks for', hint: '0.13 to 0.18' },
+  },
   levels: [
     { id: 'L1', name: 'reasonable suspicion' },
     { id: 'L2', name: 'reproduced' },
@@ -350,11 +439,11 @@ export const INSTALL = {
   notes: [
     'macOS on Apple silicon, verified by hand. Linux x86-64 with glibc 2.28 or newer, verified in CI only.',
     'The machine provides git; Docker with buildx and compose for the sandbox; Ollama for the local and mixed options; a Meta API key for mixed and api.',
-    'Open source under Apache 2.0. Version 0.18.7, an experimental candidate, not 1.0.',
+    'Open source under Apache 2.0. Version 0.18.10, an experimental candidate, not 1.0.',
   ],
 }
 
 export const FOOTER = {
-  version: 'v0.18.7 · experimental candidate',
+  version: 'v0.18.10 · experimental candidate',
   credit: 'Film sequence generated locally with MiniMax H3 (FL2VA) on Apple silicon from nine approved frames; no inference runs in the browser. Site built from the public repository; evidence levels are the repository’s own.',
 }
